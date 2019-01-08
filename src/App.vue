@@ -4,8 +4,11 @@
     <!-- <router-view/> -->
     <div class="top"></div>
     <div class="bottom">
+      
       <div v-for="tab in tabs" :key="tab.name">
-        <myicons :type="tab.icon"/>
+        <svg class="icon" aria-hidden="true">
+          <use :xlink:href="tab.icon"></use>
+        </svg>
         {{tab.text}}
       </div>
     </div>
@@ -15,7 +18,7 @@
 <script>
   import Vue from "vue";
 
-  // 引入并使用插件
+  //引入并使用插件
   import myicons from "@/plugins/icons";
   Vue.use(myicons);
 
@@ -31,33 +34,34 @@
           {
             text:'首页',
             name:'Home',
-            icon:'home'
+            icon:'#icon-shouye'
           },{
             text:'分类',
             name:'List',
-            icon:'tasklist'
+            icon:'#icon-fenlei'
           },{
             text:'消息',
             name:'Message',
-            icon:'comment-discussion'
+            icon:'#icon-xiaoxi'
           },{
             text:'购物车',
             name:'Cart',
-            icon:'paintcan'
+            icon:'#icon-tubiaozhizuomoban'
           },{
             text:'我的',
             name:'Mine',
-            icon:'person'
+            icon:'#icon-wode'
           }
         ]
       }
+      
     }
   }
 </script>
 
 <style lang="scss">
 @import "./sass/common.scss";
-@import "mint-ui/lib/style.css";
+// @import "mint-ui/lib/style.css";
 
 #app{
   width: 100%;
@@ -83,7 +87,13 @@
     }
   }
 }
-
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
 
 
 </style>
