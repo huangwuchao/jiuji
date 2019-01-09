@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view/>
-    <div class="top"></div>
+    <!-- <div class="top"></div> -->
     <div class="bottom">
       <a href="javascript:;" v-for="(tab,idx) in tabs" :key="tab.path" :class="{active:active==tab.path}" @click="selected(tab.path)">
         <svg class="icon" aria-hidden="true">
@@ -79,12 +79,12 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    .top{
-      width: 100%;
-      height: 100%;
-      flex: 1;
-      overflow: hidden;
-    }
+    // .top{
+    //   width: 100%;
+    //   height: 100%;
+    //   flex: 1;
+    //   overflow: hidden;
+    // }
     .bottom{
       width: 100%;
       height: 3.125rem;
