@@ -108,22 +108,22 @@ export default {
                 height: 2.75rem;
                 font-size: 2rem;
                 color:#333;
-                margin-left:10px;
+                margin-left:.625rem;
               }
               .sou{
                 display: block;
                 background: #e3e3e3;
                 border-radius: .3125rem;
                 height: 1.875rem;
-                width: 300px;
-                margin: 8px 15px 0 15px;
+                width: 18.75rem;
+                margin: .5rem .9375rem 0 .9375rem;
                 padding: 0 .625rem;
                 color: #9c9c9c;
                 line-height: 1.875rem;
                 text-decoration: none;
               }
               .tab{
-                height: 20px;
+                height: 1.25rem;
                 font-size: 2rem;
                 color:#333;
               }
@@ -134,60 +134,60 @@ export default {
             display: flex;
             background: #f5f5f5;
               .left{
-                width: 100px;
-                height: 50px;
+                width: 6.25rem;
+                height: 3.125rem;
                 overflow: auto;
                 background: #fff;
-                padding-bottom: 50px;
+                padding-bottom: 3.125rem;
                 box-sizing: border-box;
                 // background: red;
                   .left-tob{
                       display: block;
                       //width: 100px;
-                      padding: 0 17px;
+                      padding: 0 1.0625rem;
                       position: relative;
                       border: 0;
                       display: flex;
                       color: #333;
                       text-decoration: none;
-                      font-size: 16px;
-                      line-height: 50px;
+                      font-size: 1rem;
+                      line-height: 3.125rem;
                       //text-align:center; 
                   }
               }
               .right{
-                width: 289px;
-                height: 96px;
+                width: 18.0625rem;
+                height: 100%;
                 //overflow: auto;
-                margin-left: 10px;
+                margin-left: .625rem;
                 // background: #0f0;
                   .right-top{
                     display: block;
                     
-                    margin: 10px auto 0;
+                    margin: .625rem auto 0;
                     color: #333;
                     text-decoration: none;
                       img{
-                        width: 289px;
-                        height: 96px;
+                        width: 18.0625rem;
+                        height: 6rem;
                       }
                   }
                   .avn{
-                    width: 289px;
+                    width: 18.0625rem;
                     // background: red;
                       .avn-top{
-                        width: 289px;
+                        width: 18.0625rem;
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
                           p{
-                            height: 30px;
-                            line-height: 30px;
-                            font-size: 12px;
+                            height: 1.875rem;
+                            line-height: 1.875rem;
+                            font-size: .75rem;
                             font-weight: 700;
                           }
                           a{
-                            font-size: 12px;
+                            font-size: .75rem;
                             display: flex;
                             color: #333;
                             text-decoration: none;
@@ -199,7 +199,7 @@ export default {
                         
                           a{
                               width: 33%;
-                              padding: 10px 0;
+                              padding: .625rem 0;
                               flex-direction: column;
                               align-items: center;
                               display: flex;
@@ -207,9 +207,9 @@ export default {
                               text-decoration: none;
                               background-color: #fff;
                                 img{
-                                  width: 70px;
-                                  height: 70px;
-                                  margin-bottom: 5px;
+                                  width: 4.375rem;
+                                  height: 4.375rem;
+                                  margin-bottom: .3125rem;
                                 }
                                 span{
                                   text-overflow: ellipsis;
@@ -217,7 +217,7 @@ export default {
                                   overflow: hidden;
                                   -webkit-box-orient: vertical;
                                   word-break: break-all;
-                                  font-size: 12px;
+                                  font-size: .75rem;
                                   color:#333;
                                 }
                           }
@@ -232,7 +232,7 @@ export default {
       width: 100%;
       height: 3.125rem;
       display: flex;
-      box-shadow: 0 -1px 2px #ccc;
+      box-shadow: 0 --0.0625rem .125rem #ccc;
       background-color: #333;
       .is-selected{
         color: #c80f1e;
@@ -240,7 +240,7 @@ export default {
       a{
         width: 25%;
         color:#9c9c9c;
-        font-size: 10px;
+        font-size: .625rem;
         display: flex;  
         flex-direction: column;
         justify-content: center;
