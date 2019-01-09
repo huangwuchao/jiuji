@@ -47,7 +47,8 @@ const routes = [
     name:'Mine',
     path:'/mine',
     component:Mine
-  }
+  },
+  { path:'/',redirect:{name:'Home'}}
 ]
 
 let router = new Router({
