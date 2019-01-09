@@ -1,11 +1,5 @@
 <template>
     <div id="List">
-        <!-- <mt-header title="商品分类" >
-        <router-link to="/Home" slot="left">
-            <mt-button icon="back"></mt-button>
-            </router-link>
-        <mt-button icon="more" slot="right" v-on:click="show = !show"></mt-button>
-        </mt-header> -->
         <div class="list-top">
           <div class="hom" @click="selected('/home')">
             <
@@ -25,6 +19,29 @@
                 <span class="bot_text">{{tab.text}}</span>
                 <!-- <span class="badge" v-if='idx===2'>0</span> -->
             </a>
+        </div>
+        <div class="nav">
+          <div class="left">
+              <a href="javascript:;" class="left-tob">手机通讯</a>
+          </div>
+          <div class="right">
+              <a href="javascript:;" class="right-top">
+                  <img src="https://img2.ch999img.com/pic/category/201812270738310.jpg.webp" alt="" >
+              </a>
+              <div class="avn">
+                <div class="avn-top">
+                    <p>热门品牌</p>
+                    <a href="javascript:;">排行榜>></a>
+                </div>
+                <div class="avn-bottom">
+                  <a href="javascript:;">
+                    <img src="https://img2.ch999img.com/pic/category/201809140531500.jpg.webp" alt="">
+                    <span>苹果</span>
+                  </a>
+                  
+                </div>
+              </div>
+          </div>
         </div>
     </div>
     
@@ -103,6 +120,7 @@ export default {
                 padding: 0 .625rem;
                 color: #9c9c9c;
                 line-height: 1.875rem;
+                text-decoration: none;
               }
               .tab{
                 height: 20px;
@@ -110,6 +128,105 @@ export default {
                 color:#333;
               }
           }
+          .nav{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            background: #f5f5f5;
+              .left{
+                width: 100px;
+                height: 50px;
+                overflow: auto;
+                background: #fff;
+                padding-bottom: 50px;
+                box-sizing: border-box;
+                // background: red;
+                  .left-tob{
+                      display: block;
+                      //width: 100px;
+                      padding: 0 17px;
+                      position: relative;
+                      border: 0;
+                      display: flex;
+                      color: #333;
+                      text-decoration: none;
+                      font-size: 16px;
+                      line-height: 50px;
+                      //text-align:center; 
+                  }
+              }
+              .right{
+                width: 289px;
+                height: 96px;
+                //overflow: auto;
+                margin-left: 10px;
+                // background: #0f0;
+                  .right-top{
+                    display: block;
+                    
+                    margin: 10px auto 0;
+                    color: #333;
+                    text-decoration: none;
+                      img{
+                        width: 289px;
+                        height: 96px;
+                      }
+                  }
+                  .avn{
+                    width: 289px;
+                    // background: red;
+                      .avn-top{
+                        width: 289px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                          p{
+                            height: 30px;
+                            line-height: 30px;
+                            font-size: 12px;
+                            font-weight: 700;
+                          }
+                          a{
+                            font-size: 12px;
+                            display: flex;
+                            color: #333;
+                            text-decoration: none;
+                          }
+                      }
+                      .avn-bottom{
+                        flex-wrap: wrap;
+                        display: flex;
+                        
+                          a{
+                              width: 33%;
+                              padding: 10px 0;
+                              flex-direction: column;
+                              align-items: center;
+                              display: flex;
+                              color: #333;
+                              text-decoration: none;
+                              background-color: #fff;
+                                img{
+                                  width: 70px;
+                                  height: 70px;
+                                  margin-bottom: 5px;
+                                }
+                                span{
+                                  text-overflow: ellipsis;
+                                  display: -webkit-box;
+                                  overflow: hidden;
+                                  -webkit-box-orient: vertical;
+                                  word-break: break-all;
+                                  font-size: 12px;
+                                  color:#333;
+                                }
+                          }
+                         
+                      }
+                  }
+              }
+          }
+          
      }
      .daohan{
       width: 100%;
