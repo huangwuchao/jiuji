@@ -96,6 +96,7 @@
       a{
         width: 20%;
         color: #333;
+        box-sizing: border-box;
         font-size: 10px;
         display: flex;
         flex-direction: column;
