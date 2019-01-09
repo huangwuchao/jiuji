@@ -1,14 +1,22 @@
 <template>
-    <div class="page">
-        <mt-header title="商品分类" >
+    <div id="List">
+        <!-- <mt-header title="商品分类" >
         <router-link to="/Home" slot="left">
             <mt-button icon="back"></mt-button>
-                <!-- <mt-button @click="handleClose">close</mt-button> -->
             </router-link>
-            
         <mt-button icon="more" slot="right" v-on:click="show = !show"></mt-button>
-        
-        </mt-header>
+        </mt-header> -->
+        <div class="list-top">
+          <div class="hom">
+            <
+          </div>
+          <a href="#" class="sou">
+
+          </a>
+          <div class="tab">
+            ...
+          </div>
+        </div>
         <div class="daohan" v-if="show">
             <a href="javascript:;" v-for="tab in tabs" :key="tab.path" :class="{active:active==tab.path}" @click="selected(tab.path)">
                 <svg class="icon" aria-hidden="true">
@@ -67,6 +75,39 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+     #List{
+        width: 100%;
+        height: 100%;
+        flex: 1;
+        overflow: hidden;
+          .list-top{
+            height: 2.75rem;
+            background-repeat: no-repeat;
+            background-position: top;
+            background-size: cover;
+            background-color: rgba(250, 250, 250, 0.98);
+            display: flex;
+              .hom{
+                height: 2.75rem;
+                font-size: 2rem;
+                color:#333;
+                margin-left:10px;
+              }
+              .sou{
+                background: #e3e3e3;
+                border-radius: .3125rem;
+                height: 1.875rem;
+                width: 300px;
+                margin: 8px 15px 0 15px;
+                padding: 0 .625rem;
+              }
+              .tab{
+                height: 20px;
+                font-size: 2rem;
+                color:#333;
+              }
+          }
+     }
      .daohan{
       width: 100%;
       height: 3.125rem;
