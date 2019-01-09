@@ -7,13 +7,13 @@
         <mt-button icon="more" slot="right" v-on:click="show = !show"></mt-button>
         </mt-header> -->
         <div class="list-top">
-          <div class="hom">
+          <div class="hom" @click="selected('/home')">
             <
           </div>
           <a href="#" class="sou">
-
+                iPhone XS Max
           </a>
-          <div class="tab">
+          <div class="tab" v-on:click="show = !show">
             ...
           </div>
         </div>
@@ -94,12 +94,15 @@ export default {
                 margin-left:10px;
               }
               .sou{
+                display: block;
                 background: #e3e3e3;
                 border-radius: .3125rem;
                 height: 1.875rem;
                 width: 300px;
                 margin: 8px 15px 0 15px;
                 padding: 0 .625rem;
+                color: #9c9c9c;
+                line-height: 1.875rem;
               }
               .tab{
                 height: 20px;
