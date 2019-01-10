@@ -11,7 +11,7 @@ module.exports={
     
         proxy: {
           '/api': {
-            target: 'http://gateway.fangkuaiyi.com/',
+            target: 'https://m.9ji.com/web/api',
             ws: true,
             changeOrigin: true,
             pathRewrite: {

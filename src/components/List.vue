@@ -21,36 +21,42 @@
             </a>
         </div>
         <div class="nav">
-          <div class="left">
-              <a href="javascript:;" class="left-tob">手机通讯</a>
+          <div class="lefta">
+              <div class="left" v-for="data in data" :key="data.id">
+              <a href="javascript:;" class="left-tob">{{data.title}}</a>
+              </div>
           </div>
-          <div class="right">
+          <div class="right2">
+              <div class="right" v-for="data2 in data" :key="data2.id">
               <a href="javascript:;" class="right-top">
-                  <img src="https://img2.ch999img.com/pic/category/201812270738310.jpg.webp" alt="" >
+                  <img :src=data2.picture alt="" >
               </a>
               <div class="avn">
                 <div class="avn-top">
-                    <p>热门品牌</p>
-                    <a href="javascript:;">排行榜>></a>
+                    <p>{{data2.children[0].title}}</p>
+                    <a href="javascript:;">{{data2.children[0].name2}}>></a> 
                 </div>
                 <div class="avn-bottom">
                   <a href="javascript:;">
-                    <img src="https://img2.ch999img.com/pic/category/201809140531500.jpg.webp" alt="">
-                    <span>苹果</span>
+                    <img :src=data2.children[0].children[0].picture alt="">
+                    <span>{{data2.children[0].children[0].title}}</span>
                   </a>
                   
                 </div>
               </div>
           </div>
+          </div>
+          
         </div>
     </div>
     
     
 </template>
 <script>
-    import { PaletteButton } from 'mint-ui';
-    import Vue from 'vue';
-    Vue.component(PaletteButton.name, PaletteButton);
+    import Axios from 'axios';
+    // import { PaletteButton } from 'mint-ui';
+    // import Vue from 'vue';
+    // Vue.component(PaletteButton.name, PaletteButton);
 export default {
     data(){
       return{
@@ -78,7 +84,10 @@ export default {
             path:'/mine'
           }
         ],
-        active:'/home'
+        active:'/home',
+        data:[],
+        data2:[],
+        data3:[]
       }
     },
      methods:{
@@ -87,6 +96,17 @@ export default {
         this.active = path;
         this.$router.push({path});
       }
+    },
+    created(){
+        Axios.get('/dbapi/products/category/v1').then(res=>{
+             console.log(res.data.data);
+            this.data = res.data.data;
+            //this.data2 = res.data.data.data[0]['children'][0]['children'];
+          console.log(res.data.data[0].children[0].children[0]);
+          console.log(res.data.data[0]['children'][1]['children'][0])
+ 
+        })
+        
     }
 }
 </script>
@@ -138,15 +158,17 @@ export default {
             height: 100%;
             display: flex;
             background: #f5f5f5;
-              .left{
+            .lefta{
+                display: flex;
+                flex-direction: column;
+                overflow-x: auto;
+               .left{
                 width: 2.666667rem;
                 height: 1.333333rem;
-                overflow: auto;
                 background: #fff;
                 padding-bottom: 1.333333rem;
                 box-sizing: border-box;
-                display: flex;
-                flex-direction: column;
+                
                   .left-tob{
                       display: block;
                       //width: 100px;
@@ -161,14 +183,18 @@ export default {
                       //text-align:center; 
                   }
               }
+            }
+            .right2{
+                display: flex;
+                flex-direction: column;
+                overflow-x: auto;
               .right{
                 width: 7.12rem;
                 height: 100%;
                 //overflow: auto;
                 margin-left: .266667rem;
                 // background: #0f0;
-                display: flex;
-                flex-direction: column;
+                
                   .right-top{
                     display: block;
                     margin: .266667rem auto 0;
@@ -232,6 +258,8 @@ export default {
                       }
                   }
               }
+            } 
+              
           }
           
      }
