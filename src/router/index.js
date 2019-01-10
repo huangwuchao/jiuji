@@ -20,6 +20,8 @@ import List from '@com/List';
 import Message from '@com/Message';
 import Cart from '@com/Cart';
 import Mine from '@com/Mine';
+import Stores from '@com/Stores';
+import SearchForm from '@com/SearchForm';
 
 //实例化路由
 const routes = [
@@ -44,9 +46,14 @@ const routes = [
     component:Cart
   },
   {
-    name:'Mine',
-    path:'/mine',
-    component:Mine
+    name:'Stores',
+    path:'/stores',
+    component:Stores
+  },
+  {
+    name:'SearchForm',
+    path:'/search-form',
+    component:SearchForm
   },
   { path:'/',redirect:{name:'Home'}}
 ]

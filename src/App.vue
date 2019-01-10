@@ -18,12 +18,18 @@
   import Vue from "vue";
 
   //引入并使用插件
-  import myicons from "@/plugins/icons";
-  Vue.use(myicons);
+  // import myicons from "@/plugins/icons";
+  // Vue.use(myicons);
+
+  //引入axios
+  import axios from 'axios';
 
   // 引入并使用MintUI
   import MintUI from "mint-ui";
   Vue.use(MintUI);
+
+  // 把axios写入Vue的原型对象，方便后面调用
+  Vue.prototype.$axios = axios;
   
   export default {
     name: 'App',

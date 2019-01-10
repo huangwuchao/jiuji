@@ -38,7 +38,14 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       ? { warnings: false, errors: true }
       : false,
     publicPath: config.dev.assetsPublicPath,
-    proxy: config.dev.proxyTable,
+    // proxy: config.dev.proxyTable,
+    proxy:{
+      '/dbapi':{
+        target:"https://m.9ji.com/web/api",//代理目标服务器
+        changeOrigin: true,
+        pathRewrite: {'^/dbapi' : ''}, //替换部分路径
+      }
+    },
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
