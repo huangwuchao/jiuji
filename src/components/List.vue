@@ -92,102 +92,109 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  
      #List{
         width: 100%;
         height: 100%;
         flex: 1;
         overflow: hidden;
           .list-top{
-            height: 2.75rem;
+            height: 1.173333rem;
+            
             background-repeat: no-repeat;
             background-position: top;
             background-size: cover;
             background-color: rgba(250, 250, 250, 0.98);
             display: flex;
               .hom{
-                height: 2.75rem;
-                font-size: 2rem;
+                height: 1.173333rem;
+                font-size: .8rem;
                 color:#333;
-                margin-left:.625rem;
+                margin-left:.266667rem;
               }
               .sou{
                 display: block;
                 background: #e3e3e3;
-                border-radius: .3125rem;
-                height: 1.875rem;
-                width: 18.75rem;
-                margin: .5rem .9375rem 0 .9375rem;
+                border-radius: .133333rem;
+                height: .8rem;
+                width: 7.68rem;
+                margin: .213333rem .4rem 0 .4rem;
                 padding: 0 .625rem;
                 color: #9c9c9c;
-                line-height: 1.875rem;
+                line-height: .8rem;
+                font-size:.426667rem;
                 text-decoration: none;
               }
               .tab{
-                height: 1.25rem;
-                font-size: 2rem;
+                height: 1.173333rem;
+                font-size: 1rem;
                 color:#333;
+                margin-right:.266667rem;  
               }
           }
+    
           .nav{
             width: 100%;
             height: 100%;
             display: flex;
             background: #f5f5f5;
               .left{
-                width: 6.25rem;
-                height: 3.125rem;
+                width: 2.666667rem;
+                height: 1.333333rem;
                 overflow: auto;
                 background: #fff;
-                padding-bottom: 3.125rem;
+                padding-bottom: 1.333333rem;
                 box-sizing: border-box;
-                // background: red;
+                display: flex;
+                flex-direction: column;
                   .left-tob{
                       display: block;
                       //width: 100px;
-                      padding: 0 1.0625rem;
+                      padding: 0 .453333rem;
                       position: relative;
                       border: 0;
                       display: flex;
                       color: #333;
                       text-decoration: none;
-                      font-size: 1rem;
-                      line-height: 3.125rem;
+                      font-size: .426667rem;
+                      line-height: 1.333333rem;
                       //text-align:center; 
                   }
               }
               .right{
-                width: 18.0625rem;
+                width: 7.12rem;
                 height: 100%;
                 //overflow: auto;
-                margin-left: .625rem;
+                margin-left: .266667rem;
                 // background: #0f0;
+                display: flex;
+                flex-direction: column;
                   .right-top{
                     display: block;
-                    
-                    margin: .625rem auto 0;
+                    margin: .266667rem auto 0;
                     color: #333;
                     text-decoration: none;
                       img{
-                        width: 18.0625rem;
-                        height: 6rem;
+                        width: 7rem;
+                        height: 2.333333rem;
                       }
                   }
                   .avn{
-                    width: 18.0625rem;
+                    width:7.12rem;
                     // background: red;
                       .avn-top{
-                        width: 18.0625rem;
+                        width: 7.12rem;
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
                           p{
-                            height: 1.875rem;
-                            line-height: 1.875rem;
-                            font-size: .75rem;
+                            height:.8rem;
+                            line-height: .8rem;
+                            font-size: .32rem;
                             font-weight: 700;
                           }
                           a{
-                            font-size: .75rem;
+                            font-size: .32rem;
                             display: flex;
                             color: #333;
                             text-decoration: none;
@@ -199,7 +206,7 @@ export default {
                         
                           a{
                               width: 33%;
-                              padding: .625rem 0;
+                              padding: .266667rem 0;
                               flex-direction: column;
                               align-items: center;
                               display: flex;
@@ -207,9 +214,9 @@ export default {
                               text-decoration: none;
                               background-color: #fff;
                                 img{
-                                  width: 4.375rem;
-                                  height: 4.375rem;
-                                  margin-bottom: .3125rem;
+                                  width: 1.866667rem;
+                                  height: 1.866667rem;
+                                  margin-bottom: .133333rem;
                                 }
                                 span{
                                   text-overflow: ellipsis;
@@ -217,7 +224,7 @@ export default {
                                   overflow: hidden;
                                   -webkit-box-orient: vertical;
                                   word-break: break-all;
-                                  font-size: .75rem;
+                                  font-size: .32rem;
                                   color:#333;
                                 }
                           }
@@ -230,9 +237,9 @@ export default {
      }
      .daohan{
       width: 100%;
-      height: 3.125rem;
+      height: 1.333333rem;
       display: flex;
-      box-shadow: 0 --0.0625rem .125rem #ccc;
+      box-shadow: 0 .026667rem .053333rem #ccc;
       background-color: #333;
       .is-selected{
         color: #c80f1e;
@@ -240,7 +247,7 @@ export default {
       a{
         width: 25%;
         color:#9c9c9c;
-        font-size: .625rem;
+        font-size: .266667rem;
         display: flex;  
         flex-direction: column;
         justify-content: center;
@@ -248,24 +255,24 @@ export default {
         position: relative;
         
         .icon {
-          width: 1.5rem;
-          height: 1.5rem;
-          vertical-align: -0.15em;
+          width: .64rem;
+          height: .64rem;
+          vertical-align: .048rem;
           fill: currentColor;
           overflow: hidden;
         //   background:#9c9c9c;
         }
         .badge{
-          height: .875rem;
-          line-height: .875rem;
-          padding: 0 .25rem;
-          font-size: .75rem;
+          height: .373333rem;
+          line-height: .373333rem;
+          padding: 0 .106667rem;
+          font-size: .32rem;
           background: #f21c1c;
           color: #fff;
-          border-radius: .875rem;
+          border-radius: .373333rem;
           position: absolute;
-          top: .125rem;
-          right: .9375rem;
+          top: .053333rem;
+          right: .4rem;
         }
       }
     //   .active{

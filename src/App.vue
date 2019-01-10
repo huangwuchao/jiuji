@@ -92,41 +92,43 @@
     //   overflow: hidden;
     // }
     .bottom{
-      width: 100%;
-      height: 3.125rem;
+       width: 100%;
+      height: 1.333333rem;
       display: flex;
-      box-shadow: 0 -1px 2px #ccc;
+      box-shadow: 0 .026667rem .053333rem #ccc;
+      background: hsla(0,0%,98%,.98);
       .is-selected{
         color: #c80f1e;
       }
       a{
         width: 20%;
-        color: #333;
-        box-sizing: border-box;
-        font-size: 10px;
-        display: flex;
+        color:#9c9c9c;
+        font-size: .266667rem;
+        display: flex;  
         flex-direction: column;
         justify-content: center;
         align-items: center;
         position: relative;
+        
         .icon {
-          width: 1.5rem;
-          height: 1.5rem;
-          vertical-align: -0.15em;
+          width: .64rem;
+          height: .64rem;
+          vertical-align: .048rem;
           fill: currentColor;
           overflow: hidden;
+        //   background:#9c9c9c;
         }
         .badge{
-          height: .875rem;
-          line-height: .875rem;
-          padding: 0 .25rem;
-          font-size: .75rem;
+          height: .373333rem;
+          line-height: .373333rem;
+          padding: 0 .106667rem;
+          font-size: .32rem;
           background: #f21c1c;
           color: #fff;
-          border-radius: .875rem;
+          border-radius: .373333rem;
           position: absolute;
-          top: .125rem;
-          right: .9375rem;
+          top: .053333rem;
+          right: .4rem;
         }
       }
       .active{
@@ -135,3 +137,4 @@
     }
   }
 </style>
+  
