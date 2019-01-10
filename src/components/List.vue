@@ -99,9 +99,9 @@ export default {
         overflow: hidden;
           .list-top{
             height: 2.75rem;
-            background-repeat: no-repeat;
-            background-position: top;
-            background-size: cover;
+            // background-repeat: no-repeat;
+            // background-position: top;
+            // background-size: cover;
             background-color: rgba(250, 250, 250, 0.98);
             display: flex;
               .hom{
@@ -129,10 +129,11 @@ export default {
               }
           }
           .nav{
-            width: 100%;
-            height: 100%;
+            // width: 100%;
+            // height: 100%;
             display: flex;
             background: #f5f5f5;
+            flex : 1;
               .left{
                 width: 6.25rem;
                 height: 3.125rem;
@@ -168,7 +169,7 @@ export default {
                     color: #333;
                     text-decoration: none;
                       img{
-                        width: 18.0625rem;
+                        width: 18.125rem;
                         height: 6rem;
                       }
                   }

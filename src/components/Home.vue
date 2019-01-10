@@ -7,7 +7,7 @@
                 <!-- 地址 -->
                 <router-link tag='a' :to="'/stores'" class="oplace">
                     <!-- 地址名 -->
-                    <span>天河区</span>
+                    <span>昆明市区</span>
                     <!-- 图标 -->
                     <i class="fa fa-angle-down"></i>
                 </router-link>
@@ -22,10 +22,9 @@
             </div>
             <!-- 导航栏 -->
             <div class="onavigate">
-                <a href="javascript:;" v-if='idx!=4' v-for="(navigatelabel,idx) in navigatelabels" :key="navigatelabel.id">
+                <a href="javascript:;" v-for="navigatelabel in navigatelabels" :key="navigatelabel.id">
                     {{navigatelabel.title}}
                 </a>
-                <!-- <router-link tag='a' :to="''" v-for="navigatelabel in navigatelabels" :key="navigatelabel.id">{{navigatelabel.title}}</router-link> -->
             </div>
         </div>
     </div>
@@ -40,24 +39,19 @@ export default {
         }
     },
     methods: {
-        // selected(navigatelabel.title){
-        //     this.active = navigatelabel.title;
-        // }
+        
+    },
+    computed:{
+        
     },
     created(){
         Axios.get('/dbapi/user/userInfo/v1').then(res=>{
             // console.log(res.data.data.searchPlaceholder);
             this.searchplaceholder = res.data.data.searchPlaceholder;
-        }),
+        })
         Axios.get('/dbapi/floors/v1?label=0&page=1&random=0').then(res=>{
             // console.log(res.data.data.label);
             this.navigatelabels = res.data.data.label;
-            // let arr1 = [];
-            // for(var i=0;i<this.navigatelabel.length;i++){
-            //     arr1[i] = this.navigatelabel[i].title
-            // }
-            // console.log(arr1);
-            // this.navigatelabel = arr1;
         })
     }
 }
@@ -124,6 +118,9 @@ export default {
             .onavigate{
                 height: 2.5rem;
                 line-height: 2.5rem;
+                display: flex;
+                justify-content: center;
+                overflow: auto;
                 a{ //五个导航
                     margin : 0 .625rem;
                     font-size : .9375rem;
