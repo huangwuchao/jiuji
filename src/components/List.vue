@@ -22,24 +22,24 @@
         </div>
         <div class="nav">
           <div class="lefta">
-              <div class="left" v-for="data in data" :key="data.id">
+              <div class="left" v-for="(data,index) in data" :key="index" @click="chuang(index)">
               <a href="javascript:;" class="left-tob">{{data.title}}</a>
               </div>
           </div>
           <div class="right2">
-              <div class="right" v-for="data2 in data" :key="data2.id">
-              <a href="javascript:;" class="right-top">
-                  <img :src=data2.picture alt="" >
+              <div class="right">
+              <a href="javascript:;" class="right-top" >
+                  <img :src=data[index].picture alt="" >
               </a>
-              <div class="avn">
-                <div class="avn-top">
-                    <p>{{data2.children[0].title}}</p>
-                    <a href="javascript:;">{{data2.children[0].name2}}>></a> 
+              <div class="avn" v-for="data3 in data[index].children" :key="data3.id">
+                <div class="avn-top" >
+                    <p>{{data3.title}}</p>
+                    <a href="javascript:;">{{data3.name2}}>></a> 
                 </div>
                 <div class="avn-bottom">
-                  <a href="javascript:;">
-                    <img :src=data2.children[0].children[0].picture alt="">
-                    <span>{{data2.children[0].children[0].title}}</span>
+                  <a href="javascript:;" v-for="data4 in data3.children" :key="data4.id">
+                    <img :src=data4.picture alt="">
+                    <span>{{data4.title}}</span>
                   </a>
                   
                 </div>
@@ -87,7 +87,8 @@ export default {
         active:'/home',
         data:[],
         data2:[],
-        data3:[]
+        index:0,
+        
       }
     },
      methods:{
@@ -95,11 +96,14 @@ export default {
         // console.log(path);
         this.active = path;
         this.$router.push({path});
+      },
+      chuang(index){
+        this.index=index
       }
     },
     created(){
         Axios.get('/dbapi/products/category/v1').then(res=>{
-             console.log(res.data.data);
+             console.log(res.data.data[0]);
             this.data = res.data.data;
             //this.data2 = res.data.data.data[0]['children'][0]['children'];
           console.log(res.data.data[0].children[0].children[0]);
@@ -224,6 +228,7 @@ export default {
                             display: flex;
                             color: #333;
                             text-decoration: none;
+                            margin-right: .346667rem;
                           }
                       }
                       .avn-bottom{
