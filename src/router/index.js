@@ -28,6 +28,7 @@ import Cart from '@com/Cart';
 import Mine from '@com/Mine';
 import Stores from '@com/Stores';
 import SearchForm from '@com/SearchForm';
+import Login from '@com/Login';
 
 //实例化路由
 const routes = [
@@ -74,14 +75,28 @@ const routes = [
     component:List
   },
   {
+    name:'Mine',
+    path:'/mine',
+    component:Mine,
+    meta:{
+      requireAuth:true
+    }
+  },
+  {
     name:'Message',
     path:'/message',
-    component:Message
+    component:Message,
+    meta:{
+      requireAuth:true
+  }
   },
   {
     name:'Cart',
     path:'/cart',
-    component:Cart
+    component:Cart,
+    meta:{
+      requireAuth:true
+  }
   },
   {
     name:'Stores',
@@ -93,6 +108,7 @@ const routes = [
     path:'/search-form',
     component:SearchForm
   },
+  { name:'Login', path: '/login', component: Login },
   { path:'/',redirect:{name:'Home'}}
 ]
 
@@ -100,5 +116,25 @@ let router = new Router({
   // mode:'history',
   routes
 });
-
+// 全局路由守卫
+// 在进入某个路由前执行的代码
+router.beforeEach((to,from,next)=>{
+  if(to.meta.requireAuth){
+    // 判断是否登录
+    if(sessionStorage.getItem('token')){
+      // if(router.app.$store.state.token){
+          next();
+      }else{
+          next({
+              path:'/login'
+          })
+      }
+  }else{
+    // 要进入to路由，必须调用next()方法
+      next();
+  }
+});
+router.afterEach((to,from)=>{
+  console.log('after')
+})
 export default router;

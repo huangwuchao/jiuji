@@ -6,6 +6,7 @@
             </p>
             <div class="sou">
                 <form action="">
+
                     <input type="text" name="" id="" placeholder="iPhone XS Max">
                 </form>
             </div>
@@ -71,6 +72,10 @@ export default {
         background-color: #f5f5f5;
         position: relative;
         max-width: 640px;
+        width: 100%;
+        height: 100%;
+        flex: 1;
+        overflow: hidden;
             .top{
                 width: 100%;
                 background-color: rgba(250, 250, 250, 0.98);
@@ -89,7 +94,7 @@ export default {
                                 box-sizing: border-box;
                                 list-style: none;
                                 color: rgb(51, 51, 51);
-                                padding-left: 15px;
+                                padding-left: 10px;
                                 font-size: 30px;
                                 line-height: 44px;
 
@@ -101,20 +106,21 @@ export default {
                         position: absolute;
                         top: 0;
                         bottom: 0;
-                        left: 44px;
+                        left: 36px;
                         right: 44px;
                         
                             form{
                                 width: 100%;
                                 height: 30px;
                                 display: block;
+                                   
                                     input{
                                         width: 100%;
                                         height: 30px;
                                         border: 1px solid #ccc;
                                         border-radius: 16px;
                                         margin-top:7px;
-                                        margin-left:5px;
+                                        margin-left:6px;
                                         position: absolute;
                                         left: 0px;
                                         right: 0px;

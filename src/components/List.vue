@@ -34,7 +34,7 @@
               <div class="avn" v-for="data3 in data[index].children" :key="data3.id">
                 <div class="avn-top" >
                     <p>{{data3.title}}</p>
-                    <a href="javascript:;">{{data3.name2}}>></a> 
+                    <a :href='data3.link2'>{{data3.name2}}>></a> 
                 </div>
                 <div class="avn-bottom">
                   <a href="javascript:;" v-for="data4 in data3.children" :key="data4.id">
@@ -85,7 +85,7 @@ export default {
           }
         ],
         active:'/home',
-        data:[],
+        data:[{children:''},{id:''},{title:''}],
         // data2:[],
         index:0
         
@@ -294,7 +294,7 @@ export default {
           vertical-align: .048rem;
           fill: currentColor;
           overflow: hidden;
-        //   background:#9c9c9c;
+        
         }
         .badge{
           height: .373333rem;
@@ -309,8 +309,6 @@ export default {
           right: .4rem;
         }
       }
-    //   .active{
-    //     color:#c80f1e;
-    //   }
+   
     }
 </style>
