@@ -4,9 +4,9 @@
           <div class="hom" @click="selected('/home')">
             <
           </div>
-          <a href="#" class="sou">
+          <router-link tag='a' :to="'/search-form'" class="sou">
                 iPhone XS Max
-          </a>
+          </router-link>
           <div class="tab" v-on:click="show = !show">
             ...
           </div>
@@ -29,7 +29,7 @@
           <div class="right2">
               <div class="right">
               <a href="javascript:;" class="right-top" >
-                  <img :src=data[index].picture alt="" >
+                  <img :src='data[index].picture' alt="" >
               </a>
               <div class="avn" v-for="data3 in data[index].children" :key="data3.id">
                 <div class="avn-top" >
@@ -38,7 +38,7 @@
                 </div>
                 <div class="avn-bottom">
                   <a href="javascript:;" v-for="data4 in data3.children" :key="data4.id">
-                    <img :src=data4.picture alt="">
+                    <img :src='data4.picture' alt="">
                     <span>{{data4.title}}</span>
                   </a>
                   
@@ -86,8 +86,8 @@ export default {
         ],
         active:'/home',
         data:[],
-        data2:[],
-        index:0,
+        // data2:[],
+        index:0
         
       }
     },
@@ -103,11 +103,11 @@ export default {
     },
     created(){
         Axios.get('/dbapi/products/category/v1').then(res=>{
-             console.log(res.data.data[0]);
+            //  console.log(res.data.data[0]);
             this.data = res.data.data;
             //this.data2 = res.data.data.data[0]['children'][0]['children'];
-          console.log(res.data.data[0].children[0].children[0]);
-          console.log(res.data.data[0]['children'][1]['children'][0])
+          // console.log(res.data.data[0].children[0].children[0]);
+          // console.log(res.data.data[0]['children'][1]['children'][0])
  
         })
         
@@ -148,6 +148,7 @@ export default {
                 line-height: .8rem;
                 font-size:.426667rem;
                 text-decoration: none;
+                
               }
               .tab{
                 height: 1.173333rem;
