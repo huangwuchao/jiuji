@@ -29,7 +29,7 @@ import Mine from '@com/Mine';
 import Stores from '@com/Stores';
 import SearchForm from '@com/SearchForm';
 import Login from '@com/Login';
-
+import Register from '@com/Register';
 //实例化路由
 const routes = [
   {
@@ -108,7 +108,14 @@ const routes = [
     path:'/search-form',
     component:SearchForm
   },
-  { name:'Login', path: '/login', component: Login },
+  { name:'Login',
+    path: '/login', 
+    component: Login
+   },
+   { name:'Register',
+    path: '/register', 
+    component: Register
+   },
   { path:'/',redirect:{name:'Home'}}
 ]
 
@@ -135,6 +142,6 @@ router.beforeEach((to,from,next)=>{
   }
 });
 router.afterEach((to,from)=>{
-  console.log('after')
+  //console.log('after')
 })
 export default router;
