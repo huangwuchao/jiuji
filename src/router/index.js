@@ -16,6 +16,12 @@ Vue.use(Router);
 
 // 引入路由组件
 import Home from '@com/Home';
+  // import tuijian from '@com/Home/tuijian';
+  // import xianshigou from '@com/Home/xianshigou';
+  // import yijiuhuanxin from '@com/Home/yijiuhuanxin';
+  // import shoujikuaixiu from '@com/Home/shoujikuaixiu';
+  // import jiujiuzu from '@com/Home/jiujiuzu';
+  // import toutiao from '@com/Home/toutiao';
 import List from '@com/List';
 import Message from '@com/Message';
 import Cart from '@com/Cart';
@@ -28,7 +34,39 @@ const routes = [
   {
     name:'Home',
     path:'/home',
-    component:Home
+    component:Home,
+    // children:[
+    //   {
+    //     name:'tuijian',
+    //     path:'/home/tuijian',
+    //     component:tuijian
+    //   },
+    //   {
+    //     name:'xianshigou',
+    //     path:'/home/xianshigou',
+    //     component:xianshigou
+    //   },
+    //   {
+    //     name:'yijiuhuanxin',
+    //     path:'/home/yijiuhuanxin',
+    //     component:yijiuhuanxin
+    //   },
+    //   {
+    //     name:'shoujikuaixiu',
+    //     path:'/home/shoujikuaixiu',
+    //     component:shoujikuaixiu
+    //   },
+    //   {
+    //     name:'jiujiuzu',
+    //     path:'/home/jiujiuzu',
+    //     component:jiujiuzu
+    //   },
+    //   {
+    //     name:'toutiao',
+    //     path:'/home/toutiao',
+    //     component:toutiao
+    //   }
+    // ]
   },
   {
     name:'List',

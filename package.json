@@ -17,6 +17,7 @@
     "mint-ui": "^2.2.13",
     "octicons": "^8.2.0",
     "style-loader": "^0.23.1",
+    "swiper": "^4.4.6",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },

@@ -7,5 +7,6 @@ input{/*去掉高亮*/outline:none;}
 header,footer,section,main,nav{display:block;}
 a{text-decoration:none;outline:none;}
 a:hover{text-decoration:underline;}
+a:focus{text-decoration: none}
 i{font-style:normal;}
 *{box-sizing:border-box;}
