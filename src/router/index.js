@@ -29,11 +29,8 @@ import Mine from '@com/Mine';
 import Stores from '@com/Stores';
 import SearchForm from '@com/SearchForm';
 import Login from '@com/Login';
-<<<<<<< HEAD
 import Search from '@com/search';
-=======
 import Register from '@com/Register';
->>>>>>> 70bdec05415e1ed8b81aaef73b7d568740c9c393
 //实例化路由
 const routes = [
   {
@@ -129,7 +126,7 @@ const routes = [
     component: Register
    },
   { path:'/',redirect:{name:'Home'}}
-]
+] 
 
 let router = new Router({
   // mode:'history',
@@ -154,10 +151,7 @@ router.beforeEach((to,from,next)=>{
   }
 });
 router.afterEach((to,from)=>{
-<<<<<<< HEAD
-  // console.log('after')
-=======
-  //console.log('after')
->>>>>>> 70bdec05415e1ed8b81aaef73b7d568740c9c393
+   console.log('after')
+
 })
 export default router;

@@ -46,14 +46,14 @@
         </div>
         
         <div class="paihan">
-            <a href="javascript:;">
+            <a href="https://m.9ji.com/product/hot/rank?from=sou">
                 <div>
                     <p>手机热销排行榜</p>
                     <span>榜单</span>
                 </div>
                 <span class="paihan-right">></span>
             </a>
-            <a href="javascript:;">
+            <a href="https://m.9ji.com/event/2904.html?from=sou">
                 <div>
                     <p>暖冬智能家居59元起</p>
                     <span>活动</span>

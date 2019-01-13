@@ -18,7 +18,7 @@
         <mt-field label="用户名" placeholder="请输入用户名/手机号" v-model="username"></mt-field>
         <mt-field label="密码" placeholder="请输入密码" type="password" v-model="password"></mt-field>
         <mt-field label="验证码" v-model="captcha">
-            <img src="" height="45px" width="100px">
+            <img src="../assets/timg.jpg" height="45px" width="100px">
         </mt-field>
         <div class="shuomin">
             <span>

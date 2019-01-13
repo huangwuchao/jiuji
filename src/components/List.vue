@@ -7,8 +7,7 @@
           <router-link tag='a' :to="'/search-form'" class="sou">
                 iPhone XS Max
           </router-link>
-          <div class="tab" v-on:click="show = !show">
-            ...
+          <div class="tab fa fa-ellipsis-h" v-on:click="show = !show">
           </div>
         </div>
         <div class="daohan" v-if="show">
@@ -151,8 +150,10 @@ export default {
                 
               }
               .tab{
+                text-align: center;
+                line-height: 1.173333rem;
                 height: 1.173333rem;
-                font-size: 1rem;
+                font-size: .64rem;
                 color:#333;
                 margin-right:.266667rem;  
               }
