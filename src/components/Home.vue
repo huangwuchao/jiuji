@@ -100,7 +100,7 @@
                 <mt-swipe-item>2</mt-swipe-item>
                 <mt-swipe-item>3</mt-swipe-item>
             </mt-swipe> -->
-            <div class="swiper-container headli">
+            <div class="swiper-container headli" id="swiper_one">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" v-for="item in headline" :key="item.id">
                         <a :href="item.url">
@@ -355,14 +355,6 @@
         mounted: function () {
             //限时抢购倒计时
             this.countdown()
-
-            //九机头条轮播图
-            let mySwiper = new Swiper('.swiper-container', {
-                autoplay: true,
-                direction: 'vertical', // 垂直切换选项
-                loop: true, // 循环模式选项
-            })
-
         },
         created(){
             Axios.get('/dbapi/user/userInfo/v1').then(res=>{
@@ -388,6 +380,18 @@
                 this.lifeone = res.data.data.container.floor[21].content;
                 this.lifetwo = res.data.data.container.floor[22].content;
                 this.findgood = res.data.data.container.floor[25].content;
+            
+                //九机头条轮播图
+                Vue.nextTick(()=>{
+                    let mySwiper = new Swiper('#swiper_one', {
+                        autoplay: {
+                            speed: 1000
+                        },
+                        direction: 'vertical', // 垂直切换选项
+                        loop: true, // 循环模式选项
+                    })
+                })
+            
             })
             Axios.get('/dbapi/floors/specialEnjoy/v1').then(res=>{
                 // console.log(res.data.data.optimize);
@@ -399,6 +403,8 @@
                     }
                 }
             })
+
+            
         }
     }
 </script>
