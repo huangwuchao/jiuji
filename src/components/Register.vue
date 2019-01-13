@@ -1,12 +1,12 @@
 <template>
-    <div id="Login">
-       <mt-header title="登陆">
-            <router-link to="/" slot="left">
+    <div id="Register">
+        <mt-header title="用户注册">
+            <router-link to="/login" slot="left">
                 <mt-button icon="back"></mt-button>
             </router-link>
             <mt-button icon="more" slot="right" v-on:click="show = !show"></mt-button>
         </mt-header>
-        <div class="daohan" v-if="show">
+       <div class="daohan" v-if="show">
             <a href="javascript:;" v-for="tab in tabs" :key="tab.path" :class="{active:active==tab.path}" @click="selected(tab.path)">
                 <svg class="icon" aria-hidden="true">
                 <use :xlink:href="tab.icon"></use>
@@ -15,29 +15,22 @@
                 <!-- <span class="badge" v-if='idx===2'>0</span> -->
             </a>
         </div>
-        <div class="top">
-            <p class="zh yuanse">账号密码登陆</p>
-            <span>|</span>
-            <p class="dx">短信验证登陆</p>
-        </div>
         <mt-field label="用户名" placeholder="请输入用户名/手机号" v-model="username"></mt-field>
         <mt-field label="密码" placeholder="请输入密码" type="password" v-model="password"></mt-field>
-        <mt-button type="default" class="denlu">登陆</mt-button>
-        <div class="bot">
-            <p class="yh" @click="selected('/register')">新用户注册</p>
-            <p class="wj">忘记密码</p>
+        <mt-field label="验证码" v-model="captcha">
+            <img src="" height="45px" width="100px">
+        </mt-field>
+        <div class="shuomin">
+            <span>
+                <input type="checkbox" name="" id="">
+                我已经阅读并同意
+                <a href="JavaScript:;">《九机网用户协议》</a>
+            </span>
         </div>
-        <div class="koukou">
-            <span>第三方登陆</span>
-            <div class="lujin">
-                <a href="https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=100302635&redirect_uri=https://m.9ji.com/account/bind%3fredirect=%2Fmember">
-                    <img src="//img2.ch999img.com/m/static/assets/qq.7df9dcd2828ad5eaeee0e76ce8f7d917.png" alt="">
-                </a>
-                
-            </div>
-        </div>
+         <mt-button type="default" class="denlu">注册</mt-button>
     </div>
 </template>
+
 <script>
     import Axios from 'axios';
     import { PaletteButton } from 'mint-ui';
@@ -47,6 +40,8 @@ export default {
       return{
         username:'',
         password:'',
+       
+        captcha:'',
         show: false,
         tabs:[
           {
@@ -89,11 +84,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    #Login{
+    #Register{
         width: 100%;
         height: 100%;
         flex: 1;
         overflow: hidden;
+    }
     .daohan{
       width: 100%;
       height: 1.333333rem;
@@ -136,61 +132,21 @@ export default {
       }
    
     }
-    .top{
-        display: flex;
-        margin: .8rem 2.16rem;
-        color:#333;
-        font-size:.373333rem;
-            span{
-                margin: 0 .533333rem;
-            }
-    }
     .denlu{
 
         width: 8.533333rem;
         margin:.266667rem 0 0 .666667rem;
     }
-    .bot{
-        display: flex;
-        margin: 20px;
-        color:#333;
-        font-size:14px;
-        justify-content:space-between;
-    } 
-    .koukou{
-        margin-top:1.866667rem;
-        margin-left:4.08rem;
-        display: flex;
-        justify-content:flex-end;
-        flex-direction:column;
-            span{
-                color: #9c9c9c;
-                font-size: .373333rem;
-            } 
-            .lujin{
-                margin-left:.48rem;
-                margin-top:.266667rem;
-                width: .906667rem;
-                height: .906667rem;
-                display: flex;
-                justify-content:flex-end;
-                flex-direction:column;
-                a{  
-                    display: block;
-                   
-                     img{
-                    width: .906667rem;
-                    height: .906667rem;
-                }
-                }
-               
-
+    .shuomin{
+        margin-top: 20px;
+            input{
+                margin-top: 5px;
             }
-    } 
-    .yuanse{
-        color:#f21c1c;
-    } 
+            span{
+                display: flex;
+                font-size:14px;
+                margin-left:10px;
+            }
     }
 </style>
-
 
