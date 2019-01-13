@@ -2,6 +2,7 @@
     <div id="Home">
         <!-- 广告+搜索框 -->
         <div class="a1">
+            <!-- 广告 -->
             <div class="showapp" v-if="show">
                 <div>
                     <a href="javascript:;" v-on:click="show = !show">x</a>
@@ -13,6 +14,7 @@
                 </div>
                 <a href="https://m.9ji.com/download-app?url=jiuji%3A%2F%2Fm.9ji.com">立即打开</a>
             </div>
+            <!-- 搜索框 -->
             <div class="one">
                 <!-- 搜索框 -->
                 <div class="osearch">
@@ -36,9 +38,9 @@
                 <div class="onavigate">
                     <nav>
                     <!-- <router-link :to="{name:navigatelabel.path}" v-for="navigatelabel in navigatelabels" :key="navigatelabel.id" :class="{active:active==navigatelabel.path}" @click="selected(navigatelabel.path)">{{navigatelabel.title}}</router-link> -->
-                    <a href="javascript:;" v-for="navigatelabel in navigatelabels" :key="navigatelabel.id" :class="{active:active==navigatelabel.id}" @click="selected(navigatelabel.id)">
-                        {{navigatelabel.title}}
-                    </a>
+                        <a :href="navigatelabel.path" v-for="navigatelabel in navigatelabels" :key="navigatelabel.id" :class="{active:active==navigatelabel.id}" @click="selected(navigatelabel.id)">
+                            {{navigatelabel.title}}
+                        </a>
                     </nav>
                 </div>
             </div>
@@ -250,39 +252,40 @@
             return{
                 show: true,
                 searchplaceholder:'',
-                navigatelabels:[
+
+                navigatelabels:[ //导航栏
                     {
                         id:1,
                         title:'推荐',
-                        path:'/home/tuijian'
+                        path:'http://localhost:2809/#/home?tabs=1'
                     },
                     {
                         id:2,
                         title:'限时购',
-                        path:'/home/xianshigou'
+                        path:'http://localhost:2809/#/home?tabs=2'
                     },
                     {
                         id:3,
                         title:'以旧换新',
-                        path:'/home/yijiuhuanxin'
+                        path:'http://localhost:2809/#/home?tabs=3'
                     },
                     {
                         id:4,
                         title:'手机快修',
-                        path:'/home/shoujikuaixiu'
+                        path:'http://localhost:2809/#/home?tabs=4'
                     },
                     {
                         id:5,
                         title:'久久租',
-                        path:'/home/jiujiuzu'
+                        path:'http://localhost:2809/#/home?tabs=5'
                     },
                     {
                         id:6,
                         title:'头条',
-                        path:'/home/toutiao'
+                        path:'http://localhost:2809/#/home?tabs=6'
                     }
                 ],
-                active:1,
+                active:1, //导航栏高亮
 
                 navpic:[], //轮播图
 
@@ -496,12 +499,13 @@
                         font-size: .426667rem;
                         flex: 1;
                         i{
+                            width: .346667rem;
                             color: #fff;
                         }
                         span{
                             color: #fff;
                             opacity: .6;
-                            font-size: .426667rem;
+                            font-size: .373333rem;
                         }
                     }
                 }

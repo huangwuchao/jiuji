@@ -1,3 +1,4 @@
+var webpack = require('webpack')
 'use strict'
 const path = require('path')
 const utils = require('./utils')
@@ -87,5 +88,12 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  }
+  },
+  plugins: [ 
+    new webpack.ProvidePlugin({ 
+      $:"jquery", 
+      jQuery:"jquery", 
+      "windows.jQuery":"jquery"
+    }) 
+  ], 
 }
