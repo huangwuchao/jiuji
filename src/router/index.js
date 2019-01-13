@@ -151,7 +151,6 @@ router.beforeEach((to,from,next)=>{
   }
 });
 router.afterEach((to,from)=>{
-   console.log('after')
-
+  // console.log('after')
 })
 export default router;
