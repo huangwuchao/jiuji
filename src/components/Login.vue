@@ -22,7 +22,7 @@
         </div>
         <mt-field label="用户名" placeholder="请输入用户名/手机号" v-model="username"></mt-field>
         <mt-field label="密码" placeholder="请输入密码" type="password" v-model="password"></mt-field>
-        <mt-button type="default" class="denlu">登陆</mt-button>
+        <mt-button type="default" class="denlu" @click="login">登陆</mt-button>
         <div class="bot">
             <p class="yh" @click="selected('/register')">新用户注册</p>
             <p class="wj">忘记密码</p>
@@ -84,6 +84,11 @@ export default {
       },
       chuang(index){
         this.index=index
+      },
+      login(){
+          sessionStorage.setItem('token','111');
+          this.$router.push('/home')
+          //this.$router.go(-1);
       }
     }
 }
