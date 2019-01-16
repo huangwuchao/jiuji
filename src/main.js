@@ -6,6 +6,10 @@ import router from './router';
 import "./font/font_1003760_8gdxl0exth8/iconfont";
 import $ from 'jquery';
 
+import Vconsole from 'vconsole'
+let vConsole = new Vconsole() //初始化
+export default vConsole
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
