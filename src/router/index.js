@@ -16,12 +16,21 @@ Vue.use(Router);
 
 // 引入路由组件
 import Home from '@com/Home';
+<<<<<<< HEAD
     import tuijian from '@com/Home/tuijian';
     import xianshigou from '@com/Home/xianshigou';
     import yijiuhuanxin from '@com/Home/yijiuhuanxin';
     import shoujikuaixiu from '@com/Home/shoujikuaixiu';
     import jiujiuzu from '@com/Home/jiujiuzu';
     import toutiao from '@com/Home/toutiao';
+=======
+  import tuijian from '@com/homelist/tuijian';
+  import xianshigou from '@com/homelist/xianshigou';
+  import yijiuhuanxin from '@com/homelist/yijiuhuanxin';
+  import shoujikuaixiu from '@com/homelist/shoujikuaixiu';
+  import jiujiuzu from '@com/homelist/jiujiuzu';
+  import toutiao from '@com/homelist/toutiao';
+>>>>>>> 54919c95af22c42cf1036e90f59bc281300d2071
 import List from '@com/List';
 import Message from '@com/Message';
 import Cart from '@com/Cart';
@@ -35,41 +44,38 @@ import Particulars from '@com/particulars';
 //实例化路由
 const routes = [
   {
-    name:'Home',
+    // name:'Home',
     path:'/home',
     component:Home,
     children:[
       {
         name:'tuijian',
-        path:'/home/tuijian',
-        component:tuijian,
-        meta:{
-          requireAuth:true
-        }
+        path:'tabs=1',
+        component:tuijian
       },
       {
         name:'xianshigou',
-        path:'/home/xianshigou',
+        path:'tabs=2',
         component:xianshigou
       },
       {
         name:'yijiuhuanxin',
-        path:'/home/yijiuhuanxin',
+        path:'tabs=3',
         component:yijiuhuanxin
       },
       {
         name:'shoujikuaixiu',
-        path:'/home/shoujikuaixiu',
+        path:'tabs=4',
         component:shoujikuaixiu
       },
       {
         name:'jiujiuzu',
-        path:'/home/jiujiuzu',
+        path:'tabs=5',
         component:jiujiuzu
       },
       {
         name:'toutiao',
-        path:'/home/toutiao',
+        path:'tabs=6',
         component:toutiao
       }
     ]
@@ -130,7 +136,9 @@ const routes = [
     path: '/particulars', 
     component: Particulars
    },
-  { path:'/',redirect:{name:'Home'}}
+  { path:'/',redirect:{name:'Home'}},
+  { path:'/',redirect:{name:'tuijian'}},
+  // { path:'/home/tabs=1',redirect:{name:'Home'}}
 ] 
 
 let router = new Router({
