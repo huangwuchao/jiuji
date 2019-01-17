@@ -336,7 +336,7 @@
                 this.active = path;
             },
             countdown: function () {
-                const end = Date.parse(new Date('2019-01-20'))
+                const end = Date.parse(new Date('2019-01-22'))
                 const now = Date.parse(new Date())
                 const msec = end - now
                 let hr = parseInt(msec / 1000 / 60 / 60)
