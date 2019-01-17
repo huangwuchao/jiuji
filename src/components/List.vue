@@ -1,8 +1,8 @@
 <template>
     <div id="List">
         <div class="list-top">
-          <div class="hom" @click="selected('/home')">
-            <
+          <div class="hom fa fa-angle-left" @click="selected('/home')">
+            
           </div>
           <router-link tag='a' :to="'/search-form'" class="sou">
                 iPhone XS Max
@@ -36,7 +36,7 @@
                     <a :href='data3.link2'>{{data3.name2}}>></a> 
                 </div>
                 <div class="avn-bottom">
-                  <a href="javascript:;" v-for="data4 in data3.children" :key="data4.id">
+                  <a href="javascript:;" v-for="data4 in data3.children" :key="data4.id" @click="selected('/particulars')">
                     <img :src='data4.picture' alt="">
                     <span>{{data4.title}}</span>
                   </a>
@@ -123,7 +123,6 @@ export default {
         overflow: hidden;
           .list-top{
             height: 1.173333rem;
-            
             background-repeat: no-repeat;
             background-position: top;
             background-size: cover;
@@ -134,6 +133,8 @@ export default {
                 font-size: .8rem;
                 color:#333;
                 margin-left:.266667rem;
+                text-align: center;
+                line-height: 1.173333rem;
               }
               .sou{
                 display: block;

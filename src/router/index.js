@@ -16,12 +16,12 @@ Vue.use(Router);
 
 // 引入路由组件
 import Home from '@com/Home';
-  import tuijian from '@com/Home/tuijian';
-  import xianshigou from '@com/Home/xianshigou';
-  import yijiuhuanxin from '@com/Home/yijiuhuanxin';
-  import shoujikuaixiu from '@com/Home/shoujikuaixiu';
-  import jiujiuzu from '@com/Home/jiujiuzu';
-  import toutiao from '@com/Home/toutiao';
+    import tuijian from '@com/Home/tuijian';
+    import xianshigou from '@com/Home/xianshigou';
+    import yijiuhuanxin from '@com/Home/yijiuhuanxin';
+    import shoujikuaixiu from '@com/Home/shoujikuaixiu';
+    import jiujiuzu from '@com/Home/jiujiuzu';
+    import toutiao from '@com/Home/toutiao';
 import List from '@com/List';
 import Message from '@com/Message';
 import Cart from '@com/Cart';
@@ -31,6 +31,7 @@ import SearchForm from '@com/SearchForm';
 import Login from '@com/Login';
 import Search from '@com/search';
 import Register from '@com/Register';
+import Particulars from '@com/particulars';
 //实例化路由
 const routes = [
   {
@@ -124,6 +125,10 @@ const routes = [
    { name:'Register',
     path: '/register', 
     component: Register
+   },
+   { name:'Particulars',
+    path: '/particulars', 
+    component: Particulars
    },
   { path:'/',redirect:{name:'Home'}}
 ] 
