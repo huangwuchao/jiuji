@@ -273,9 +273,9 @@ export default {
         },
         methods: {
             countdown: function () {
-                const end = Date.parse(new Date('2019-01-22'))
-                const now = Date.parse(new Date())
-                const msec = end - now
+                let end = Date.parse(new Date('2019-01-22'))
+                let now = Date.parse(new Date())
+                let msec = end - now
                 let hr = parseInt(msec / 1000 / 60 / 60)
                 let min = parseInt(msec / 1000 / 60 % 60)
                 let sec = parseInt(msec / 1000 % 60)
@@ -353,8 +353,8 @@ export default {
 
         .banner{
             height: 5.4rem;
-            background: linear-gradient(#e10f02,#e10f02 70%,#fff 0,#fff);
-            padding: .373333rem; 
+            // background: linear-gradient(#e10f02,#e10f02 70%,#fff 0,#fff);
+            // padding: .373333rem; 
         }
         .bannav{
             height: 2rem;
