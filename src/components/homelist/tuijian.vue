@@ -1,6 +1,5 @@
 <template>
     <div id="tuijian">
-
         <!-- 轮播图 -->
         <div class="banner">
             <mt-swipe :auto="3000" style="height:5rem">
