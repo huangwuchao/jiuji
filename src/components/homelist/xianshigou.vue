@@ -4,7 +4,9 @@
         <div class="xsgbanner">
             <mt-swipe :auto="3000" style="height:5rem">
                 <mt-swipe-item v-for="(item,idx) in xsgban" :key="idx" class="bann">
-                    <img :src="item.imagePath" style="height:5rem">
+                    <a :href="item.link">
+                        <img :src="item.imagePath" style="height:5rem">
+                    </a>
                 </mt-swipe-item>
             </mt-swipe>
         </div>
@@ -16,78 +18,82 @@
                 <p :class="{ptwo:item.isToday}">{{item.description}}</p>
             </a>
         </div>
+
+        <!-- 倒计时 -->
+        <div class="countdown">
+            <p>距结束：
+                <countdown :callback="callback" endTime="1548960000"></countdown>
+            </p>
+        </div>
+
+        <!-- 限时购列表 -->
+        <div class="xsglist">
+            <a :href="item.url" v-for="(item,idx) in xsgbuy" :key="idx">
+                <img :src="item.imagePath" alt="">
+                <div>
+                    <p>{{item.name}}</p>
+                    <p>{{item.description}}</p>
+                    <div>
+                        <span>￥</span>
+                        <span>{{item.price}}</span>
+                        <del>￥{{item.originalPrice}}</del>
+                    </div>
+                    <div class="percentage">
+                        <span>还剩余{{item.surplusCount}}件</span>
+                        <i></i>
+                    </div>
+                    <div class="Buy">去抢购</div>
+                </div>
+            </a>
+        </div>
     </div>
 </template>
 <script>
+
 import Vue from "vue";
 
 //引入axios
 import Axios from 'axios';
+import { setInterval } from 'timers';
+
+
+import countdown from '../countdown';
 
 export default {
+    components: {
+        countdown
+    },
     data(){
         return{
             xsgban:[], //轮播图
             week:[], //星期几星期几那一栏
-
-            //倒计时
-            hr: 0,
-            min: 0,
-            sec: 0,
-
+            inde:0, //下标
+            xsgbuy:[], //限时购列表
         }
     },
     created(){
         Axios.get('/dbapi/floors/v1?label=891839163259564033&page=1&random=1547769473712').then(res=>{
-            console.log(res.data.data.container.floor[0].content);
+            // console.log(res.data.data.container.floor[1].content.product[7]);
             this.week = res.data.data.container.floor[1].content.tabs;
             this.xsgban = res.data.data.container.floor[0].content;
+
+            for(var i=0;i<this.week.length;i++){
+                if(this.week[i].isToday){
+                    this.inde = i;
+                }
+            }
+            // console.log(this.inde)
+
+            this.xsgbuy = res.data.data.container.floor[1].content.product[this.inde].list;
+            console.log(this.xsgbuy)
         })
     },
     methods: {
-        countdown: function (){
-            // 目标日期时间戳
-            let end = Date.parse(new Date('2019-01-19'));
-            // 当前时间戳
-            let now = Date.parse(new Date());
-            // 相差的毫秒数
-            let msec = end - now;
-            // 刷新为10点
-            if(msec == 0){
-                msec = 864000000;
-                // 计算时分秒数
-                let hr = parseInt(msec / 1000 / 60 / 60)
-                let min = parseInt(msec / 1000 / 60 % 60)
-                let sec = parseInt(msec / 1000 % 60)
-                // 个位数前补零
-                this.hr = hr > 9 ? hr : '0' + hr
-                this.min = min > 9 ? min : '0' + min
-                this.sec = sec > 9 ? sec : '0' + sec
-            }else{
-                // 计算时分秒数
-                let hr = parseInt(msec / 1000 / 60 / 60)
-                let min = parseInt(msec / 1000 / 60 % 60)
-                let sec = parseInt(msec / 1000 % 60)
-                // 个位数前补零
-                this.hr = hr > 9 ? hr : '0' + hr
-                this.min = min > 9 ? min : '0' + min
-                this.sec = sec > 9 ? sec : '0' + sec
-            }
-            
-            const that = this;
+        callback: function(){},
 
-            // 控制台打印
-            // console.log(`${hr}小时 ${min}分钟 ${sec}秒`);
-            
-            // 一秒后递归
-            setTimeout(function () {
-                that.countdown()
-            }, 1000)
-        }
     },
-    mounted: function () {
-        //倒计时
-        this.countdown()
+    mounted() {
+        
     },
 }
 </script>
@@ -100,6 +106,10 @@ export default {
             .bann{
                 border-radius: .133333rem;
                 overflow: hidden;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
         .xsgdata{ //星期几星期几那一栏
@@ -109,6 +119,7 @@ export default {
             display: flex;
             // overflow: hidden;
             overflow: auto;
+            box-shadow: rgb(238, 238, 238) 0 .133333rem .213333rem;
             >a{
                 display: block;
                 width: 2.133333rem;
@@ -137,6 +148,109 @@ export default {
                 }
                 >.ptwo{
                     color: #f21c1c !important;
+                }
+            }
+        }
+        .countdown{ //倒计时
+            height: .186667rem;
+            margin: .533333rem .4rem;
+            border-bottom: .053333rem dotted #f21c1c;
+            position: relative;
+            >p{
+                width: 5.333333rem;
+                font-size: .373333rem;
+                background: #fff;
+                margin-left: 50%;
+                transform: translateX(-50%);
+                color: #f21c1c;
+                display: flex;
+                justify-content: center;
+                >countdown{
+                    color: #f21c1c;
+                }
+            }
+            
+        }
+        .xsglist{
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            >a{
+                display: flex;
+                padding: .266667rem;
+                >img{
+                    width: 2.4rem;
+                    height: 2.4rem;
+                    margin-right: .266667rem;
+                }
+                >div{
+                    display: flex;
+                    flex-direction: column;
+                    >p:nth-child(1){
+                        color: #333;
+                        font-size: .4rem;
+                    }
+                    >p:nth-child(2){
+                        color: #9c9c9c;
+                        font-size: .373333rem;
+                        margin-top: .133333rem;
+                    }
+                    >div:nth-child(3){
+                        display: flex;
+                        >span:nth-child(1){
+                            margin-top: .213333rem;
+                            height: .32rem;
+                            font-size: .32rem;
+                            font-weight: 700;
+                            color: #000;
+                        }
+                        >span:nth-child(2){
+                            font-size: .533333rem;
+                            font-weight: 700;
+                            color: #000;
+                            margin-right: .266667rem;
+                        }
+                        >del{
+                            margin-top: .213333rem;
+                            height: .32rem;
+                            font-size: .32rem;
+                            color: #9c9c9c;
+                        }
+                    }
+                    .percentage{
+                        margin: .133333rem 0 0 .133333rem;
+                        width: 4.346667rem;
+                        height: .426667rem;
+                        border: .026667rem solid #fa6571;
+                        border-radius: .213333rem;
+                        position: relative;
+                        >span{
+                            font-size: .32rem;
+                            color: #fff;
+                            position: absolute;
+                            left: .186667rem;
+                            top: -0.026667rem;            
+                        }
+                        >i{
+                            display: block;
+                            height: .426667rem;
+                            width: 70%;
+                            min-width: 1.6rem;
+                            background: #fa5471;
+                            border-radius: .213333rem;
+                        }
+                    }
+                    .Buy{
+                        width: 1.866667rem;
+                        height: .8rem;
+                        background: #f21c1c;
+                        transform: translate(4.8rem,-0.8rem);
+                        border-radius: .8rem;
+                        color: #fff;
+                        font-size: .373333rem;
+                        line-height: .8rem;
+                        text-align: center;
+                    }
                 }
             }
         }
