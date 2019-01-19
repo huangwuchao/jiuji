@@ -171,30 +171,99 @@
           </div>
       </div>
     </div>
-    <div claas="btns">
-        <a href="javascript:;" class="kefu">
-            <span>
-                客服
-            </span>                
-        </a>
-        <a href="javascript:;" class="shouchang">
-            <span>
-                收藏
-            </span>
-        </a>
-        <a href="javascript:;" class="gouwuche">
-            <span>
-                购物车
-            </span>
-        </a>
-        <a href="javascript:;" class="jiaru">加入购物车</a>
-        <a href="javascript:;" class="goumai">立即购买</a>
+    <div class="bottombtn">
+        <div class="aa">
+             <a href="javascript:;" class="kefu">
+               <i class="fa fa-user-circle fa-lg"></i>
+                <span>
+                    客服
+                </span>                
+            </a>
+            <a href="javascript:;" class="shouchang">
+                <i class="fa fa-heart fa-lg"></i>
+                <span>
+                    收藏
+                </span>
+            </a>
+            <a href="javascript:;" class="gouwuche" >
+                <i class="fa fa-cart-arrow-down fa-lg"></i>
+                <span>
+                    购物车
+                </span>
+            </a>
+            <a href="javascript:;" class="jiaru" @click="tanchu">加入购物车</a>
+            <a href="javascript:;" class="goumai">
+             
+                立即购买
+             
+              </a>
+        </div>
+        <div class="zhezhao">
+           <mt-popup
+                v-model="popupVisible"
+                position="bottom"
+                
+                >
+                <div>
+                  <dir class="topp">
+                      <a href="javascript:;" class="tuichu fa fa-times"></a>
+                      <div class="toppp">
+                          <p class="p1">￥ 5299.00</p>
+                          <p class="p2">商品编号：68436</p>
+                          <p class="p3">已选：iPhone XR 黑色 64GB</p>
+                          <div class="img">
+                            <img src="https://img2.ch999img.com/pic/product/160x160/20190116164038756.jpg.webp" alt="">
+                          </div>
+                      </div>
+                      <div class="anv">
+                        <div class="d1">
+                          <div class="biaoti">
+                            <span>颜色</span>
+                          </div>
+                          <div class="neiron">
+                            <div>
+                              <a href="javascript:;" class="a1">白色</a>
+                            </div>
+                            <div>
+                              <a href="javascript:;" class="a1">黑色</a>
+                            </div>
+                          </div>
+                           
+                        </div>
+                        <div class="d1">
+                          <div class="biaoti">
+                            <span>容量</span>
+                          </div>
+                          <div class="neiron">
+                            <div>
+                              <a href="javascript:;" class="a1">64GB</a>
+                            </div>
+                            <div>
+                              <a href="javascript:;" class="a1">245G</a>
+                            </div>
+                          </div>
+                           
+                        </div>
+                      </div>
+                  </dir>
+                  
+                  <div class="buot">
+                    <a href="javascript:;">
+                      加入购物车
+                    </a>
+                  </div>
+                </div>
+              </mt-popup>
+        </div>
     </div>
   </div>
+  
 </template>
 <script>
   import Vue from "vue";
   import Swiper from "swiper";
+  import { Popup } from 'mint-ui';
+  Vue.component(Popup.name, Popup);
   export default {
     data() {
       return {
@@ -221,6 +290,7 @@
           path: '/mine'
         }],
         active: '/home',
+        popupVisible:false,
         data: [{
           children: ''
         }, {
@@ -240,6 +310,9 @@
         this.$router.push({
           path
         });
+      },
+      tanchu(){
+        this.popupVisible= true
       }
     },
     created() {
@@ -258,7 +331,7 @@
     width: 100%;
     height: 100%;
     flex: 1;
-    //overflow: hidden;
+    overflow: hidden;
     background-color: #f5f5f5;
 
     .list-top {
@@ -360,7 +433,7 @@
       flex-direction: column;
       overflow-x: auto;
 
-      //flex: 1;
+      flex: 1;
       .img {
         height: 349px;
 
@@ -726,8 +799,179 @@
                     }
             }
       }
+      
     }
-
+    .bottombtn{
+          position: fixed;
+          width: 100%;
+          height: 48px;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          z-index: 8;
+            .aa{
+                position: relative;
+                max-width: 640px;
+                margin: 0 auto;
+                height: 100%;
+                background-color: #fff;
+                display: flex;
+                  a{
+                    display: block;
+                    height: 100%;
+                    width: 55px;
+                    box-sizing: border-box;
+                    border-right: 1px solid #dfdfdf;
+                    font-size: 12px;
+                    color: #333;
+                    display: flex;  
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                      i{
+                          display: inline-block;
+                          // width: 18px;
+                          // height: 18px;
+                          background-size: 100%;
+                          margin-bottom: 3px;
+                          background-repeat: no-repeat;
+                          background-position: 50%;
+                      }
+                  }
+                  .jiaru,.goumai{
+                      width: 105px;
+                      font-size:14px;
+                  }
+                  .goumai{
+                    background: #f21c1c;
+                    color:#fff;
+                  }
+            }
+            .zhezhao{
+              div{
+                width:100%;
+                background: #fff;
+                  .topp{
+                      height: 100%;
+                      padding-left: 20px;
+                        .tuichu{
+                          position: absolute;
+                          right: 10px;
+                          top: 10px;
+                          color: #9c9c9c;
+                          z-index: 1;
+                          font-size: 16px; 
+                        }
+                        .toppp{
+                              position: relative;
+                              height: 75px;
+                              padding: 0px 10px 0 137px;
+                              box-sizing: border-box;
+                                .p1{
+                                    font-size: 20px;
+                                    margin-bottom: 5px;
+                                    color:#f21c1c;
+                                }
+                                .p2{
+                                    color:#9c9c9c;
+                                    font-size: 12px;
+                                }
+                                .p3{
+                                    line-height: 1.33;
+                                    text-align: justify;
+                                    margin-top: 5px;
+                                    color: #6b6b6b;
+                                    font-size: 12px;
+                                }
+                                .img{
+                                    position: absolute;
+                                    left: -2px;
+                                    top: -55px;
+                                    height: 120px;
+                                    width: 120px;
+                                    border: 1px solid #9c9c9c;
+                                    border-radius: 6px;
+                                    box-sizing: border-box;
+                                    overflow: hidden;
+                                      img{
+                                        width: 100%;
+                                        height: 100%;
+                                      }
+                                }
+                        }
+                        .anv{
+                            height: calc(100% - 62px);
+                            overflow-y: auto;
+                            // padding-left: 10px;
+                            padding-bottom: 52px;
+                            box-sizing: border-box;
+                              a{
+                                height: 30px;
+                                line-height: 28px;
+                                text-align: center;
+                                border: 1px solid #dfdfdf;
+                                border-radius: 16px;
+                                margin-right: 10px;
+                                margin-top: 10px;
+                                font-size: 12px;
+                                padding: 0 8px;
+                                box-sizing: border-box;
+                              }
+                              .d1{
+                                margin-top: 10px;
+                                  .biaoti{
+                                    color: #333;
+                                    font-size: 16px;
+                                  }
+                                  .neiron{
+                                    display: flex;
+                                    //height: 40px;
+                                    //flex-wrap: wrap;
+                                      div{
+                                        width: 66px;
+                                        height: 30px;
+                                        margin-right: 10px;
+                                        margin-top: 10px;
+                                          // a{
+                                          //   margin-right: 0;
+                                          //   display: block;
+                                          //   line-height: 28px;
+                                          //   box-sizing: border-box;
+                                          //   min-width: 76px;
+                                          //   margin-top: 0;
+                                          // }
+                                          .a1{
+                                              display: inline-block;
+                                              color: #f21c1c;
+                                              border: 1px solid #f21c1c;
+                                              background-color: rgba(200,15,30,.1);
+                                              min-width: 66px;
+                                              vertical-align: top;
+                                              margin-top: 0; 
+                                          }
+                                      }
+                                  }
+                              }
+                        }
+                  }
+                  .buot{
+                        height: 40px;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                          a{
+                            display: block;
+                            height: 40px;
+                            background-color: #f21c1c;
+                            color: #fff;
+                            line-height: 40px;
+                            text-align: center;
+                            font-size: 16px;
+                          }
+                  }
+              }
+            }
+      }
   }
 
 </style>
