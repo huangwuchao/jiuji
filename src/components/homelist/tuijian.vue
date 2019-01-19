@@ -16,6 +16,32 @@
             </a>
         </div>
 
+        <!-- 春节倒数 -->
+        <div class="reciprocal">
+            <img src="../../assets/reciprocal.jpg" alt="">
+        </div>
+
+        <!-- 华为新春价 -->
+        <div class="honor">
+            <a :href="item.link" v-for="item in honor" :key="item.id">
+                <img :src="item.imagePath" alt="">
+            </a>
+        </div>
+
+        <!-- iPoneX+ASUS -->
+        <dir class="iphoneandasus">
+            <a :href="item.link" v-for="item in appleandasus" :key="item.id">
+                <img :src="item.imagePath" alt="">
+            </a>
+        </dir>
+
+        <!-- 小猪佩奇+手机壳 -->
+        <dir class="pigandshell">
+            <a :href="item.link" v-for="item in pigandshell" :key="item.id">
+                <img :src="item.imagePath" alt="">
+            </a>
+        </dir>
+
         <!-- 限时抢购 -->
         <div class="timetobuy">
             <div></div>
@@ -105,7 +131,7 @@
         </div>
 
         <!-- 手机精品 -->
-        <div class="boutiquepic"> <!--图片-->
+        <div class="boutiquepic">
             <img src="../../assets/boutiquephone.png" alt="">
         </div>
         <div class="boutiqueone">
@@ -125,7 +151,7 @@
         </div>
 
         <!-- 办公专家 -->
-        <div class="officepic"> <!--图片-->
+        <div class="officepic"> 
             <img src="../../assets/officer.png" alt="">
         </div>
         <div class="officeone">
@@ -240,6 +266,12 @@ export default {
                 min: 0,
                 sec: 0,
 
+                honor:[], //华为新春价
+
+                appleandasus:[], //iPoneX+ASUS
+
+                pigandshell:[], //小猪佩奇+手机壳
+
                 rushtoday:[], //限时抢购右边部分
 
                 headline:[], //九机头条
@@ -273,15 +305,26 @@ export default {
         },
         methods: {
             countdown: function () {
-                let end = Date.parse(new Date('2019-01-22'))
+                let end = Date.parse(new Date('2019-02-10'))
                 let now = Date.parse(new Date())
                 let msec = end - now
-                let hr = parseInt(msec / 1000 / 60 / 60)
-                let min = parseInt(msec / 1000 / 60 % 60)
-                let sec = parseInt(msec / 1000 % 60)
-                this.hr = hr > 9 ? hr : '0' + hr
-                this.min = min > 9 ? min : '0' + min
-                this.sec = sec > 9 ? sec : '0' + sec
+                // 刷新为10点
+                if(msec == 0){
+                    msec = 864000000;
+                    let hr = parseInt(msec / 1000 / 60 / 60)
+                    let min = parseInt(msec / 1000 / 60 % 60)
+                    let sec = parseInt(msec / 1000 % 60)
+                    this.hr = hr > 9 ? hr : '0' + hr
+                    this.min = min > 9 ? min : '0' + min
+                    this.sec = sec > 9 ? sec : '0' + sec
+                }else{
+                    let hr = parseInt(msec / 1000 / 60 / 60)
+                    let min = parseInt(msec / 1000 / 60 % 60)
+                    let sec = parseInt(msec / 1000 % 60)
+                    this.hr = hr > 9 ? hr : '0' + hr
+                    this.min = min > 9 ? min : '0' + min
+                    this.sec = sec > 9 ? sec : '0' + sec
+                }
                 const that = this;
                 // console.log(that);
                 setTimeout(function () {
@@ -302,22 +345,25 @@ export default {
                 // console.log(res.data.data.container.floor[4].content);
                 this.navpic = res.data.data.container.floor[0].content;
                 this.bannav = res.data.data.container.floor[1].content;
-                this.headline = res.data.data.container.floor[4].content;
-                this.recommendone = res.data.data.container.floor[5].content;
-                this.recommendtwo = res.data.data.container.floor[6].content;
-                this.recommendthree = res.data.data.container.floor[7].content;
-                this.recommendfour = res.data.data.container.floor[8].content;
-                this.newgift = res.data.data.container.floor[9].content;
-                this.boutiqueone = res.data.data.container.floor[13].content;
-                this.boutiquetwo = res.data.data.container.floor[14].content;
-                this.boutiquethree = res.data.data.container.floor[15].content;
-                this.officeone = res.data.data.container.floor[17].content;
-                this.officetwo = res.data.data.container.floor[18].content;
-                this.officethree = res.data.data.container.floor[19].content;
-                this.lifeone = res.data.data.container.floor[21].content;
-                this.lifetwo = res.data.data.container.floor[22].content;
-                this.findgood = res.data.data.container.floor[25].content;
-            
+                this.headline = res.data.data.container.floor[7].content;
+                this.recommendone = res.data.data.container.floor[8].content;
+                this.recommendtwo = res.data.data.container.floor[9].content;
+                this.recommendthree = res.data.data.container.floor[10].content;
+                this.recommendfour = res.data.data.container.floor[11].content;
+                this.newgift = res.data.data.container.floor[12].content;
+                this.boutiqueone = res.data.data.container.floor[16].content;
+                this.boutiquetwo = res.data.data.container.floor[17].content;
+                this.boutiquethree = res.data.data.container.floor[18].content;
+                this.officeone = res.data.data.container.floor[20].content;
+                this.officetwo = res.data.data.container.floor[21].content;
+                this.officethree = res.data.data.container.floor[22].content;
+                this.lifeone = res.data.data.container.floor[24].content;
+                this.lifetwo = res.data.data.container.floor[25].content;
+                this.findgood = res.data.data.container.floor[28].content;
+                this.honor = res.data.data.container.floor[3].content;
+                this.appleandasus = res.data.data.container.floor[4].content;
+                this.pigandshell = res.data.data.container.floor[5].content;
+
                 //九机头条轮播图
                 Vue.nextTick(()=>{
                     let mySwiper = new Swiper('#swiper_one', {
@@ -366,6 +412,49 @@ export default {
                     width: 2rem;
                     cursor: pointer;
                 }
+            }
+        }
+
+        //春节倒数
+        .reciprocal{
+            height: 2.453333rem;
+            margin-top: .266667rem;
+            >img{
+                height: 2.453333rem;
+            }
+        }
+        
+        //华为新春价
+        .honor{
+            height: 3.333333rem;
+            display: flex;
+            img{
+                flex:1;
+                height: 3.333333rem;
+            }   
+        }
+
+        //iPoneX+ASUS
+        .iphoneandasus{
+            height: 3.333333rem;
+            display: flex;
+            padding: 0;
+            margin: 0;
+            img{
+                flex:1;
+                height: 3.333333rem;
+            }
+        }
+
+        //小猪佩奇+手机壳
+        .pigandshell{
+            height: 3.333333rem;
+            display: flex;
+            padding: 0;
+            margin: 0;
+            img{
+                flex:1;
+                height: 3.333333rem;
             }
         }
 
@@ -536,8 +625,9 @@ export default {
             height: 1.666667rem;
             display: flex;
             img{
+                flex:1;
                 height: 1.666667rem;
-            }
+            }   
         }
 
         //为你优选
