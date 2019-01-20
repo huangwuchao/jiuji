@@ -1,7 +1,7 @@
 <template>
     <div id="List">
         <div class="list-top">
-          <div class="hom fa fa-angle-left" @click="selected('/home')">
+          <div class="hom fa fa-angle-left" @click="selected('/')">
             
           </div>
           <router-link tag='a' :to="'/search-form'" class="sou">
@@ -65,7 +65,7 @@ export default {
             text:'首页',
             name:'Home',
             icon:'#icon-shouye',
-            path:'/home'
+            path:'/'
           },{
             text:'分类',
             name:'List',
@@ -165,6 +165,7 @@ export default {
             height: 100%;
             display: flex;
             background: #f5f5f5;
+            //margin-bottom: 30px;
             .lefta{
                 display: flex;
                 flex-direction: column;
@@ -193,13 +194,16 @@ export default {
             }
             .right2{
                 display: flex;
+                flex:1;
                 flex-direction: column;
-                overflow-x: auto;
+                overflow-y: auto;
+                margin-bottom: 50px;
+                 //overflow: hidden;
               .right{
                 width: 7.12rem;
                 height: 100%;
                 //overflow: auto;
-                margin-left: .266667rem;
+                margin-left: .213333rem;
                 // background: #0f0;
                 
                   .right-top{

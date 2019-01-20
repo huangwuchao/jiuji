@@ -53,7 +53,7 @@ export default {
             text:'首页',
             name:'Home',
             icon:'#icon-shouye',
-            path:'/home'
+            path:'/'
           },{
             text:'分类',
             name:'List',
@@ -87,7 +87,7 @@ export default {
       },
       login(){
           sessionStorage.setItem('token','111');
-          this.$router.push('/home')
+          this.$router.push('/')
           //this.$router.go(-1);
       }
     }

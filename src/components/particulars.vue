@@ -392,20 +392,20 @@
       }
 
       .sou {
-        width: 250px;
-        height: 44px;
+        width: 6.666667rem;
+        height: 1.173333rem;
         display: flex;
 
-        margin: 0 36px;
-        font-size: 18px;
+        margin: 0 .96rem;
+        font-size: .48rem;
 
         span {
           display: block;
           display: inline-block;
-          height: 44px;
+          height: 1.173333rem;
           text-align: center;
-          line-height: 44px;
-          margin-left: 39px;
+          line-height: 1.173333rem;
+          margin-left: 1.04rem;
 
         }
       }
@@ -475,7 +475,7 @@
 
       flex: 1;
       .img {
-        height: 349px;
+        height: 9.306667rem;
 
         .swiper-container {
           width: 100%;
@@ -489,7 +489,7 @@
           .swiper-slide {
             height: 100%;
             text-align: center;
-            font-size: 18px;
+            font-size: .48rem;
             background: #fff;
 
             /* Center slide text vertically */
@@ -507,8 +507,8 @@
             align-items: center;
 
             img {
-              width: 349px;
-              height: 349px;
+              width: 9.306667rem;
+              height: 9.306667rem;
             }
           }
         }
@@ -516,22 +516,22 @@
       }
 
       .pinpai {
-        padding-bottom: 10px;
-        padding: 13px 10px;
+        padding-bottom: .266667rem;
+        padding: .346667rem .266667rem;
         background: #fff;
 
         p {
           display: block;
-          margin-block-start: 1em;
+          margin-block-start: .026667rem;
           margin-block-end: 1em;
-          margin-inline-start: 0px;
-          margin-inline-end: 0px;
+          margin-inline-start: 0rem;
+          margin-inline-end: 0rem;
         }
 
         .p1 {
           margin: 0;
           padding: 0;
-          font-size: 16px;
+          font-size: .426667rem;
           line-height: 1.5;
 
         }
@@ -539,19 +539,19 @@
         .p2 {
           color: #f21c1c;
           line-height: 1.5;
-          margin-top: 5px;
-          margin-bottom: 5px;
-          font-size: 14px;
+          margin-top: .133333rem;
+          margin-bottom: .133333rem;
+          font-size: .373333rem;
         }
 
         .d1 {
-          font-size: 22px;
-          margin: 5px 0 9px;
+          font-size: .586667rem;
+          margin: .133333rem 0 .24rem;
           color: #f21c1c;
         }
 
         .d2 {
-          margin-bottom: 9px;
+          margin-bottom: .24rem;
           display: flex;
           justify-content: space-around;
 
@@ -560,34 +560,34 @@
             display: flex;
             color: #333;
             text-decoration: none;
-            font-size: 14px;
+            font-size: .373333rem;
           }
         }
 
         .p3 {
           line-height: 1.5;
           color: #9c9c9c;
-          font-size: 12px;
+          font-size: .32rem;
         }
       }
 
       .guige {
-        margin: 10px 0;
+        margin: .266667rem 0;
         // background: #fff;
 
         .timetobuy {
-          height: 94px;
+          height: 2.506667rem;
           box-sizing: border-box;
-          padding: 13px 10px;
+          padding: .346667rem .266667rem;
           display: flex;
           background: #fff;
           .left {
-            width: 100px;
-            height: 64px;
-            font-size: 16px;
+            width: 2.666667rem;
+            height: 1.706667rem;
+            font-size: .426667rem;
             color: #333;
             text-align: center;
-            line-height: 64px;
+            line-height: 1.706667rem;
 
           }
 
@@ -599,32 +599,32 @@
 
             //overflow: hidden;
             div {
-              height: 68px;
-              width: 86px;
+              height: 1.813333rem;
+              width: 2.293333rem;
               display: flex;
               flex-direction: column;
               justify-content: center;
               align-items: center;
 
               img {
-                margin-top: 4px;
-                width: 22px;
-                height: 22px;
+                margin-top: .106667rem;
+                width: .586667rem;
+                height: .586667rem;
                 display: block;
               }
 
               .p1 {
-                margin-top: 5px;
-                height: 14px;
-                font-size: 14px;
+                margin-top: .133333rem;
+                height: .373333rem;
+                font-size: .373333rem;
                 letter-spacing: normal;
                 color: #333;
               }
 
               .p2 {
-                margin-top: 8px;
-                height: 12px;
-                font-size: 12px;
+                margin-top: .213333rem;
+                height: .32rem;
+                font-size: .32rem;
                 letter-spacing: normal;
                 color: #666;
               }
@@ -632,110 +632,110 @@
           }
         }
         .liangpin{
-            height: 46px;
-            margin-top: 10px;
+            height: 1.226667rem;
+            margin-top: .266667rem;
             //padding: 13px 10px;
             background: #fff;
             position: relative;
             border: 0;
                 div{
                     display:inline-block;
-                    margin-left: 20px;
+                    margin-left: .533333rem;
                     
                         a{  
                             position: absolute;
-                            top:13px;
+                            top:.346667rem;
                             display:inline-block;
-                            font-size:14px;
+                            font-size:.373333rem;
                             color:#333;
                             //margin-bottom: 15px;
                                 .yi{
                                     display: inline-block;
-                                    height: 20px;
-                                    line-height: 18px;
-                                    min-width: 60px;
-                                    padding: 0 5px;
+                                    height: .533333rem;
+                                    line-height: .48rem;
+                                    min-width: 1.6rem;
+                                    padding: 0 .133333rem;
                                     box-sizing: border-box;
-                                    border: 1px solid #f21c1c;
-                                    border-radius: 10px;
+                                    border: .026667rem solid #f21c1c;
+                                    border-radius: .266667rem;
                                     background-color: rgba(242,28,28,.1);
-                                    font-size: 12px;
+                                    font-size: .32rem;
                                     text-align: center;
                                     color: #f21c1c;
-                                    margin-right: 10px;
+                                    margin-right: .266667rem;
                                 }
                         }
                         .aa{
-                            left: 190px;
+                            left: 5.066667rem;
                         }
 
                 }
         }
         .youhui{
-            height: 46px;
-            margin-top: 10px;
+            height: 1.226667rem;
+            margin-top: .266667rem;
             //padding: 13px 10px;
             background: #fff;
             position: relative;
             border: 0;
                 div{
                     display:inline-block;
-                    margin-left: 20px;
+                    margin-left: .533333rem;
                         a{  
                             display:inline-block;
                             position: absolute;
-                            top:13px;
-                            font-size:14px;
+                            top:.346667rem;
+                            font-size:.373333rem;
                             color:#333;
                                 .yi{
                                     display: inline-block;
-                                    height: 20px;
-                                    line-height: 18px;
-                                    min-width: 60px;
-                                    padding: 0 5px;
+                                    height: .533333rem;
+                                    line-height: .48rem;
+                                    min-width: 1.6rem;
+                                    padding: 0 .133333rem;
                                     box-sizing: border-box;
-                                    border: 1px solid #f21c1c;
-                                    border-radius: 10px;
+                                    border: .026667rem solid #f21c1c;
+                                    border-radius: .266667rem;
                                     background-color: rgba(242,28,28,.1);
-                                    font-size: 12px;
+                                    font-size: .32rem;
                                     text-align: center;
                                     color: #f21c1c;
-                                    margin-right: 10px;
+                                    margin-right: .266667rem;
                                 }
                         }
 
                 }
         }
         .xiaoliang{
-            height: 46px;
-            margin-top: 10px;
+            height: 1.226667rem;
+            margin-top: .266667rem;
             //padding: 13px 10px;
             background: #fff;
             position: relative;
             border: 0;
                 div{
                     display:inline-block;
-                    margin-left: 20px;
+                    margin-left: .533333rem;
                         a{  
                             display:inline-block;
                             position: absolute;
-                            top:13px;
-                            font-size:14px;
+                            top:.346667rem;
+                            font-size:.373333rem;
                             color:#333;
                                 .yi{
                                     display: inline-block;
-                                    height: 20px;
-                                    line-height: 18px;
-                                    min-width: 60px;
-                                    padding: 0 5px;
+                                    height: .533333rem;
+                                    line-height: .48rem;
+                                    min-width: 1.6rem;
+                                    padding: 0 .133333rem;
                                     box-sizing: border-box;
                                    
-                                    border-radius: 10px;
+                                    border-radius: .266667rem;
                                     
-                                    font-size: 16px;
+                                    font-size: .426667rem;
                                     text-align: center;
                                    
-                                    margin-right: 10px;
+                                    margin-right: .266667rem;
                                 }
                         }
 
@@ -744,28 +744,28 @@
 
       }
       .peijian{
-          margin: 10px 0;
+          margin: .266667rem 0;
           background: #fff;
             .top{
-                height: 46px;
+                height: 1.226667rem;
                 display: -webkit-flex;
-                font-size:14px;
+                font-size:.373333rem;
                 color:#9c9c9c;
-                padding-top:13px;
-                border-bottom: 1px solid #CCC;
+                padding-top:.346667rem;
+                border-bottom: .026667rem solid #CCC;
                     span{
-                        font-size: 16px;
+                        font-size: .426667rem;
                         color:#333;
-                        margin-right: 155px;
-                        margin-left:20px;
+                        margin-right: 4.133333rem;
+                        margin-left:.533333rem;
                     }
             }
             .nav1{
                 width: 100%;
-                height: 200px;
+                height: 5.333333rem;
                 // display: flex;
                 // overflow-x: auto;
-                padding: 13px 15px;
+                padding: .346667rem .4rem;
                 background: #fff;
                     div{
                         width: 100%;
@@ -774,33 +774,33 @@
                         overflow-x: auto;
                             a{
                                 display:block;
-                                width: 100px;
-                                margin-left: 12.5px;
-                                margin-right: 10px;
+                                width: 2.666667rem;
+                                margin-left: .333333rem;
+                                margin-right: .266667rem;
                                 text-decoration: none;
                                 img{
                                 //margin-top: 10px;
-                                width: 100px;
-                                height: 100px;
+                                width: 2.666667rem;
+                                height: 2.666667rem;
                                 display: block;
                             }
                             p{
-                                margin-top: 5px;
+                                margin-top: .133333rem;
                                 text-align: left;
                                 line-height: 1.33;
-                                height: 30px;
+                                height: .8rem;
                                 overflow: hidden;
                                 text-overflow: ellipsis;
                                 display: -webkit-box;
                                 -webkit-line-clamp: 2;
                                 color:#6b6b6b;
-                                font-size: 12px;
+                                font-size: .32rem;
                             }
                             .p1{
                                 line-height: 1.33;
-                                font-size:12px;
+                                font-size:.32rem;
                                 color: #f21c1c;
-                                margin-top: 10px; 
+                                margin-top: .266667rem; 
                             }
                           }
                             
@@ -809,25 +809,25 @@
 
       }
       .xiangqing{
-          margin-top: 20px;
+          margin-top: .533333rem;
           width: 100%;
             .top{
-                height: 44px;
+                height: 1.173333rem;
                 background: #fff;
-                max-width: 640px;
+                max-width: 17.066667rem;
                 margin: 0 auto;
                     a{
                         display: block;
-                        height: 44px;
-                        line-height: 44px;
+                        height: 1.173333rem;
+                        line-height: 1.173333rem;
                         text-align: center;
                         text-decoration: none;
-                        font-size: 18px;
+                        font-size: .48rem;
                         color: #333;
                     }
             }
             .van{
-                padding: 0 10px 15px;
+                padding: 0 .266667rem .4rem;
                 overflow: hidden;
                     p{
                         width: 100%!important;
@@ -844,14 +844,14 @@
     .bottombtn{
           position: fixed;
           width: 100%;
-          height: 48px;
+          height: 1.28rem;
           bottom: 0;
           right: 0;
           left: 0;
           z-index: 8;
             .aa{
                 position: relative;
-                max-width: 640px;
+                max-width: 17.066667rem;
                 margin: 0 auto;
                 height: 100%;
                 background-color: #fff;
@@ -859,10 +859,10 @@
                   a{
                     display: block;
                     height: 100%;
-                    width: 55px;
+                    width: 1.466667rem;
                     box-sizing: border-box;
-                    border-right: 1px solid #dfdfdf;
-                    font-size: 12px;
+                    border-right: .026667rem solid #dfdfdf;
+                    font-size: .32rem;
                     color: #333;
                     display: flex;  
                     flex-direction: column;
@@ -873,14 +873,14 @@
                           // width: 18px;
                           // height: 18px;
                           background-size: 100%;
-                          margin-bottom: 3px;
+                          margin-bottom: .08rem;
                           background-repeat: no-repeat;
                           background-position: 50%;
                       }
                   }
                   .jiaru,.goumai{
-                      width: 105px;
-                      font-size:14px;
+                      width: 2.8rem;
+                      font-size:.373333rem;
                   }
                   .goumai{
                     background: #f21c1c;
@@ -893,44 +893,44 @@
                 background: #fff;
                   .topp{
                       height: 100%;
-                      padding-left: 20px;
+                      padding-left: .533333rem;
                         .tuichu{
                           position: absolute;
-                          right: 10px;
-                          top: 10px;
+                          right: .266667rem;
+                          top: .266667rem;
                           color: #9c9c9c;
                           z-index: 1;
-                          font-size: 16px; 
+                          font-size: .426667rem; 
                         }
                         .toppp{
                               position: relative;
-                              height: 75px;
-                              padding: 0px 10px 0 137px;
+                              height: 2rem;
+                              padding: 0 .266667rem 0 3.653333rem;
                               box-sizing: border-box;
                                 .p1{
-                                    font-size: 20px;
-                                    margin-bottom: 5px;
+                                    font-size: .533333rem;
+                                    margin-bottom: .133333rem;
                                     color:#f21c1c;
                                 }
                                 .p2{
                                     color:#9c9c9c;
-                                    font-size: 12px;
+                                    font-size: .32rem;
                                 }
                                 .p3{
                                     line-height: 1.33;
                                     text-align: justify;
-                                    margin-top: 5px;
+                                    margin-top: .133333rem;
                                     color: #6b6b6b;
-                                    font-size: 12px;
+                                    font-size: .32rem;
                                 }
                                 .img{
                                     position: absolute;
-                                    left: -2px;
-                                    top: -55px;
-                                    height: 120px;
-                                    width: 120px;
-                                    border: 1px solid #9c9c9c;
-                                    border-radius: 6px;
+                                    left: -0.053333rem;
+                                    top: -1.466667rem;
+                                    height: 3.2rem;
+                                    width: 3.2rem;
+                                    border: .026667rem solid #9c9c9c;
+                                    border-radius: .16rem;
                                     box-sizing: border-box;
                                     overflow: hidden;
                                       img{
@@ -940,38 +940,38 @@
                                 }
                         }
                         .anv{
-                            height: calc(100% - 62px);
+                            height: calc(100% - 1.653333rem);
                             overflow-y: auto;
                             // padding-left: 10px;
-                            padding-bottom: 52px;
+                            padding-bottom: 1.386667rem;
                             box-sizing: border-box;
                               a{
-                                height: 30px;
-                                line-height: 28px;
+                                height: .8rem;
+                                line-height: .746667rem;
                                 text-align: center;
-                                border: 1px solid #dfdfdf;
-                                border-radius: 16px;
-                                margin-right: 10px;
-                                margin-top: 10px;
-                                font-size: 12px;
-                                padding: 0 8px;
+                                border: .026667rem solid #dfdfdf;
+                                border-radius: .426667rem;
+                                margin-right: .266667rem;
+                                margin-top: .266667rem;
+                                font-size: .32rem;
+                                padding: 0 .213333rem;
                                 box-sizing: border-box;
                               }
                               .d1{
-                                margin-top: 10px;
+                                margin-top: .266667rem;
                                   .biaoti{
                                     color: #333;
-                                    font-size: 16px;
+                                    font-size: .426667rem;
                                   }
                                   .neiron{
                                     display: flex;
                                     //height: 40px;
                                     //flex-wrap: wrap;
                                       div{
-                                        width: 66px;
-                                        height: 30px;
-                                        margin-right: 10px;
-                                        margin-top: 10px;
+                                        width: 1.76rem;
+                                        height: .8rem;
+                                        margin-right: .266667rem;
+                                        margin-top: .266667rem;
                                           // a{
                                           //   margin-right: 0;
                                           //   display: block;
@@ -984,9 +984,9 @@
                                               
                                               display: inline-block;
                                               color: #f21c1c;
-                                              border: 1px solid #f21c1c;
+                                              border: .026667rem solid #f21c1c;
                                               background-color: rgba(200,15,30,.1);
-                                              min-width: 66px;
+                                              min-width: 1.76rem;
                                               vertical-align: top;
                                               margin-top: 0; 
                                           }
@@ -996,10 +996,10 @@
                                     display: flex;  
                                     flex-wrap: wrap;
                                       div{
-                                        width: 167px;
-                                        height: 30px;
-                                        margin-right: 10px;
-                                        margin-top: 10px;
+                                        width: 4.453333rem;
+                                        height: .8rem;
+                                        margin-right: .266667rem;
+                                        margin-top: .266667rem;
                                           // a{
                                           //   margin-right: 0;
                                           //   display: block;
@@ -1014,7 +1014,7 @@
                                               color: #f21c1c;
                                               border: 1px solid #f21c1c;
                                               background-color: rgba(200,15,30,.1);
-                                              min-width: 66px;
+                                              min-width: 1.76rem;
                                               vertical-align: top;
                                               margin-top: 0; 
                                           }
@@ -1025,18 +1025,18 @@
                         }
                   }
                   .buot{
-                        height: 40px;
+                        height: 1.066667rem;
                         position: absolute;
                         bottom: 0;
                         left: 0;
                           a{
                             display: block;
-                            height: 40px;
+                            height: 1.066667rem;
                             background-color: #f21c1c;
                             color: #fff;
-                            line-height: 40px;
+                            line-height: 1.066667rem;
                             text-align: center;
-                            font-size: 16px;
+                            font-size: .426667rem;
                           }
                   }
               }

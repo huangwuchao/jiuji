@@ -47,7 +47,7 @@ export default {
         //返回首页
         gohome(){
             // console.log(this.$router);
-            this.$router.push('/home');
+            this.$router.push('/');
         }
     },
     created(){
