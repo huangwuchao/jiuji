@@ -3,7 +3,7 @@
     <router-view/>
     <!-- <div class="top"></div> -->
     <div class="bottom">
-      <a href="javascript:;" v-for="(tab,idx) in tabs" :key="tab.path" :class="{active:active==tab.path}" @click="selected(tab.path)">
+      <a href="javascript:;" v-for="(tab,idx) in tabs" :key="tab.path" :class="{'active' : $route.name == tab.name}" @click="selected(tab.path)">
         <svg class="icon" aria-hidden="true">
           <use :xlink:href="tab.icon"></use>
         </svg>
@@ -38,9 +38,9 @@
         tabs:[
           {
             text:'首页',
-            name:'Home',
+            name:'tuijian',
             icon:'#icon-shouye',
-            path:'/home'
+            path:'/'
           },{
             text:'分类',
             name:'List',
@@ -63,16 +63,19 @@
             path:'/mine'
           }
         ],
-        active:'/home'
+        //active:'/home'
       }
     },
     methods:{
       selected(path){
         // console.log(path);
-        this.active = path;
+        //this.active = path;
         this.$router.push({path});
       }
-    }
+    },
+    mounted(){
+      console.log(this.$route.name)
+      }
   }
 </script>
 
