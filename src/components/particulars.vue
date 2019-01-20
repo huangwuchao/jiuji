@@ -244,6 +244,46 @@
                           </div>
                            
                         </div>
+                        <div class="d1">
+                          <div class="biaoti">
+                            <span>版本</span>
+                          </div>
+                          <div class="neiron2">
+                            <div>
+                              <a href="javascript:;" class="a1">iPhone XS</a>
+                            </div>
+                            <div>
+                              <a href="javascript:;" class="a1">iPhone XS Max</a>
+                            </div>
+                            <div>
+                              <a href="javascript:;" class="a1">iPhone XS</a>
+                            </div>
+                            <div>
+                              <a href="javascript:;" class="a1">iPhone XS</a>
+                            </div>
+                          </div>
+                           
+                        </div>
+                        <div class="d1">
+                          <div class="biaoti">
+                            <span>套餐</span>
+                          </div>
+                          <div class="neiron2">
+                            <div>
+                              <a href="javascript:;" class="a1">iPhone XS</a>
+                            </div>
+                            <div>
+                              <a href="javascript:;" class="a1">iPhone XS Max</a>
+                            </div>
+                            <div>
+                              <a href="javascript:;" class="a1">iPhone XS</a>
+                            </div>
+                            <div>
+                              <a href="javascript:;" class="a1">iPhone XS</a>
+                            </div>
+                          </div>
+                        </div>
+                        
                       </div>
                   </dir>
                   
@@ -941,6 +981,7 @@
                                           //   margin-top: 0;
                                           // }
                                           .a1{
+                                              
                                               display: inline-block;
                                               color: #f21c1c;
                                               border: 1px solid #f21c1c;
@@ -950,6 +991,35 @@
                                               margin-top: 0; 
                                           }
                                       }
+                                  }
+                                  .neiron2{
+                                    display: flex;  
+                                    flex-wrap: wrap;
+                                      div{
+                                        width: 167px;
+                                        height: 30px;
+                                        margin-right: 10px;
+                                        margin-top: 10px;
+                                          // a{
+                                          //   margin-right: 0;
+                                          //   display: block;
+                                          //   line-height: 28px;
+                                          //   box-sizing: border-box;
+                                          //   min-width: 76px;
+                                          //   margin-top: 0;
+                                          // }
+                                          .a1{
+                                              width: 100%;
+                                              display: inline-block;
+                                              color: #f21c1c;
+                                              border: 1px solid #f21c1c;
+                                              background-color: rgba(200,15,30,.1);
+                                              min-width: 66px;
+                                              vertical-align: top;
+                                              margin-top: 0; 
+                                          }
+                                      }
+
                                   }
                               }
                         }
