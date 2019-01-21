@@ -129,6 +129,7 @@ const routes = [
    },
   // { path:'/',redirect:{name:'Home'}},
   { path:'/',redirect:{name:'tuijian'}},
+  { path:'**',redirect:{name:'tuijian'}},
   // { path:'/',redirect:{name:'tuijian'}},
   //  { path:'/home/tabs=1',redirect:{name:'Home'}}
 ] 
