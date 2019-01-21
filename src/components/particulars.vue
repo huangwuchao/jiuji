@@ -1,7 +1,7 @@
 <template>
   <div id="part">
     <div class="list-top">
-      <div class="hom fa fa-angle-left" @click="selected('/home')">
+      <div class="hom fa fa-angle-left" @click="goback">
 
       </div>
       <div class="sou">
@@ -312,7 +312,7 @@
           text: '首页',
           name: 'Home',
           icon: '#icon-shouye',
-          path: '/home'
+          path: '/'
         }, {
           text: '分类',
           name: 'List',
@@ -329,7 +329,7 @@
           icon: '#icon-wode',
           path: '/mine'
         }],
-        active: '/home',
+        active: '/',
         popupVisible:false,
         data: [{
           children: ''
@@ -353,7 +353,10 @@
       },
       tanchu(){
         this.popupVisible= true
-      }
+      },
+       goback(){
+            this.$router.go(-1);
+        },
     },
     created() {
       var mySwiper = new Swiper('.swiper-container', {
