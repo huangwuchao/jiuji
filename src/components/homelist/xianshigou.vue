@@ -85,7 +85,7 @@ export default {
             // console.log(this.inde)
 
             this.xsgbuy = res.data.data.container.floor[1].content.product[this.inde].list;
-            console.log(this.xsgbuy)
+            // console.log(this.xsgbuy)
         })
     },
     methods: {

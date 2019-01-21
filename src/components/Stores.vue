@@ -4,6 +4,7 @@
             <a href="javascript:;" @click="goback" class="fa fa-angle-left"></a>
             <div></div>
             <a href="javascript:;"></a>
+            地图
         </div>
     </div>
 </template>

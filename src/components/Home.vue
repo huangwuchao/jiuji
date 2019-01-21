@@ -38,7 +38,7 @@
                 <div class="onavigate">
                     <nav>
                     <!-- <router-link :to="{name:navigatelabel.path}" v-for="navigatelabel in navigatelabels" :key="navigatelabel.id" :class="{active:active==navigatelabel.path}" @click="selected(navigatelabel.path)">{{navigatelabel.title}}</router-link> -->
-                        <a :href="navigatelabel.path" v-for="navigatelabel in navigatelabels" :key="navigatelabel.id" :class="{active:active==navigatelabel.id}" @click="selected(navigatelabel.id)">
+                        <a :href="navigatelabel.path" v-for="navigatelabel in navigatelabels" :key="navigatelabel.id" :class="{'active' : $route.name == navigatelabel.name}" @click="selected(navigatelabel.id)">
                             {{navigatelabel.title}}
                         </a>
                     </nav>
@@ -64,32 +64,38 @@
                     {
                         id:1,
                         title:'推荐',
-                        path:'#/home/tabs=1'
+                        path:'#/home/tabs=1',
+                        name:'tuijian'
                     },
                     {
                         id:2,
                         title:'限时购',
-                        path:'#/home/tabs=2'
+                        path:'#/home/tabs=2',
+                        name:'xianshigou'
                     },
                     {
                         id:3,
                         title:'以旧换新',
-                        path:'#/home/tabs=3'
+                        path:'#/home/tabs=3',
+                        name:'yijiuhuanxin'
                     },
                     {
                         id:4,
                         title:'手机快修',
-                        path:'#/home/tabs=4'
+                        path:'#/home/tabs=4',
+                        name:'shoujikuaixiu'
                     },
                     {
                         id:5,
                         title:'久久租',
-                        path:'#/home/tabs=5'
+                        path:'#/home/tabs=5',
+                        name:'jiujiuzu'
                     },
                     {
                         id:6,
                         title:'头条',
-                        path:'#/home/tabs=6'
+                        path:'#/home/tabs=6',
+                        name:'toutiao'
                     }
                 ],
                 active:1, //导航栏高亮
@@ -106,6 +112,9 @@
                 // console.log(res.data.data.searchPlaceholder);
                 this.searchplaceholder = res.data.data.searchPlaceholder;
             })
+        },
+        mounted(){
+            console.log(this.$route.name);
         }
     }
 </script>
