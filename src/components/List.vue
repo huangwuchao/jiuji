@@ -36,7 +36,7 @@
                     <a :href='data3.link2'>{{data3.name2}}>></a> 
                 </div>
                 <div class="avn-bottom">
-                  <a href="javascript:;" v-for="data4 in data3.children" :key="data4.id" @click="selected('/particulars')">
+                  <a href="javascript:;" v-for="data4 in data3.children" :key="data4. id" @click="selected(data4.coll)">
                     <img :src='data4.picture' alt="">
                     <span>{{data4.title}}</span>
                   </a>
@@ -91,10 +91,12 @@ export default {
       }
     },
      methods:{
-      selected(path){
-        // console.log(path);
-        this.active = path;
-        this.$router.push({path});
+      selected(id){
+        // console.log();
+        // this.active = path;
+        this.$router.push({'path':'/Search',query:{id}});
+
+        console.log(id)
       },
       chuang(index){
         this.index=index
@@ -102,7 +104,7 @@ export default {
     },
     created(){
         Axios.get('/dbapi/products/category/v1').then(res=>{
-            //  console.log(res.data.data[0]);
+             console.log(res.data.data[0]);
             this.data = res.data.data;
             //this.data2 = res.data.data.data[0]['children'][0]['children'];
           // console.log(res.data.data[0].children[0].children[0]);

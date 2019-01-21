@@ -36,7 +36,7 @@
         <!-- 搜索内容 -->
         <div class="searchresult">
             <!-- 有搜索结果 -->
-            <a :href="item.ppid" v-for="(item,idx) in result" :key="idx">
+            <a href="javascript:;" v-for="(item,idx) in result" :key="idx" @click="selected(item.ppid)">
                 <div class="resultpic"><!-- 图片 -->
                     <img :src="item.imagePath" alt="">
                 </div>
@@ -99,32 +99,50 @@ export default {
         goback(){
             this.$router.go(-1);
         },
+        selected(id){
+        // console.log();
+        // this.active = path;
+        this.$router.push({'path':'/particulars',query:{id}});
+
+        console.log(id)
+      },
     },
     created(){
         let searchkey = this.$route.query.keyword;
-        // console.log(searchkey);
+        let fenlei = this.$route.query.id;
+         console.log(fenlei);
         let sear = '/dbapi/products/v2?coll=&keyword='+searchkey+'&productId=0&page=1&inStock=0';
-        Axios.get(sear).then(res=>{
-            //判断是否有搜索结果
-            // console.log(res);
-            if(res.data.data.product.totalCount!=0){
-                var newres = res.data.data.product.list.map(function(item){
-                    //修改ppid属性作为跳转详情页属性
-                    item.ppid = 'https://m.9ji.com/product/'+item.ppid+'.html';
-                })
-                // console.log(res.data.data.product.list);
-                this.result = res.data.data.product.list;
-            }else{
-                // console.log('没有搜索到相关商品');
-                this.nofound =[{text:'没有搜索到相关商品'}];
-            }
-        })
+        let fenleiAj = '/dbapi/products/v2?coll='+fenlei+'&keyword=&productId=0&page=1&inStock=0';
+        if(searchkey){
+                Axios.get(sear).then(res=>{
+                //判断是否有搜索结果
+                // console.log(res);
+                if(res.data.data.product.totalCount!=0){
+                    var newres = res.data.data.product.list.map(function(item){
+                        //修改ppid属性作为跳转详情页属性
+                        item.ppid = 'https://m.9ji.com/product/'+item.ppid+'.html';
+                    })
+                    // console.log(res.data.data.product.list);
+                    this.result = res.data.data.product.list;
+                }else{
+                    // console.log('没有搜索到相关商品');
+                    this.nofound =[{text:'没有搜索到相关商品'}];
+                }
+            })
+        }else if(fenlei){
+             Axios.get(fenleiAj).then(res=>{
+                     console.log(res.data.data.product.list);
+                    this.result = res.data.data.product.list;
+            })   
+        };
+        
     },
     mounted(){
         let searchkey = this.$route.query.keyword;
         var sname = document.getElementById('sname');
         sname.innerHTML = searchkey; //根据要搜索的内容更改顶部搜索框的内容
-    }
+    },
+    
 }
 $(function(){ //jQuery写这里
     $('.searchfilter').on('click','div',function(){

@@ -283,7 +283,16 @@
                             </div>
                           </div>
                         </div>
-                        
+                        <div class="jiajian">
+                          <div class="sl">
+                              数量
+                          </div>
+                          <div class="jiajian2">
+                              <a href="javascript:;" class="jian fa fa-minus" @click="downNum"></a>
+                              <span class="neiron">{{num}}</span>
+                              <a href="javascript:;" class="jia fa fa-plus" @click="upNum"></a>
+                          </div>
+                        </div>
                       </div>
                   </dir>
                   
@@ -307,6 +316,7 @@
   export default {
     data() {
       return {
+        num: 1,
         show: false,
         tabs: [{
           text: '首页',
@@ -357,6 +367,19 @@
        goback(){
             this.$router.go(-1);
         },
+      downNum(){
+        if(this.num <= 1){
+            this.num = 1;
+        }else{
+            this.num --;
+        }
+    },
+    upNum(){
+        this.num ++;
+    },
+
+
+
     },
     created() {
       var mySwiper = new Swiper('.swiper-container', {
@@ -954,8 +977,6 @@
                                 text-align: center;
                                 border: .026667rem solid #dfdfdf;
                                 border-radius: .426667rem;
-                                margin-right: .266667rem;
-                                margin-top: .266667rem;
                                 font-size: .32rem;
                                 padding: 0 .213333rem;
                                 box-sizing: border-box;
@@ -1024,6 +1045,62 @@
                                       }
 
                                   }
+                              }
+                              .jiajian{
+                                    height: 44px;
+                                    margin-top: 14px;
+                                    margin-right: 20px;
+                                    position: relative;
+                                    border: 0;
+                                    display: flex;
+                                    align-items: center;
+                                      .sl{
+                                        color: #333;
+                                        font-size: 16px;
+                                      }
+                                      .jiajian2{
+                                        display: flex;
+                                        width: 90px;
+                                        margin-right: 14px;
+                                          a{
+                                            box-sizing: border-box;
+                                            height: 24px;
+                                            line-height: 22px;
+                                            border: 1px solid #dfdfdf;
+                                            text-align: center;
+                                            width: 24px;
+                                            font-size: 12px;
+                                            color: #333;
+                                            border-radius: 0;
+                                            margin-right: 0 none;
+                                            margin-top: 0 none;
+                                          }
+                                          .jian{
+                                            border-top-left-radius: 3px;
+                                            border-bottom-left-radius: 3px;
+                                            //background: #9c9c9c;
+                                            margin-right: 0 none;
+                                            margin-top: 0 none;
+                                          }
+                                          .neiron{
+                                            box-sizing: border-box;
+                                            width: 35px;
+                                            height: 24px;
+                                            line-height: 22px;
+                                            text-align: center;
+                                            padding: 0 5px;
+                                            background-color: #f9f9f9;
+                                            border-top: 1px solid #dfdfdf;
+                                            border-bottom: 1px solid #dfdfdf;
+                                            font-size: 12px;
+                                          }
+                                          .jia{
+                                            border-top-right-radius: 3px;
+                                            border-bottom-right-radius: 3px;
+                                            margin-right: 0 none;
+                                            margin-top: 0 none;
+                                          }
+                                      }
                               }
                         }
                   }
