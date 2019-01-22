@@ -113,9 +113,9 @@
                 this.searchplaceholder = res.data.data.searchPlaceholder;
             })
         },
-        mounted(){
-            console.log(this.$route.name);
-        }
+        // mounted(){
+        //     console.log(this.$route.name);
+        // }
     }
 </script>
 <style lang="scss">
