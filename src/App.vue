@@ -73,9 +73,9 @@
         this.$router.push({path});
       }
     },
-    // mounted(){
-    //   console.log(this.$route.name)
-    //   }
+    mounted(){
+      // console.log(this.$route.name)
+      }
   }
 </script>
 

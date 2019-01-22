@@ -2,11 +2,18 @@
     <div id="tuijian">
         <!-- 轮播图 -->
         <div class="banner">
-            <mt-swipe :auto="3000" style="height:5rem">
+            <!-- <mt-swipe :auto="3000" style="height:5rem">
                 <mt-swipe-item v-for="(item,idx) in navpic" :key="idx">
                     <img :src="item.imagePath" style="height:5rem">
                 </mt-swipe-item>
-            </mt-swipe>
+            </mt-swipe> -->
+            <div class="swiper-container" id="swiper_tuijian">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" v-for="(item,idx) in navpic" :key="idx">
+                        <img :src="item.imagePath" style="height:5rem">
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- 轮播图底下的导航栏 -->
@@ -47,14 +54,14 @@
             <div></div>
             <div>
                 <!-- 限时抢购 -->
-                <a href="http://localhost:2809/#/home/tabs=2" class="timebuy">
+                <a href="javascript:;" class="timebuy">
                     <span>距结束</span>
                     <span>{{`${hr}:${min}:${sec}`}}</span>
                 </a>
                 <!-- 限时抢购右边部分 -->
-                <div class="timebuyright">
-                    <div class="timebuyri">
-                        <a href="http://localhost:2809/#/home/tabs=2" v-for="item in rushtoday" :key="item.id">
+                <div class="timebuyright swiper-container">
+                    <div class="timebuyri swiper-wrapper">
+                        <a class="swiper-slide" href="javascript:;" v-for="item in rushtoday" :key="item.id">
                             <div class="tbr">
                                 <p>{{item.name}}</p>
                                 <p>￥{{item.price}}</p>
@@ -331,6 +338,9 @@ export default {
                     that.countdown()
                 }, 1000)
             },
+            // xsgbtn(){
+            //     this.$router.push('tabs=2');
+            // }
         },
         mounted: function () {
             //限时抢购倒计时
@@ -366,6 +376,12 @@ export default {
 
                 //九机头条轮播图
                 Vue.nextTick(()=>{
+                    let mySwiper1 = new Swiper('#swiper_tuijian', {
+                        autoplay: {
+                            speed: 1000
+                        }
+                    })
+
                     let mySwiper = new Swiper('#swiper_one', {
                         autoplay: {
                             speed: 1000
@@ -385,6 +401,12 @@ export default {
                         this.justforyou[i] = res.data.data.optimize[i];
                     }
                 }
+                Vue.nextTick(() => {
+                    let mySwiper2 = new Swiper('.timebuyright', {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    })
+                })
             })
 
             
@@ -469,7 +491,7 @@ export default {
                 padding: .266667rem;
                 display: flex;
                 align-items: center;
-                overflow: hidden;
+                // overflow: hidden;
                 .timebuy{  //限时抢购
                     width: 2.453333rem;
                     height: 3.733333rem;
@@ -507,7 +529,7 @@ export default {
                         // height: 3.733333rem;
                         display: flex;
                         align-items: center;
-                        overflow: auto;
+                        // overflow: auto;
                         z-index: 1;
                         >a{
                             width: 2.933333rem;
