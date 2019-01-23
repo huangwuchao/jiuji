@@ -496,7 +496,4 @@ export default {
             }
         }
     }
-    .bottom{
-        display: none !important;
-    }
 </style>
