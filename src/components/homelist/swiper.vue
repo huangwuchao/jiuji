@@ -1,7 +1,7 @@
 <template>
   <div class="app-siwper">
     <div ref='el' class="swiper-container" id="swiper_all">
-      <div class="swiper-wrapper">
+      <div class="swiper-wrapper swii">
         <div class="swiper-slide" v-for="(item, index) in NavList" :key="index">
           <keep-alive>
             <component :is="item.component"></component>
@@ -43,7 +43,8 @@ export default {
   mounted () {
     Vue.nextTick(() => {
       var swiper = new Swiper ('#swiper_all', {
-        initialSlide: this.$route.path === '/home/tabs=1' ? 0 : this.$route.path === '/home/tabs=2' ? 1 : this.$route.path === '/home/tabs=3' ? 2 : this.$route.path === '/home/tabs=4' ? 3 : this.$route.path === '/home/tabs=5' ? 4 : this.$route.path === '/home/tabs=6' ? 5 : 0
+        initialSlide: this.$route.path === '/home/tabs=1' ? 0 : this.$route.path === '/home/tabs=2' ? 1 : this.$route.path === '/home/tabs=3' ? 2 : this.$route.path === '/home/tabs=4' ? 3 : this.$route.path === '/home/tabs=5' ? 4 : this.$route.path === '/home/tabs=6' ? 5 : 0,
+        autoHeight: true
       })
       swiper.on('slideChange', () => {
         Bus.$emit('slideTab', swiper.activeIndex)
@@ -57,6 +58,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style>
 
 </style>

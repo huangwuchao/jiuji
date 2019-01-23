@@ -8,7 +8,7 @@
                 </mt-swipe-item>
             </mt-swipe> -->
             <div class="swiper-container" id="swiper_tuijian">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper tjban">
                     <div class="swiper-slide" v-for="(item,idx) in navpic" :key="idx">
                         <img :src="item.imagePath" style="height:5rem">
                     </div>
@@ -420,6 +420,7 @@ export default {
             height: 5.4rem;
             // background: linear-gradient(#e10f02,#e10f02 70%,#fff 0,#fff);
             // padding: .373333rem; 
+            
         }
         .bannav{
             height: 2rem;
