@@ -8,14 +8,60 @@
             <p>购物车</p>
             <p>共0件商品</p>
         </div>
-        <div class="carcon">
+
+
+
+
+
+
+
+
+
+
+        <!-- 购物车内容 -->
+        <div class="shoppingcar">
+            <div class="commodity" v-for="(item,idx) in cartlist" :key="idx">
+                <input type="checkbox" checked>
+                <div>
+                    <img :src="item.image" alt="">
+                    <a href="javascript:;"> <!-- 选服务按钮 -->
+                        <img src="../assets/dun.png" alt="">
+                        <span>选服务</span>
+                    </a>
+                </div>
+                <div>
+                    <p>{{item.name}}</p>
+                    <div>
+                        <p>￥{{item.price}}</p>
+                        <div>
+                            <a href="javascript:;" class="plus">-</a>
+                            <span>{{item.number}}</span>
+                            <a href="javascript:;" class="minus">+</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- 购物车为空 -->
+        <div class="carcon" v-if="showing">
             <i class="fa fa-shopping-cart"></i>
             <p>购物车里什么都没有，快去买点什么吧~</p>
             <a href="javscript:;" @click="gohome">去逛逛</a>
         </div>
+
+        <!-- 看看热卖 -->
         <img src="../assets/seemore.png" alt="">
         <div class="seemore">
-            
             <a :href="item.sku[0].ppid" class="see" v-for="(item,idx) in seemore" :key="idx">
                 <img :src="item.sku[0].imagePath" alt="">
                 <p>{{item.name}}{{item.name}}</p>
@@ -25,6 +71,27 @@
                 </div>
             </a>
         </div>
+
+
+
+
+
+
+        <!-- 结算 -->
+        <div class="clearaccount">
+            <input type="checkbox" class="selectall" checked>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
     </div>
 </template>
 <script>
@@ -36,6 +103,20 @@ export default {
     data(){
         return{
             seemore:[],
+            cartlist:[{
+                name:'华为Mate20 Pro (LYA-AL00) 全网通版 亮黑色 8GB+256GB (UD)',
+                price:'6799.00',
+                number:1,
+                image:'https://img2.ch999img.com/pic/product/440x440/20181017004429895.jpg'
+            },
+            {
+                name:'Apple iPhone X (A1865) 全网通版 银色 64GB',
+                price:'5960.00',
+                number:1,
+                image:'https://img2.ch999img.com/pic/product/440x440/20190116164007470.jpg'
+            }],
+            showing:'',
+            allnumber:0,
         }
     },
     methods:{
@@ -48,7 +129,9 @@ export default {
         gohome(){
             // console.log(this.$router);
             this.$router.push('/');
-        }
+        },
+
+        
     },
     created(){
         Axios.get('/dbapi/tmpBasket/list/v1').then(res=>{
@@ -59,7 +142,23 @@ export default {
                 item.sku[0].ppid = 'https://m.9ji.com/product/'+item.sku[0].ppid+'.html';
             })
             this.seemore = res.data.data.recommend.list;
-        })
+            //判断购物车是否有商品
+            // var shoppingcar = JSON.stringify(this.cartlist)
+            if(this.cartlist[0].name){
+                //有商品
+                // console.log(1);
+                this.showing = false;
+
+            }else{
+                //没有商品
+                // console.log(2);
+                this.showing = true;
+            }
+            
+        });
+
+
+        
 
         
     }
@@ -69,6 +168,7 @@ export default {
     #Cart{
         flex:1;
         overflow-x: hidden;
+        position: relative;
         .cartop{
             height: 1.173333rem;
             background: #f21c1c;
@@ -108,6 +208,120 @@ export default {
                 color: #fff;
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+        //购物车内容
+        .shoppingcar{
+            margin-top: .4rem;
+            background: #f5f5f5;
+            .commodity{
+                height: 3.413333rem;
+                margin: 0 .373333rem .4rem;
+                display: flex;
+                align-items: center;
+                box-shadow: 0 .053333rem .266667rem 0 rgba(0,0,0,.08);
+                >input{
+                    // display: block;
+                    width: .533333rem;
+                    height: .533333rem;
+                    border: .026667rem solid #ccc;
+                    background: #fff;
+                    margin-right: .133333rem;
+                    margin-left: .266667rem;
+                }
+                >div:nth-child(2){
+                    margin: 0 .133333rem 0 .266667rem;
+                    width: 1.866667rem;
+                    >img{
+                        border: .026667rem solid #dfdfdf;
+                        height: 1.866667rem;
+                    }
+                    >a{
+                        padding: 0 .133333rem;
+                        margin-top: .266667rem;
+                        width: 1.813333rem;
+                        height: .64rem;
+                        border: .026667rem solid #dfdfdf;
+                        display: flex;
+                        align-items: center;
+                        margin-left: .053333rem;
+                        >img{
+                            width: .4rem;
+                            height: .4rem;
+                            margin-right: .133333rem;
+                        }
+                        >span{
+                            font-size: .32rem;
+                            color: #333;
+                        }
+                    }
+                }
+                >div:nth-child(3){
+                    width: 5.733333rem;
+                    height: 2.88rem;
+                    margin-left: .266667rem;
+                    >p{
+                        color: #333;
+                        font-size: .373333rem;
+                    }
+                    >div{
+                        height: .64rem;
+                        margin: .533333rem .266667rem 0 0;
+                        display: flex;
+                        justify-content: space-between;
+                        >p{
+                            line-height: .64rem;
+                            font-size: .373333rem;
+                            color: #f21c1c;
+                        }
+                        >div{
+                            border: .026667rem solid #ccc;
+                            display: flex;
+                            >a{
+                                display: block;
+                                width: .64rem;
+                                height: .64rem;
+                                color: #333;
+                                font-size: .373333rem;
+                                line-height: .64rem;
+                                text-align: center;
+                            }
+                            >span{
+                                display: block;
+                                width: .8rem;
+                                height: .64rem;
+                                color: #333;
+                                font-size: .373333rem;
+                                line-height: .64rem;
+                                text-align: center;
+                                box-sizing: border-box;
+                                border-left: .026667rem solid #ccc;
+                                border-right: .026667rem solid #ccc;
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+        //购物车为空
         .carcon{
             height: 4.8rem;
             background: #fff;
@@ -192,5 +406,27 @@ export default {
                 }
             }
         }
+
+
+        // 结算
+        .clearaccount{
+            width: 100%;
+            background: #fff;
+            z-index: 5;
+            height: 50px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            .selectall{
+                margin-left: .266667rem;
+                width: .586667rem;
+                height: .586667rem;
+            }
+        }
+    }
+    .bottom{
+        display: none !important;
     }
 </style>

@@ -96,7 +96,11 @@ export default {
         // this.active = path;
         this.$router.push({'path':'/Search',query:{id}});
 
+<<<<<<< HEAD
         //console.log(id)
+=======
+        // console.log(id)
+>>>>>>> e603d924cfd956e84957531200be331d9bc58568
       },
       chuang(index){
         this.index=index
@@ -104,7 +108,7 @@ export default {
     },
     created(){
         Axios.get('/dbapi/products/category/v1').then(res=>{
-             console.log(res.data.data[0]);
+            //  console.log(res.data.data[0]);
             this.data = res.data.data;
             //this.data2 = res.data.data.data[0]['children'][0]['children'];
           // console.log(res.data.data[0].children[0].children[0]);

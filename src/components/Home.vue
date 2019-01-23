@@ -38,14 +38,14 @@
                 <div class="onavigate">
                     <nav>
                     <!-- <router-link :to="{name:navigatelabel.path}" v-for="navigatelabel in navigatelabels" :key="navigatelabel.id" :class="{active:active==navigatelabel.path}" @click="selected(navigatelabel.path)">{{navigatelabel.title}}</router-link> -->
-                        <a :href="navigatelabel.path" v-for="navigatelabel in navigatelabels" :key="navigatelabel.id" :class="{'active' : $route.name == navigatelabel.name}" @click="selected(navigatelabel.id)">
+                        <a :href="navigatelabel.path" v-for="navigatelabel in navigatelabels" :key="navigatelabel.id" :class="{'active' : active == navigatelabel.id}" @click="selected(navigatelabel.id)">
                             {{navigatelabel.title}}
                         </a>
                     </nav>
                 </div>
             </div>
         </div>
-        <router-view></router-view>
+        <v-swiper></v-swiper>
     </div>
 </template>
 <script>
@@ -53,8 +53,18 @@
 
     //引入axios
     import Axios from 'axios';
+
+    import vSwiper from './homelist/swiper.vue'
+
+    // bus 通信
+    import Bus from '../common/bus.js'
+
+    import Router from 'vue-router'
     
     export default {
+        components: {
+            vSwiper
+        },
         data(){
             return{
                 show: true,
@@ -105,6 +115,18 @@
             selected(path){
                 this.active = path;
                 // this.$router.push({path});
+                // console.log(path)
+                Bus.$emit('changeTab', path - 1)
+            },
+            slideTab (index) {
+                this.active = index + 1
+                let router = new Router()
+                let href = index === 0 ? '/home/tabs=1' : index === 1 ? '/home/tabs=2' : index === 2 ? '/home/tabs=3' : index === 3 ? '/home/tabs=4' :index === 4 ? '/home/tabs=5' :index === 5 ? '/home/tabs=6' : '/home/tabs=1'
+                // console.log(href)
+                router.push(href)
+            },
+            initPage () {
+                this.active = this.$route.path === '/home/tabs=1' ? 1 : this.$route.path === '/home/tabs=2' ? 2 : this.$route.path === '/home/tabs=3' ? 3 : this.$route.path === '/home/tabs=4' ? 4 : this.$route.path === '/home/tabs=5' ? 5 : this.$route.path === '/home/tabs=6' ? 6 : 0 
             }
         },
         created(){
@@ -114,7 +136,9 @@
             })
         },
         mounted(){
-            console.log(this.$route.name);
+            Bus.$on('slideTab', this.slideTab)
+            // console.log(this.$route.name)
+            this.initPage()
         }
     }
 </script>
