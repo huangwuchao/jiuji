@@ -21,7 +21,7 @@
         <!-- 购物车内容 -->
         <div class="shoppingcar">
             <div class="commodity" v-for="(item,idx) in cartlist" :key="idx">
-                <input type="checkbox" checked>
+                <input type="checkbox" class="selectone" @click="checkone" v-model="checked" :value="item.id">
                 <div>
                     <img :src="item.image" alt="">
                     <a href="javascript:;"> <!-- 选服务按钮 -->
@@ -79,7 +79,13 @@
 
         <!-- 结算 -->
         <div class="clearaccount">
-            <input type="checkbox" class="selectall" checked>
+            <input type="checkbox" class="selectall" @click="checkAll" v-model="checkall">
+            <span>全选</span>
+            <div>
+                <span>合计：</span>
+                <span class="allprice">￥0.00</span>
+            </div>
+            <a href="javascript:;">去结算</a>
         </div>
 
 
@@ -104,19 +110,25 @@ export default {
         return{
             seemore:[],
             cartlist:[{
+                id:1,
                 name:'华为Mate20 Pro (LYA-AL00) 全网通版 亮黑色 8GB+256GB (UD)',
                 price:'6799.00',
                 number:1,
-                image:'https://img2.ch999img.com/pic/product/440x440/20181017004429895.jpg'
+                image:'https://img2.ch999img.com/pic/product/440x440/20181017004429895.jpg',
+                // checked:true,
             },
             {
+                id:2,
                 name:'Apple iPhone X (A1865) 全网通版 银色 64GB',
                 price:'5960.00',
                 number:1,
-                image:'https://img2.ch999img.com/pic/product/440x440/20190116164007470.jpg'
+                image:'https://img2.ch999img.com/pic/product/440x440/20190116164007470.jpg',
+                // checked:true,
             }],
             showing:'',
-            allnumber:0,
+
+            checkall: false,
+            checked: [],
         }
     },
     methods:{
@@ -130,6 +142,37 @@ export default {
             // console.log(this.$router);
             this.$router.push('/');
         },
+
+        checkAll: function () {
+            var _this = this
+            if (this.checkall) {
+                // 实现反选
+                this.checked = []
+            } else {
+                // 实现全选
+                this.checked = []
+                this.cartlist.forEach(function (item) {
+                    _this.checked.push(item.id)
+                })
+            }
+            // console.log(this.checked.length);
+            // console.log(this.cartlist.length);
+            if (this.checked.length == this.cartlist.length) {
+                this.checkall = true
+            }
+        },
+
+        checkone: function(){
+            
+        }
+
+
+
+
+
+
+
+
 
         
     },
@@ -156,11 +199,6 @@ export default {
             }
             
         });
-
-
-        
-
-        
     }
 }
 </script>
@@ -198,6 +236,7 @@ export default {
             height: 1.6rem;
             padding: .266667rem;
             background: #f21c1c;
+            margin-top: -0.026667rem;
             >p:nth-child(1){
                 font-size: .48rem;
                 font-weight: 700;
@@ -221,7 +260,7 @@ export default {
 
         //购物车内容
         .shoppingcar{
-            margin-top: .4rem;
+            padding-top: .4rem;
             background: #f5f5f5;
             .commodity{
                 height: 3.413333rem;
@@ -413,7 +452,7 @@ export default {
             width: 100%;
             background: #fff;
             z-index: 5;
-            height: 50px;
+            height: 1.333333rem;
             position: fixed;
             bottom: 0;
             left: 0;
@@ -423,6 +462,37 @@ export default {
                 margin-left: .266667rem;
                 width: .586667rem;
                 height: .586667rem;
+            }
+            >span{
+                color: #333;
+                font-size: .373333rem;
+                margin-left: .133333rem;
+            }
+            >div:nth-child(3){
+                flex: 1;
+                height: 1.333333rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                >span:nth-child(1){
+                    font-size: .373333rem;
+                    color: #333;
+                }
+                >span:nth-child(2){
+                    font-size: .373333rem;
+                    color: #f21c1c;
+                }
+
+            }
+            >a:nth-child(4){
+                display: block;
+                width: 2.666667rem;
+                height: 1.333333rem;
+                font-size: .373333rem;
+                line-height: 1.333333rem;
+                text-align: center;
+                background: #f21c1c;
+                color: #fff;
             }
         }
     }
