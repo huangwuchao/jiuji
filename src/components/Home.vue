@@ -35,10 +35,10 @@
                     </router-link>
                 </div>
                 <!-- 导航栏 -->
-                <div class="onavigate">
-                    <nav>
+                <div class="onavigate swiper-container">
+                    <nav class="swiper-wrapper">
                     <!-- <router-link :to="{name:navigatelabel.path}" v-for="navigatelabel in navigatelabels" :key="navigatelabel.id" :class="{active:active==navigatelabel.path}" @click="selected(navigatelabel.path)">{{navigatelabel.title}}</router-link> -->
-                        <a :href="navigatelabel.path" v-for="navigatelabel in navigatelabels" :key="navigatelabel.id" :class="{'active' : active == navigatelabel.id}" @click="selected(navigatelabel.id)">
+                        <a class="swiper-slide" :href="navigatelabel.path" v-for="navigatelabel in navigatelabels" :key="navigatelabel.id" :class="{'active' : active == navigatelabel.id}" @click="selected(navigatelabel.id, $event)">
                             {{navigatelabel.title}}
                         </a>
                     </nav>
@@ -60,6 +60,8 @@
     import Bus from '../common/bus.js'
 
     import Router from 'vue-router'
+
+    import Swiper from 'swiper'
     
     export default {
         components: {
@@ -106,27 +108,71 @@
                         title:'头条',
                         path:'#/home/tabs=6',
                         name:'toutiao'
-                    }
+                    },
+                    // {
+                    //     id:7,
+                    //     title:'测试一',
+                    //     path:'#/home/tabs=7',
+                    //     name:'test1'
+                    // },
+                    // {
+                    //     id:8,
+                    //     title:'测试二',
+                    //     path:'#/home/tabs=8',
+                    //     name:'test2'
+                    // }
                 ],
                 active:1, //导航栏高亮
+                swiper: '',
+                el: ''
             }
         },
         methods: {
-            selected(path){
+            selected(path, e){
                 this.active = path;
+                this.el = e.currentTarget
                 // this.$router.push({path});
-                // console.log(path)
                 Bus.$emit('changeTab', path - 1)
             },
             slideTab (index) {
                 this.active = index + 1
                 let router = new Router()
-                let href = index === 0 ? '/home/tabs=1' : index === 1 ? '/home/tabs=2' : index === 2 ? '/home/tabs=3' : index === 3 ? '/home/tabs=4' :index === 4 ? '/home/tabs=5' :index === 5 ? '/home/tabs=6' : '/home/tabs=1'
-                // console.log(href)
+                let href = index === 0 ? '/home/tabs=1' : index === 1 ? '/home/tabs=2' : index === 2 ? '/home/tabs=3' : index === 3 ? '/home/tabs=4' :index === 4 ? '/home/tabs=5' :index === 5 ? '/home/tabs=6' :index === 6 ? '/home/tabs=7' :index === 7 ? '/home/tabs=8' :  '/home/tabs=1'
+                // this.swiper.slideTo(index, 100, false)
                 router.push(href)
             },
             initPage () {
-                this.active = this.$route.path === '/home/tabs=1' ? 1 : this.$route.path === '/home/tabs=2' ? 2 : this.$route.path === '/home/tabs=3' ? 3 : this.$route.path === '/home/tabs=4' ? 4 : this.$route.path === '/home/tabs=5' ? 5 : this.$route.path === '/home/tabs=6' ? 6 : 0 
+                this.active = this.$route.path === '/home/tabs=1' ? 1 : this.$route.path === '/home/tabs=2' ? 2 : this.$route.path === '/home/tabs=3' ? 3 : this.$route.path === '/home/tabs=4' ? 4 : this.$route.path === '/home/tabs=5' ? 5 : this.$route.path === '/home/tabs=6' ? 6 : this.$route.path === '/home/tabs=7' ? 7 : this.$route.path === '/home/tabs=8' ? 8 : 0 
+            },
+            slidecenter (clickedIndex, el) {
+                // console.log(clickedIndex, el)
+                var onheadactive  = el.offsetLeft //选中元素距离视口的距离
+                var hweight = el.offsetWidth // 元素的宽度
+                var winweight = document.body.clientWidth / 2 // 屏幕宽度的一半
+                var indexnum  = this.active // 当前选中的index
+                var distance = indexnum * hweight - ( hweight / 2 ) // 选中元素中点距离开始点的距离
+                var slidenum = this.navigatelabels.length
+                // 判断在屏幕的右边：选中元素中点距离视口的距离大于屏幕宽度一半
+                // 判断元素在可以移动到中心位置的距离范围内：全部元素的宽度-选中元素中点距离开始点的距离大于屏幕宽度一半
+                // console.log(onheadactive, hweight, winweight, indexnum, distance, slidenum)
+                if( onheadactive + hweight / 2 > winweight && (slidenum * hweight - distance ) > winweight ){
+                    // console.log("左移");
+                    this.swiper.setTransition(500);
+                    this.swiper.setTranslate( winweight - distance );
+                }else if( onheadactive + hweight / 2 < winweight && distance > winweight ){
+                    // console.log("右移");
+                    this.swiper.setTransition(500);
+                    this.swiper.setTranslate( winweight-distance );
+                }else if( onheadactive + hweight / 2 > winweight ){
+                    // console.log("左移");
+                    // this.swiper.slideTo(this.clickedIndex, 500, false);
+                    this.swiper.setTransition(500);
+                    this.swiper.setTranslate( -slidenum * hweight + 2 * winweight );
+                }else if( onheadactive + hweight / 2 < winweight ){
+                    // console.log("右移");
+                    this.swiper.setTransition(500);
+                    this.swiper.setTranslate(0);
+                }
             }
         },
         created(){
@@ -139,6 +185,20 @@
             Bus.$on('slideTab', this.slideTab)
             // console.log(this.$route.name)
             this.initPage()
+            Vue.nextTick(() => {
+                Bus.$on('slideCenter', this.slidecenter)
+                this.swiper = new Swiper('.onavigate', {
+                    slidesPerView: '5',
+                    spaceBetween: 0,
+                    centeredSlides: false,
+                    on: {
+                        click: () => {
+                            // console.log(this.el)
+                            this.slidecenter(this.active, this.el)
+                        }
+                    }
+                })
+            })
         }
     }
 </script>
@@ -258,9 +318,9 @@
                         padding: 0 .266667rem;
                         display: flex;
                         align-items: center;
-                        overflow: auto;
+                        // overflow: auto;
                         a{ //五个导航
-                            margin: 0 .266667rem;
+                            // padding: 0 .266667rem;
                             font-size: .4rem;
                             color : #fff;
                             opacity : .8;

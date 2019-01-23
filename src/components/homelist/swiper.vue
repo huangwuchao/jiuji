@@ -1,6 +1,6 @@
 <template>
   <div class="app-siwper">
-    <div class="swiper-container" id="swiper_all">
+    <div ref='el' class="swiper-container" id="swiper_all">
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="(item, index) in NavList" :key="index">
           <keep-alive>
@@ -20,6 +20,8 @@ import yijiuhuanxin from './yijiuhuanxin'
 import shoujikuaixiu from './shoujikuaixiu'
 import jiujiuzu from './jiujiuzu'
 import toutiao from './toutiao'
+// import test1 from './test1'
+// import test2 from './test2'
 import Swiper from 'swiper'
 import Bus from '../../common/bus.js'
 export default {
@@ -32,7 +34,9 @@ export default {
         { path: '/home/tabs=3', component: yijiuhuanxin },
         { path: '/home/tabs=4', component: shoujikuaixiu },
         { path: '/home/tabs=5', component: jiujiuzu },
-        { path: '/home/tabs=6', component: toutiao }
+        { path: '/home/tabs=6', component: toutiao },
+        // { path: '/home/tabs=7', component: test1 },
+        // { path: '/home/tabs=8', component: test2 }
       ]
     }
   },
@@ -42,11 +46,11 @@ export default {
         initialSlide: this.$route.path === '/home/tabs=1' ? 0 : this.$route.path === '/home/tabs=2' ? 1 : this.$route.path === '/home/tabs=3' ? 2 : this.$route.path === '/home/tabs=4' ? 3 : this.$route.path === '/home/tabs=5' ? 4 : this.$route.path === '/home/tabs=6' ? 5 : 0
       })
       swiper.on('slideChange', () => {
-        // console.log(swiper.activeIndex)
         Bus.$emit('slideTab', swiper.activeIndex)
+        Bus.$emit('slideCenter', swiper.activeIndex, this.$refs.el.parentNode.parentNode.children[0].children[1].children[1].children[0].children[swiper.activeIndex])
       })
       Bus.$on('changeTab', (index) => {
-        swiper.slideTo(index, 0, false)
+        swiper.slideTo(index, 300, false)
       })
     })
   }

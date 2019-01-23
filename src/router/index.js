@@ -22,6 +22,8 @@ import Home from '@com/Home';
   import shoujikuaixiu from '@com/homelist/shoujikuaixiu';
   import jiujiuzu from '@com/homelist/jiujiuzu';
   import toutiao from '@com/homelist/toutiao';
+  // import test1 from '@com/homelist/test1';
+  // import test2 from '@com/homelist/test2';
 import List from '@com/List';
 import Message from '@com/Message';
 import Cart from '@com/Cart';
@@ -68,7 +70,17 @@ const routes = [
         name:'toutiao',
         path:'tabs=6',
         component:toutiao
-      }
+      },
+      // {
+      //   name:'test1',
+      //   path:'tabs=7',
+      //   component:test1
+      // },
+      // {
+      //   name:'test2',
+      //   path:'tabs=8',
+      //   component:test2
+      // }
     ]
   },
   {

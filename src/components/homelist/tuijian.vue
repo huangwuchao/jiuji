@@ -54,14 +54,14 @@
             <div></div>
             <div>
                 <!-- 限时抢购 -->
-                <a href="javascript:;" class="timebuy">
+                <a href="http://localhost:2809/#/home/tabs=2" class="timebuy">
                     <span>距结束</span>
                     <span>{{`${hr}:${min}:${sec}`}}</span>
                 </a>
                 <!-- 限时抢购右边部分 -->
                 <div class="timebuyright swiper-container">
                     <div class="timebuyri swiper-wrapper">
-                        <a class="swiper-slide" href="javascript:;" v-for="item in rushtoday" :key="item.id">
+                        <a class="swiper-slide" href="http://localhost:2809/#/home/tabs=2" v-for="item in rushtoday" :key="item.id">
                             <div class="tbr">
                                 <p>{{item.name}}</p>
                                 <p>￥{{item.price}}</p>
@@ -338,9 +338,6 @@ export default {
                     that.countdown()
                 }, 1000)
             },
-            // xsgbtn(){
-            //     this.$router.push('tabs=2');
-            // }
         },
         mounted: function () {
             //限时抢购倒计时
