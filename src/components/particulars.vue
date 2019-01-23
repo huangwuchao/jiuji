@@ -27,26 +27,24 @@
     <div class="nav">
       <div class="img">
         <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img src="https://img2.ch999img.com/pic/product/440x440/20180402163209165.jpg.webp" alt="">
-            </div>
-
-            <div class="swiper-pagination"></div>
-          </div>
+              <div v-for=" img in data.pictures" :key="img">
+                <img :src="img" alt="">
+              </div>
         </div>
+        
       </div>
       <div class="pinpai">
         <p class="p1">
-          Apple iPhone 6 全网通版 金色 32GB
-          经典型号视网膜屏触控ID性价比之选
+          {{data.productName,}}
+          {{data.skuName}}
+          
         </p>
         <p class="p2">
-          <span>【爆款iPhone】A8芯片！后置800万单摄！</span>
+          <span>{{data.profile}}</span>
         </p>
         <div class="d1">
           <span>￥</span>
-          <span>2099.00</span>
+          <span>{{data.price}}</span>
         </div>
         <div class="d2">
           <a href="javascript:;" class="fa fa-bar-chart-o">价格走势</a>
@@ -65,253 +63,232 @@
           </div>
           <!-- 规格右边部分 -->
           <div class="right">
-            <div class="tbr">
-              <img src="https://img2.ch999img.com/pic/product/70x70/20180803153357141.png" alt="">
-              <p class="p1">屏幕尺寸</p>
-              <p class="p2">4.7英寸</p>
+            <div class="tbr" v-for="guige in data.params" :key="guige.key">
+              <img :src="guige.imgPath" alt="">
+              <p class="p1">{{guige.key}}</p>
+              <p class="p2">{{guige.value}}</p>
             </div>
           </div>
         </div>
         <div class="liangpin">
-            <div>
-                <a href="javascript:;">
-                    <span class="yi">
-                        一手优品
-                    </span>
-                    <span class="er">
-                        ￥ 3699
-                    </span>
-                </a>
-            </div>
-            <div>
-                <a href="javascript:;" class="aa">
-                    <span class="yi">
-                        二手优品
-                    </span>
-                    <span class="er">
-                        ￥ 2699
-                    </span>
-                </a>
-            </div>
+          <div>
+            <a href="javascript:;">
+              <span class="yi">
+                一手优品
+              </span>
+              <span class="er">
+                ￥ 3699
+              </span>
+            </a>
+          </div>
+          <div>
+            <a href="javascript:;" class="aa">
+              <span class="yi">
+                二手优品
+              </span>
+              <span class="er">
+                ￥ 2699
+              </span>
+            </a>
+          </div>
         </div>
         <div class="youhui">
-            <div>
-                <a href="">
-                    <span class="yi">
-                        优惠套餐
-                    </span>
-                    <span class="er">
-                        购买组合套餐，最高省25.0元
-                    </span>
-                </a>
-            </div>
+          <div>
+            <a href="">
+              <span class="yi">
+                优惠套餐
+              </span>
+              <span class="er">
+                购买组合套餐，最高省25.0元
+              </span>
+            </a>
+          </div>
         </div>
         <div class="xiaoliang">
-            <div>
-                <a href="">
-                    <span class="yi">
-                        销&nbsp;量&nbsp;榜
-                    </span>
-                    <span class="er">
-                        手机单品当日销量第9名
-                    </span>
-                </a>
-            </div>
+          <div>
+            <a href="">
+              <span class="yi">
+                销&nbsp;量&nbsp;榜
+              </span>
+              <span class="er">
+                {{data.rank.text}}
+              </span>
+            </a>
+          </div>
         </div>
       </div>
       <div class="peijian">
-          <div class="top">
-              
-                  <span>推荐配件</span>
-                  <p>查看更多推荐配件&nbsp;<i class="fa fa-angle-right font-20 grey-9"></i></p>
-                  
-   
+        <div class="top">
+
+          <span>{{data2.accessories.name}}</span>
+          <p>{{data2.accessories.linkText}}&nbsp;<i class="fa fa-angle-right font-20 grey-9"></i></p>
+
+
+        </div>
+        <div class="nav1">
+          <div>
+            <a href="javascript:;" v-for="tui in data2.accessories.list" :key="tui.name">
+              <img :src="tui.imagePath" alt="">
+              <p>{{tui.name}}</p>
+              <p class="p1">￥{{tui.price}}</p>
+            </a>
           </div>
-          <div class="nav1">
-                <div>
-                    <a href="javascript:;">
-                        <img src="https://img2.ch999img.com/pic/product/440x440/2018091318172238.jpg.webp" alt="">
-                        <p>苹果 iPhone XS Max 硅胶 定制 保护壳</p>
-                        <p class="p1">￥198.00</p>
-                    </a>
-                    <a href="javascript:;">
-                        <img src="https://img2.ch999img.com/pic/product/440x440/2018091318172238.jpg.webp" alt="">
-                        <p>苹果 iPhone XS Max 硅胶 定制 保护壳</p>
-                        <p class="p1">￥198.00</p>
-                    </a>
-                    <a href="javascript:;">
-                        <img src="https://img2.ch999img.com/pic/product/440x440/2018091318172238.jpg.webp" alt="">
-                        <p>苹果 iPhone XS Max 硅胶 定制 保护壳</p>
-                        <p class="p1">￥198.00</p>
-                    </a>
-                    <a href="javascript:;">
-                        <img src="https://img2.ch999img.com/pic/product/440x440/2018091318172238.jpg.webp" alt="">
-                        <p>苹果 iPhone XS Max 硅胶 定制 保护壳</p>
-                        <p class="p1">￥198.00</p>
-                    </a>
-                    <a href="javascript:;">
-                        <img src="https://img2.ch999img.com/pic/product/440x440/2018091318172238.jpg.webp" alt="">
-                        <p>苹果 iPhone XS Max 硅胶 定制 保护壳</p>
-                        <p class="p1">￥198.00</p>
-                    </a>
-                </div>
-          </div>
+        </div>
       </div>
       <div class="xiangqing">
-          <div class="top">
-              <a href="">图文详情</a>
-          </div>
-          <div class="van">
-              <p>
-                  <img src="https://img2.ch999img.com//pic/edt/product/20190118/20190118182401_5387.jpg.webp" alt="">
-                  <img src="https://img2.ch999img.com//pic/edt/product/20181009/20181009122914_5208.jpg.webp" alt="">
-                  <img src="https://img2.ch999img.com//pic/edt/product/20181009/20181009122920_7388.jpg.webp" alt="">
-                  <img src="https://img2.ch999img.com//pic/edt/product/20181009/20181009123124_0349.jpg.webp" alt="">
-              </p>
-          </div>
+        <div class="top">
+          <a href="">图文详情</a>
+        </div>
+        <div id="vvan" v-html="data3.introduction">
+          <!-- <p>
+            <img src="https://img2.ch999img.com//pic/edt/product/20190118/20190118182401_5387.jpg.webp" alt="">
+            <img src="https://img2.ch999img.com//pic/edt/product/20181009/20181009122914_5208.jpg.webp" alt="">
+            <img src="https://img2.ch999img.com//pic/edt/product/20181009/20181009122920_7388.jpg.webp" alt="">
+            <img src="https://img2.ch999img.com//pic/edt/product/20181009/20181009123124_0349.jpg.webp" alt="">
+          </p> -->
+        </div>
       </div>
     </div>
     <div class="bottombtn">
-        <div class="aa">
-             <a href="javascript:;" class="kefu">
-               <i class="fa fa-user-circle fa-lg"></i>
-                <span>
-                    客服
-                </span>                
-            </a>
-            <a href="javascript:;" class="shouchang">
-                <i class="fa fa-heart fa-lg"></i>
-                <span>
-                    收藏
-                </span>
-            </a>
-            <a href="javascript:;" class="gouwuche" >
-                <i class="fa fa-cart-arrow-down fa-lg"></i>
-                <span>
-                    购物车
-                </span>
-            </a>
-            <a href="javascript:;" class="jiaru" @click="tanchu">加入购物车</a>
-            <a href="javascript:;" class="goumai">
-             
-                立即购买
-             
-              </a>
-        </div>
-        <div class="zhezhao">
-           <mt-popup
-                v-model="popupVisible"
-                position="bottom"
-                
-                >
-                <div>
-                  <dir class="topp">
-                      <a href="javascript:;" class="tuichu fa fa-times"></a>
-                      <div class="toppp">
-                          <p class="p1">￥ 5299.00</p>
-                          <p class="p2">商品编号：68436</p>
-                          <p class="p3">已选：iPhone XR 黑色 64GB</p>
-                          <div class="img">
-                            <img src="https://img2.ch999img.com/pic/product/160x160/20190116164038756.jpg.webp" alt="">
-                          </div>
-                      </div>
-                      <div class="anv">
-                        <div class="d1">
-                          <div class="biaoti">
-                            <span>颜色</span>
-                          </div>
-                          <div class="neiron">
-                            <div>
-                              <a href="javascript:;" class="a1">白色</a>
-                            </div>
-                            <div>
-                              <a href="javascript:;" class="a1">黑色</a>
-                            </div>
-                          </div>
-                           
-                        </div>
-                        <div class="d1">
-                          <div class="biaoti">
-                            <span>容量</span>
-                          </div>
-                          <div class="neiron">
-                            <div>
-                              <a href="javascript:;" class="a1">64GB</a>
-                            </div>
-                            <div>
-                              <a href="javascript:;" class="a1">245G</a>
-                            </div>
-                          </div>
-                           
-                        </div>
-                        <div class="d1">
-                          <div class="biaoti">
-                            <span>版本</span>
-                          </div>
-                          <div class="neiron2">
-                            <div>
-                              <a href="javascript:;" class="a1">iPhone XS</a>
-                            </div>
-                            <div>
-                              <a href="javascript:;" class="a1">iPhone XS Max</a>
-                            </div>
-                            <div>
-                              <a href="javascript:;" class="a1">iPhone XS</a>
-                            </div>
-                            <div>
-                              <a href="javascript:;" class="a1">iPhone XS</a>
-                            </div>
-                          </div>
-                           
-                        </div>
-                        <div class="d1">
-                          <div class="biaoti">
-                            <span>套餐</span>
-                          </div>
-                          <div class="neiron2">
-                            <div>
-                              <a href="javascript:;" class="a1">iPhone XS</a>
-                            </div>
-                            <div>
-                              <a href="javascript:;" class="a1">iPhone XS Max</a>
-                            </div>
-                            <div>
-                              <a href="javascript:;" class="a1">iPhone XS</a>
-                            </div>
-                            <div>
-                              <a href="javascript:;" class="a1">iPhone XS</a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="jiajian">
-                          <div class="sl">
-                              数量
-                          </div>
-                          <div class="jiajian2">
-                              <a href="javascript:;" class="jian fa fa-minus" @click="downNum"></a>
-                              <span class="neiron">{{num}}</span>
-                              <a href="javascript:;" class="jia fa fa-plus" @click="upNum"></a>
-                          </div>
-                        </div>
-                      </div>
-                  </dir>
-                  
-                  <div class="buot">
-                    <a href="javascript:;">
-                      加入购物车
-                    </a>
+      <div class="aa">
+        <a href="javascript:;" class="kefu">
+          <i class="fa fa-user-circle fa-lg"></i>
+          <span>
+            客服
+          </span>
+        </a>
+        <a href="javascript:;" class="shouchang">
+          <i class="fa fa-heart fa-lg"></i>
+          <span>
+            收藏
+          </span>
+        </a>
+        <a href="javascript:;" class="gouwuche">
+          <i class="fa fa-cart-arrow-down fa-lg"></i>
+          <span>
+            购物车
+          </span>
+        </a>
+        <a href="javascript:;" class="jiaru" @click="tanchu">加入购物车</a>
+        <a href="javascript:;" class="goumai">
+
+          立即购买
+
+        </a>
+      </div>
+      <div class="zhezhao">
+        <mt-popup v-model="popupVisible" position="bottom">
+          <div>
+            <dir class="topp">
+              <a href="javascript:;" class="tuichu fa fa-times"></a>
+              <div class="toppp">
+                <p class="p1">￥ 5299.00</p>
+                <p class="p2">商品编号：68436</p>
+                <p class="p3">已选：iPhone XR 黑色 64GB</p>
+                <div class="img" >
+                  <img src="https://img2.ch999img.com/pic/product/160x160/20190116164038756.jpg.webp" alt="">
+                </div>
+              </div>
+              <div class="anv">
+                <div class="d1">
+                  <div class="biaoti">
+                    <span>颜色</span>
+                  </div>
+                  <div class="neiron">
+                    <div>
+                      <a href="javascript:;" class="a1">白色</a>
+                    </div>
+                    <div>
+                      <a href="javascript:;" class="a1">黑色</a>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="d1">
+                  <div class="biaoti">
+                    <span>容量</span>
+                  </div>
+                  <div class="neiron">
+                    <div>
+                      <a href="javascript:;" class="a1">64GB</a>
+                    </div>
+                    <div>
+                      <a href="javascript:;" class="a1">245G</a>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="d1">
+                  <div class="biaoti">
+                    <span>版本</span>
+                  </div>
+                  <div class="neiron2">
+                    <div>
+                      <a href="javascript:;" class="a1">iPhone XS</a>
+                    </div>
+                    <div>
+                      <a href="javascript:;" class="a1">iPhone XS Max</a>
+                    </div>
+                    <div>
+                      <a href="javascript:;" class="a1">iPhone XS</a>
+                    </div>
+                    <div>
+                      <a href="javascript:;" class="a1">iPhone XS</a>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="d1">
+                  <div class="biaoti">
+                    <span>套餐</span>
+                  </div>
+                  <div class="neiron2">
+                    <div>
+                      <a href="javascript:;" class="a1">iPhone XS</a>
+                    </div>
+                    <div>
+                      <a href="javascript:;" class="a1">iPhone XS Max</a>
+                    </div>
+                    <div>
+                      <a href="javascript:;" class="a1">iPhone XS</a>
+                    </div>
+                    <div>
+                      <a href="javascript:;" class="a1">iPhone XS</a>
+                    </div>
                   </div>
                 </div>
-              </mt-popup>
-        </div>
+                <div class="jiajian">
+                  <div class="sl">
+                    数量
+                  </div>
+                  <div class="jiajian2">
+                    <a href="javascript:;" class="jian fa fa-minus" @click="downNum"></a>
+                    <span class="neiron">{{num}}</span>
+                    <a href="javascript:;" class="jia fa fa-plus" @click="upNum"></a>
+                  </div>
+                </div>
+              </div>
+            </dir>
+
+            <div class="buot">
+              <a href="javascript:;">
+                加入购物车
+              </a>
+            </div>
+          </div>
+        </mt-popup>
+      </div>
     </div>
   </div>
-  
+
 </template>
 <script>
   import Vue from "vue";
   import Swiper from "swiper";
-  import { Popup } from 'mint-ui';
+  import {
+    Popup
+  } from 'mint-ui';
+  import Axios from 'axios';
   Vue.component(Popup.name, Popup);
   export default {
     data() {
@@ -340,14 +317,10 @@
           path: '/mine'
         }],
         active: '/',
-        popupVisible:false,
-        data: [{
-          children: ''
-        }, {
-          id: ''
-        }, {
-          title: ''
-        }],
+        popupVisible: false,
+        data:[],
+        data2:[],
+        data3:[],
         // data2:[],
         index: 0
 
@@ -361,31 +334,49 @@
           path
         });
       },
-      tanchu(){
-        this.popupVisible= true
+      tanchu() {
+        this.popupVisible = true
       },
-       goback(){
-            this.$router.go(-1);
-        },
-      downNum(){
-        if(this.num <= 1){
-            this.num = 1;
-        }else{
-            this.num --;
+      goback() {
+        this.$router.go(-1);
+      },
+      downNum() {
+        if (this.num <= 1) {
+          this.num = 1;
+        } else {
+          this.num--;
         }
-    },
-    upNum(){
-        this.num ++;
-    },
+      },
+      upNum() {
+        this.num++;
+      },
 
 
 
     },
     created() {
-      var mySwiper = new Swiper('.swiper-container', {
-        autoplay: false, //可选选项，自动滑动
-        direction: 'horizontal',
-      })
+      let xiangqing = this.$route.query.id;
+      let xiangqing1 = '/dbapi/sc/products/getDetailStatic/v2?ppid='+xiangqing+'';
+      let xiangqing2 = '/dbapi/cc/products/productCityDetail/v4?ppid='+xiangqing+'&from=';
+      let xiangqing3 = '/dbapi/sc/products/detailIntroduction/v2?ppid='+xiangqing+'&position='
+      //console.log(xiangqing);
+       Axios.get(xiangqing1).then(res=>{
+                     //console.log(res.data.data);
+                    this.data = res.data.data;
+            });
+       Axios.get(xiangqing2).then(res=>{
+                     //console.log(res.data.data);
+                    this.data2 = res.data.data;
+            });
+        Axios.get(xiangqing3).then(res=>{
+                     console.log(res.data.data);
+                    this.data3 = res.data.data;
+            }) 
+    },
+    
+    mounted(){
+         
+       
     }
   }
 
@@ -500,12 +491,20 @@
       overflow-x: auto;
 
       flex: 1;
+
       .img {
         height: 9.306667rem;
+        //display: flex;
 
         .swiper-container {
+          display: -webkit-box;
           width: 100%;
-          height: 100%;
+          height: 9.306667rem;
+          overflow-x: auto;
+            img{
+                width: 100%;
+                height: 349px;
+            }
         }
 
         .swiper-wrapper {
@@ -557,17 +556,19 @@
         .p1 {
           margin: 0;
           padding: 0;
-          font-size: .426667rem;
+          font-size: 16px;
           line-height: 1.5;
 
         }
 
         .p2 {
+          
           color: #f21c1c;
           line-height: 1.5;
           margin-top: .133333rem;
           margin-bottom: .133333rem;
-          font-size: .373333rem;
+          font-size: 14px;
+         
         }
 
         .d1 {
@@ -607,6 +608,7 @@
           padding: .346667rem .266667rem;
           display: flex;
           background: #fff;
+
           .left {
             width: 2.666667rem;
             height: 1.706667rem;
@@ -625,12 +627,13 @@
 
             //overflow: hidden;
             div {
-              height: 1.813333rem;
+             
               width: 2.293333rem;
               display: flex;
               flex-direction: column;
-              justify-content: center;
+             
               align-items: center;
+              margin-right: 5px;
 
               img {
                 margin-top: .106667rem;
@@ -639,489 +642,565 @@
                 display: block;
               }
 
-              .p1 {
-                margin-top: .133333rem;
-                height: .373333rem;
+              .p1 { 
+               
+                
                 font-size: .373333rem;
                 letter-spacing: normal;
                 color: #333;
+                 width: 75px;
+                text-align: center;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
               }
 
               .p2 {
-                margin-top: .213333rem;
-                height: .32rem;
+                //width: 85px;
+                    width: 75px;
+                text-align: center;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                margin-top: 3px;
+               
                 font-size: .32rem;
                 letter-spacing: normal;
                 color: #666;
+                text-overflow: ellipsis;
+               // overflow: hidden;
               }
             }
           }
         }
-        .liangpin{
-            height: 1.226667rem;
-            margin-top: .266667rem;
-            //padding: 13px 10px;
-            background: #fff;
-            position: relative;
-            border: 0;
-                div{
-                    display:inline-block;
-                    margin-left: .533333rem;
-                    
-                        a{  
-                            position: absolute;
-                            top:.346667rem;
-                            display:inline-block;
-                            font-size:.373333rem;
-                            color:#333;
-                            //margin-bottom: 15px;
-                                .yi{
-                                    display: inline-block;
-                                    height: .533333rem;
-                                    line-height: .48rem;
-                                    min-width: 1.6rem;
-                                    padding: 0 .133333rem;
-                                    box-sizing: border-box;
-                                    border: .026667rem solid #f21c1c;
-                                    border-radius: .266667rem;
-                                    background-color: rgba(242,28,28,.1);
-                                    font-size: .32rem;
-                                    text-align: center;
-                                    color: #f21c1c;
-                                    margin-right: .266667rem;
-                                }
-                        }
-                        .aa{
-                            left: 5.066667rem;
-                        }
 
-                }
-        }
-        .youhui{
-            height: 1.226667rem;
-            margin-top: .266667rem;
-            //padding: 13px 10px;
-            background: #fff;
-            position: relative;
-            border: 0;
-                div{
-                    display:inline-block;
-                    margin-left: .533333rem;
-                        a{  
-                            display:inline-block;
-                            position: absolute;
-                            top:.346667rem;
-                            font-size:.373333rem;
-                            color:#333;
-                                .yi{
-                                    display: inline-block;
-                                    height: .533333rem;
-                                    line-height: .48rem;
-                                    min-width: 1.6rem;
-                                    padding: 0 .133333rem;
-                                    box-sizing: border-box;
-                                    border: .026667rem solid #f21c1c;
-                                    border-radius: .266667rem;
-                                    background-color: rgba(242,28,28,.1);
-                                    font-size: .32rem;
-                                    text-align: center;
-                                    color: #f21c1c;
-                                    margin-right: .266667rem;
-                                }
-                        }
-
-                }
-        }
-        .xiaoliang{
-            height: 1.226667rem;
-            margin-top: .266667rem;
-            //padding: 13px 10px;
-            background: #fff;
-            position: relative;
-            border: 0;
-                div{
-                    display:inline-block;
-                    margin-left: .533333rem;
-                        a{  
-                            display:inline-block;
-                            position: absolute;
-                            top:.346667rem;
-                            font-size:.373333rem;
-                            color:#333;
-                                .yi{
-                                    display: inline-block;
-                                    height: .533333rem;
-                                    line-height: .48rem;
-                                    min-width: 1.6rem;
-                                    padding: 0 .133333rem;
-                                    box-sizing: border-box;
-                                   
-                                    border-radius: .266667rem;
-                                    
-                                    font-size: .426667rem;
-                                    text-align: center;
-                                   
-                                    margin-right: .266667rem;
-                                }
-                        }
-
-                }
-        }
-
-      }
-      .peijian{
-          margin: .266667rem 0;
+        .liangpin {
+          height: 1.226667rem;
+          margin-top: .266667rem;
+          //padding: 13px 10px;
           background: #fff;
-            .top{
-                height: 1.226667rem;
-                display: -webkit-flex;
-                font-size:.373333rem;
-                color:#9c9c9c;
-                padding-top:.346667rem;
-                border-bottom: .026667rem solid #CCC;
-                    span{
-                        font-size: .426667rem;
-                        color:#333;
-                        margin-right: 4.133333rem;
-                        margin-left:.533333rem;
-                    }
-            }
-            .nav1{
-                width: 100%;
-                height: 5.333333rem;
-                // display: flex;
-                // overflow-x: auto;
-                padding: .346667rem .4rem;
-                background: #fff;
-                    div{
-                        width: 100%;
-                        background: #fff;
-                        display: flex;
-                        overflow-x: auto;
-                            a{
-                                display:block;
-                                width: 2.666667rem;
-                                margin-left: .333333rem;
-                                margin-right: .266667rem;
-                                text-decoration: none;
-                                img{
-                                //margin-top: 10px;
-                                width: 2.666667rem;
-                                height: 2.666667rem;
-                                display: block;
-                            }
-                            p{
-                                margin-top: .133333rem;
-                                text-align: left;
-                                line-height: 1.33;
-                                height: .8rem;
-                                overflow: hidden;
-                                text-overflow: ellipsis;
-                                display: -webkit-box;
-                                -webkit-line-clamp: 2;
-                                color:#6b6b6b;
-                                font-size: .32rem;
-                            }
-                            .p1{
-                                line-height: 1.33;
-                                font-size:.32rem;
-                                color: #f21c1c;
-                                margin-top: .266667rem; 
-                            }
-                          }
-                            
-                    }
-            }
+          position: relative;
+          border: 0;
 
-      }
-      .xiangqing{
-          margin-top: .533333rem;
-          width: 100%;
-            .top{
-                height: 1.173333rem;
-                background: #fff;
-                max-width: 17.066667rem;
-                margin: 0 auto;
-                    a{
-                        display: block;
-                        height: 1.173333rem;
-                        line-height: 1.173333rem;
-                        text-align: center;
-                        text-decoration: none;
-                        font-size: .48rem;
-                        color: #333;
-                    }
-            }
-            .van{
-                padding: 0 .266667rem .4rem;
-                overflow: hidden;
-                    p{
-                        width: 100%!important;
-                            img{
-                                display: block;
-                                width: 100%!important;
-                                height: auto!important;
-                            }
-                    }
-            }
-      }
-      
-    }
-    .bottombtn{
-          position: fixed;
-          width: 100%;
-          height: 1.28rem;
-          bottom: 0;
-          right: 0;
-          left: 0;
-          z-index: 8;
-            .aa{
-                position: relative;
-                max-width: 17.066667rem;
-                margin: 0 auto;
-                height: 100%;
-                background-color: #fff;
-                display: flex;
-                  a{
-                    display: block;
-                    height: 100%;
-                    width: 1.466667rem;
-                    box-sizing: border-box;
-                    border-right: .026667rem solid #dfdfdf;
-                    font-size: .32rem;
-                    color: #333;
-                    display: flex;  
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                      i{
-                          display: inline-block;
-                          // width: 18px;
-                          // height: 18px;
-                          background-size: 100%;
-                          margin-bottom: .08rem;
-                          background-repeat: no-repeat;
-                          background-position: 50%;
-                      }
-                  }
-                  .jiaru,.goumai{
-                      width: 2.8rem;
-                      font-size:.373333rem;
-                  }
-                  .goumai{
-                    background: #f21c1c;
-                    color:#fff;
-                  }
-            }
-            .zhezhao{
-              div{
-                width:100%;
-                background: #fff;
-                  .topp{
-                      height: 100%;
-                      padding-left: .533333rem;
-                        .tuichu{
-                          position: absolute;
-                          right: .266667rem;
-                          top: .266667rem;
-                          color: #9c9c9c;
-                          z-index: 1;
-                          font-size: .426667rem; 
-                        }
-                        .toppp{
-                              position: relative;
-                              height: 2rem;
-                              padding: 0 .266667rem 0 3.653333rem;
-                              box-sizing: border-box;
-                                .p1{
-                                    font-size: .533333rem;
-                                    margin-bottom: .133333rem;
-                                    color:#f21c1c;
-                                }
-                                .p2{
-                                    color:#9c9c9c;
-                                    font-size: .32rem;
-                                }
-                                .p3{
-                                    line-height: 1.33;
-                                    text-align: justify;
-                                    margin-top: .133333rem;
-                                    color: #6b6b6b;
-                                    font-size: .32rem;
-                                }
-                                .img{
-                                    position: absolute;
-                                    left: -0.053333rem;
-                                    top: -1.466667rem;
-                                    height: 3.2rem;
-                                    width: 3.2rem;
-                                    border: .026667rem solid #9c9c9c;
-                                    border-radius: .16rem;
-                                    box-sizing: border-box;
-                                    overflow: hidden;
-                                      img{
-                                        width: 100%;
-                                        height: 100%;
-                                      }
-                                }
-                        }
-                        .anv{
-                            height: calc(100% - 1.653333rem);
-                            overflow-y: auto;
-                            // padding-left: 10px;
-                            padding-bottom: 1.386667rem;
-                            box-sizing: border-box;
-                              a{
-                                height: .8rem;
-                                line-height: .746667rem;
-                                text-align: center;
-                                border: .026667rem solid #dfdfdf;
-                                border-radius: .426667rem;
-                                font-size: .32rem;
-                                padding: 0 .213333rem;
-                                box-sizing: border-box;
-                              }
-                              .d1{
-                                margin-top: .266667rem;
-                                  .biaoti{
-                                    color: #333;
-                                    font-size: .426667rem;
-                                  }
-                                  .neiron{
-                                    display: flex;
-                                    //height: 40px;
-                                    //flex-wrap: wrap;
-                                      div{
-                                        width: 1.76rem;
-                                        height: .8rem;
-                                        margin-right: .266667rem;
-                                        margin-top: .266667rem;
-                                          // a{
-                                          //   margin-right: 0;
-                                          //   display: block;
-                                          //   line-height: 28px;
-                                          //   box-sizing: border-box;
-                                          //   min-width: 76px;
-                                          //   margin-top: 0;
-                                          // }
-                                          .a1{
-                                              
-                                              display: inline-block;
-                                              color: #f21c1c;
-                                              border: .026667rem solid #f21c1c;
-                                              background-color: rgba(200,15,30,.1);
-                                              min-width: 1.76rem;
-                                              vertical-align: top;
-                                              margin-top: 0; 
-                                          }
-                                      }
-                                  }
-                                  .neiron2{
-                                    display: flex;  
-                                    flex-wrap: wrap;
-                                      div{
-                                        width: 4.453333rem;
-                                        height: .8rem;
-                                        margin-right: .266667rem;
-                                        margin-top: .266667rem;
-                                          // a{
-                                          //   margin-right: 0;
-                                          //   display: block;
-                                          //   line-height: 28px;
-                                          //   box-sizing: border-box;
-                                          //   min-width: 76px;
-                                          //   margin-top: 0;
-                                          // }
-                                          .a1{
-                                              width: 100%;
-                                              display: inline-block;
-                                              color: #f21c1c;
-                                              border: 1px solid #f21c1c;
-                                              background-color: rgba(200,15,30,.1);
-                                              min-width: 1.76rem;
-                                              vertical-align: top;
-                                              margin-top: 0; 
-                                          }
-                                      }
+          div {
+            display: inline-block;
+            margin-left: .533333rem;
 
-                                  }
-                              }
-                              .jiajian{
-                                    height: 44px;
-                                    margin-top: 14px;
-                                    margin-right: 20px;
-                                    position: relative;
-                                    border: 0;
-                                    display: flex;
-                                    align-items: center;
-                                      .sl{
-                                        color: #333;
-                                        font-size: 16px;
-                                      }
-                                      .jiajian2{
-                                        display: flex;
-                                        width: 90px;
-                                        margin-right: 14px;
-                                          a{
-                                            box-sizing: border-box;
-                                            height: 24px;
-                                            line-height: 22px;
-                                            border: 1px solid #dfdfdf;
-                                            text-align: center;
-                                            width: 24px;
-                                            font-size: 12px;
-                                            color: #333;
-                                            border-radius: 0;
-                                            margin-right: 0 none;
-                                            margin-top: 0 none;
-                                          }
-                                          .jian{
-                                            border-top-left-radius: 3px;
-                                            border-bottom-left-radius: 3px;
-                                            //background: #9c9c9c;
-                                            margin-right: 0 none;
-                                            margin-top: 0 none;
-                                          }
-                                          .neiron{
-                                            box-sizing: border-box;
-                                            width: 35px;
-                                            height: 24px;
-                                            line-height: 22px;
-                                            text-align: center;
-                                            padding: 0 5px;
-                                            background-color: #f9f9f9;
-                                            border-top: 1px solid #dfdfdf;
-                                            border-bottom: 1px solid #dfdfdf;
-                                            font-size: 12px;
-                                          }
-                                          .jia{
-                                            border-top-right-radius: 3px;
-                                            border-bottom-right-radius: 3px;
-                                            margin-right: 0 none;
-                                            margin-top: 0 none;
-                                          }
-                                      }
-                              }
-                        }
-                  }
-                  .buot{
-                        height: 1.066667rem;
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
-                          a{
-                            display: block;
-                            height: 1.066667rem;
-                            background-color: #f21c1c;
-                            color: #fff;
-                            line-height: 1.066667rem;
-                            text-align: center;
-                            font-size: .426667rem;
-                          }
-                  }
+            a {
+              position: absolute;
+              top: .346667rem;
+              display: inline-block;
+              font-size: .373333rem;
+              color: #333;
+
+              //margin-bottom: 15px;
+              .yi {
+                display: inline-block;
+                height: .533333rem;
+                line-height: .48rem;
+                min-width: 1.6rem;
+                padding: 0 .133333rem;
+                box-sizing: border-box;
+                border: .026667rem solid #f21c1c;
+                border-radius: .266667rem;
+                background-color: rgba(242, 28, 28, .1);
+                font-size: .32rem;
+                text-align: center;
+                color: #f21c1c;
+                margin-right: .266667rem;
               }
             }
+
+            .aa {
+              left: 5.066667rem;
+            }
+
+          }
+        }
+
+        .youhui {
+          height: 1.226667rem;
+          margin-top: .266667rem;
+          //padding: 13px 10px;
+          background: #fff;
+          position: relative;
+          border: 0;
+
+          div {
+            display: inline-block;
+            margin-left: .533333rem;
+
+            a {
+              display: inline-block;
+              position: absolute;
+              top: .346667rem;
+              font-size: .373333rem;
+              color: #333;
+
+              .yi {
+                display: inline-block;
+                height: .533333rem;
+                line-height: .48rem;
+                min-width: 1.6rem;
+                padding: 0 .133333rem;
+                box-sizing: border-box;
+                border: .026667rem solid #f21c1c;
+                border-radius: .266667rem;
+                background-color: rgba(242, 28, 28, .1);
+                font-size: .32rem;
+                text-align: center;
+                color: #f21c1c;
+                margin-right: .266667rem;
+              }
+            }
+
+          }
+        }
+
+        .xiaoliang {
+          height: 1.226667rem;
+          margin-top: .266667rem;
+          //padding: 13px 10px;
+          background: #fff;
+          position: relative;
+          border: 0;
+
+          div {
+            display: inline-block;
+            margin-left: .533333rem;
+
+            a {
+              display: inline-block;
+              position: absolute;
+              top: .346667rem;
+              font-size: .373333rem;
+              color: #333;
+
+              .yi {
+                display: inline-block;
+                height: .533333rem;
+                line-height: .48rem;
+                min-width: 1.6rem;
+                padding: 0 .133333rem;
+                box-sizing: border-box;
+
+                border-radius: .266667rem;
+
+                font-size: .426667rem;
+                text-align: center;
+
+                margin-right: .266667rem;
+              }
+            }
+
+          }
+        }
+
       }
+
+      .peijian {
+        margin: .266667rem 0;
+        background: #fff;
+
+        .top {
+          height: 1.226667rem;
+          display: -webkit-flex;
+          font-size: .373333rem;
+          color: #9c9c9c;
+          padding-top: .346667rem;
+          border-bottom: .026667rem solid #CCC;
+
+          span {
+            font-size: .426667rem;
+            color: #333;
+            margin-right: 4.133333rem;
+            margin-left: .533333rem;
+          }
+        }
+
+        .nav1 {
+          width: 100%;
+          height: 5.333333rem;
+          // display: flex;
+          // overflow-x: auto;
+          padding: .346667rem .4rem;
+          background: #fff;
+
+          div {
+            width: 100%;
+            background: #fff;
+            display: flex;
+            overflow-x: auto;
+
+            a {
+              display: block;
+              width: 2.666667rem;
+              margin-left: .333333rem;
+              margin-right: .266667rem;
+              text-decoration: none;
+
+              img {
+                //margin-top: 10px;
+                width: 2.666667rem;
+                height: 2.666667rem;
+                display: block;
+              }
+
+              p {
+                margin-top: .133333rem;
+                text-align: left;
+                line-height: 1.33;
+                height: .8rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                color: #6b6b6b;
+                font-size: .32rem;
+              }
+
+              .p1 {
+                line-height: 1.33;
+                font-size: .32rem;
+                color: #f21c1c;
+                margin-top: .266667rem;
+              }
+            }
+
+          }
+        }
+
+      }
+
+      .xiangqing {
+        margin-top: .533333rem;
+        width: 100%;
+
+        .top {
+          height: 1.173333rem;
+          background: #fff;
+          max-width: 17.066667rem;
+          margin: 0 auto;
+
+          a {
+            display: block;
+            height: 1.173333rem;
+            line-height: 1.173333rem;
+            text-align: center;
+            text-decoration: none;
+            font-size: .48rem;
+            color: #333;
+          }
+        }
+
+        #vvan {
+          padding: 0 .266667rem .4rem;
+          overflow: hidden;
+          p {
+            width: 100%;
+            img {
+             width: 100%!important;
+            height: auto!important;
+              
+            }
+          }
+
+        }
+      }
+
+    }
+
+    .bottombtn {
+      position: fixed;
+      width: 100%;
+      height: 1.28rem;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      z-index: 8;
+
+      .aa {
+        position: relative;
+        max-width: 17.066667rem;
+        margin: 0 auto;
+        height: 100%;
+        background-color: #fff;
+        display: flex;
+
+        a {
+          display: block;
+          height: 100%;
+          width: 1.466667rem;
+          box-sizing: border-box;
+          border-right: .026667rem solid #dfdfdf;
+          font-size: .32rem;
+          color: #333;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          i {
+            display: inline-block;
+            // width: 18px;
+            // height: 18px;
+            background-size: 100%;
+            margin-bottom: .08rem;
+            background-repeat: no-repeat;
+            background-position: 50%;
+          }
+        }
+
+        .jiaru,
+        .goumai {
+          width: 2.8rem;
+          font-size: .373333rem;
+        }
+
+        .goumai {
+          background: #f21c1c;
+          color: #fff;
+        }
+      }
+
+      .zhezhao {
+        div {
+          width: 100%;
+          background: #fff;
+
+          .topp {
+            height: 100%;
+            padding-left: .533333rem;
+
+            .tuichu {
+              position: absolute;
+              right: .266667rem;
+              top: .266667rem;
+              color: #9c9c9c;
+              z-index: 1;
+              font-size: .426667rem;
+            }
+
+            .toppp {
+              position: relative;
+              height: 2rem;
+              padding: 0 .266667rem 0 3.653333rem;
+              box-sizing: border-box;
+
+              .p1 {
+                font-size: .533333rem;
+                margin-bottom: .133333rem;
+                color: #f21c1c;
+              }
+
+              .p2 {
+                color: #9c9c9c;
+                font-size: .32rem;
+              }
+
+              .p3 {
+                line-height: 1.33;
+                text-align: justify;
+                margin-top: .133333rem;
+                color: #6b6b6b;
+                font-size: .32rem;
+              }
+
+              .img {
+                position: absolute;
+                left: -0.053333rem;
+                top: -1.466667rem;
+                height: 3.2rem;
+                width: 3.2rem;
+                border: .026667rem solid #9c9c9c;
+                border-radius: .16rem;
+                box-sizing: border-box;
+                overflow: hidden;
+
+                img {
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+            }
+
+            .anv {
+              height: calc(100% - 1.653333rem);
+              overflow-y: auto;
+              // padding-left: 10px;
+              padding-bottom: 1.386667rem;
+              box-sizing: border-box;
+
+              a {
+                height: .8rem;
+                line-height: .746667rem;
+                text-align: center;
+                border: .026667rem solid #dfdfdf;
+                border-radius: .426667rem;
+                font-size: .32rem;
+                padding: 0 .213333rem;
+                box-sizing: border-box;
+              }
+
+              .d1 {
+                margin-top: .266667rem;
+
+                .biaoti {
+                  color: #333;
+                  font-size: .426667rem;
+                }
+
+                .neiron {
+                  display: flex;
+
+                  //height: 40px;
+                  //flex-wrap: wrap;
+                  div {
+                    width: 1.76rem;
+                    height: .8rem;
+                    margin-right: .266667rem;
+                    margin-top: .266667rem;
+
+                    // a{
+                    //   margin-right: 0;
+                    //   display: block;
+                    //   line-height: 28px;
+                    //   box-sizing: border-box;
+                    //   min-width: 76px;
+                    //   margin-top: 0;
+                    // }
+                    .a1 {
+
+                      display: inline-block;
+                      color: #f21c1c;
+                      border: .026667rem solid #f21c1c;
+                      background-color: rgba(200, 15, 30, .1);
+                      min-width: 1.76rem;
+                      vertical-align: top;
+                      margin-top: 0;
+                    }
+                  }
+                }
+
+                .neiron2 {
+                  display: flex;
+                  flex-wrap: wrap;
+
+                  div {
+                    width: 4.453333rem;
+                    height: .8rem;
+                    margin-right: .266667rem;
+                    margin-top: .266667rem;
+
+                    // a{
+                    //   margin-right: 0;
+                    //   display: block;
+                    //   line-height: 28px;
+                    //   box-sizing: border-box;
+                    //   min-width: 76px;
+                    //   margin-top: 0;
+                    // }
+                    .a1 {
+                      width: 100%;
+                      display: inline-block;
+                      color: #f21c1c;
+                      border: 1px solid #f21c1c;
+                      background-color: rgba(200, 15, 30, .1);
+                      min-width: 1.76rem;
+                      vertical-align: top;
+                      margin-top: 0;
+                    }
+                  }
+
+                }
+              }
+
+              .jiajian {
+                height: 44px;
+                margin-top: 14px;
+                margin-right: 20px;
+                position: relative;
+                border: 0;
+                display: flex;
+                align-items: center;
+
+                .sl {
+                  color: #333;
+                  font-size: 16px;
+                }
+
+                .jiajian2 {
+                  display: flex;
+                  width: 90px;
+                  margin-right: 14px;
+
+                  a {
+                    box-sizing: border-box;
+                    height: 24px;
+                    line-height: 22px;
+                    border: 1px solid #dfdfdf;
+                    text-align: center;
+                    width: 24px;
+                    font-size: 12px;
+                    color: #333;
+                    border-radius: 0;
+                    margin-right: 0 none;
+                    margin-top: 0 none;
+                  }
+
+                  .jian {
+                    border-top-left-radius: 3px;
+                    border-bottom-left-radius: 3px;
+                    //background: #9c9c9c;
+                    margin-right: 0 none;
+                    margin-top: 0 none;
+                  }
+
+                  .neiron {
+                    box-sizing: border-box;
+                    width: 35px;
+                    height: 24px;
+                    line-height: 22px;
+                    text-align: center;
+                    padding: 0 5px;
+                    background-color: #f9f9f9;
+                    border-top: 1px solid #dfdfdf;
+                    border-bottom: 1px solid #dfdfdf;
+                    font-size: 12px;
+                  }
+
+                  .jia {
+                    border-top-right-radius: 3px;
+                    border-bottom-right-radius: 3px;
+                    margin-right: 0 none;
+                    margin-top: 0 none;
+                  }
+                }
+              }
+            }
+          }
+
+          .buot {
+            height: 1.066667rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            a {
+              display: block;
+              height: 1.066667rem;
+              background-color: #f21c1c;
+              color: #fff;
+              line-height: 1.066667rem;
+              text-align: center;
+              font-size: .426667rem;
+            }
+          }
+        }
+      }
+    }
   }
 
 </style>
+
+  

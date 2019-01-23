@@ -96,7 +96,11 @@ export default {
         // this.active = path;
         this.$router.push({'path':'/Search',query:{id}});
 
+<<<<<<< HEAD
+        //console.log(id)
+=======
         // console.log(id)
+>>>>>>> e603d924cfd956e84957531200be331d9bc58568
       },
       chuang(index){
         this.index=index

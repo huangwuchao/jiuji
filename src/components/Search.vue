@@ -110,7 +110,11 @@ export default {
     created(){
         let searchkey = this.$route.query.keyword;
         let fenlei = this.$route.query.id;
+<<<<<<< HEAD
+         //console.log(fenlei);
+=======
         //  console.log(fenlei);
+>>>>>>> e603d924cfd956e84957531200be331d9bc58568
         let sear = '/dbapi/products/v2?coll=&keyword='+searchkey+'&productId=0&page=1&inStock=0';
         let fenleiAj = '/dbapi/products/v2?coll='+fenlei+'&keyword=&productId=0&page=1&inStock=0';
         if(searchkey){
