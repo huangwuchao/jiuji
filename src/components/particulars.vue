@@ -381,6 +381,7 @@
   }
 
 </script>
+
 <style lang="scss" scoped>
   #part {
     //padding: 5px 0;
@@ -893,19 +894,18 @@
           }
         }
 
-        #vvan {
-          padding: 0 .266667rem .4rem;
-          overflow: hidden;
-          p {
-            width: 100%;
-            img {
-             width: 100%!important;
-            height: auto!important;
-              
+          #vvan {
+            padding: 0 .266667rem .4rem;
+            overflow: hidden;
+            p {
+              width: 100%;
+              img {
+              width: 100%!important;
+              height: auto!important;
+              }
             }
-          }
 
-        }
+          }
       }
 
     }
@@ -1201,6 +1201,25 @@
     }
   }
 
+</style>
+<style >
+     
+          #vvan {
+            padding: 0 .266667rem .4rem;
+            overflow: hidden;
+            margin-bottom: 40px; 
+          }
+          #vvan p {
+              width: 100%;
+          }
+           #vvan img {
+              width: 100%!important;
+              height: auto!important;
+              }
+            
+
+          
+      
 </style>
 
   
