@@ -369,7 +369,7 @@
                     this.data2 = res.data.data;
             });
         Axios.get(xiangqing3).then(res=>{
-                     console.log(res.data.data);
+                    //  console.log(res.data.data);
                     this.data3 = res.data.data;
             }) 
     },
