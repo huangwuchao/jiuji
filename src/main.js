@@ -5,6 +5,8 @@ import App from './App';
 import router from './router';
 import "./font/font_1003760_8gdxl0exth8/iconfont";
 import $ from 'jquery';
+import store from './state/'
+
 //import swiper from "../node_modules/swiper/dist/css/swiper"
 
 // import Vconsole from 'vconsole'
@@ -18,6 +20,7 @@ import 'swiper/dist/css/swiper.css'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   components: { App },
   template: '<App/>'

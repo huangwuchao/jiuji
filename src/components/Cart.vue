@@ -6,7 +6,7 @@
         </div>
         <div class="car">
             <p>购物车</p>
-            <p>共0件商品</p>
+            <p>共1件商品</p>
         </div>
 
 
@@ -108,23 +108,9 @@ import Axios from 'axios';
 export default {
     data(){
         return{
+            
             seemore:[],
-            cartlist:[{
-                id:1,
-                name:'华为Mate20 Pro (LYA-AL00) 全网通版 亮黑色 8GB+256GB (UD)',
-                price:'6799.00',
-                number:1,
-                image:'https://img2.ch999img.com/pic/product/440x440/20181017004429895.jpg',
-                // checked:true,
-            },
-            {
-                id:2,
-                name:'Apple iPhone X (A1865) 全网通版 银色 64GB',
-                price:'5960.00',
-                number:1,
-                image:'https://img2.ch999img.com/pic/product/440x440/20190116164007470.jpg',
-                // checked:true,
-            }],
+            //cartlist:[],
             showing:'',
 
             checkall: false,
@@ -187,18 +173,23 @@ export default {
             this.seemore = res.data.data.recommend.list;
             //判断购物车是否有商品
             // var shoppingcar = JSON.stringify(this.cartlist)
-            if(this.cartlist[0].name){
+            if(this.cartlist.length>0){
                 //有商品
-                // console.log(1);
+                 console.log(1);
                 this.showing = false;
 
             }else{
                 //没有商品
-                // console.log(2);
+                 console.log(2);
                 this.showing = true;
             }
             
         });
+    },
+    computed:{
+        cartlist:function(){
+            return this.$store.state.good.cartlist
+        }
     }
 }
 </script>

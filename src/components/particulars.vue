@@ -170,7 +170,7 @@
           </span>
         </a>
         <a href="javascript:;" class="jiaru" @click="tanchu">加入购物车</a>
-        <a href="javascript:;" class="goumai">
+        <a href="javascript:;" class="goumai" @click="selected('/cart')">
 
           立即购买
 
@@ -181,82 +181,17 @@
           <div>
             <dir class="topp">
               <a href="javascript:;" class="tuichu fa fa-times"></a>
-              <div class="toppp">
-                <p class="p1">￥ 5299.00</p>
-                <p class="p2">商品编号：68436</p>
-                <p class="p3">已选：iPhone XR 黑色 64GB</p>
+              <div class="toppp" :id="data4.ppid">
+                <p class="p1">￥ {{data4.price}}</p>
+                <p class="p2">商品编号：{{data4.ppid}}</p>
+                <p class="p3"> {{data4.productName}}
+          {{data4.skuName}}</p>
                 <div class="img" >
-                  <img src="https://img2.ch999img.com/pic/product/160x160/20190116164038756.jpg.webp" alt="">
+                  <img :src="data4.imagePath" alt="">
                 </div>
               </div>
               <div class="anv">
-                <div class="d1">
-                  <div class="biaoti">
-                    <span>颜色</span>
-                  </div>
-                  <div class="neiron">
-                    <div>
-                      <a href="javascript:;" class="a1 xuanzhon">白色</a>
-                    </div>
-                    <div>
-                      <a href="javascript:;" class="a1">黑色</a>
-                    </div>
-                  </div>
-
-                </div>
-                <div class="d1">
-                  <div class="biaoti">
-                    <span>容量</span>
-                  </div>
-                  <div class="neiron">
-                    <div>
-                      <a href="javascript:;" class="a1 xuanzhon">64GB</a>
-                    </div>
-                    <div>
-                      <a href="javascript:;" class="a1">245G</a>
-                    </div>
-                  </div>
-
-                </div>
-                <div class="d1">
-                  <div class="biaoti">
-                    <span>版本</span>
-                  </div>
-                  <div class="neiron2">
-                    <div >
-                      <a href="javascript:;" class="a1 xuanzhon">iPhone XS</a>
-                    </div>
-                    <div>
-                      <a href="javascript:;" class="a1">iPhone XS Max</a>
-                    </div>
-                    <div>
-                      <a href="javascript:;" class="a1">iPhone XS</a>
-                    </div>
-                    <div>
-                      <a href="javascript:;" class="a1">iPhone XS</a>
-                    </div>
-                  </div>
-
-                </div>
-                <div class="d1">
-                  <div class="biaoti">
-                    <span>套餐</span>
-                  </div>
-                  <div class="neiron2">
-                    <div>
-                      <a href="javascript:;" class="a1 xuanzhon">iPhone XS</a>
-                    </div>
-                    <div>
-                      <a href="javascript:;" class="a1">iPhone XS Max</a>
-                    </div>
-                    <div>
-                      <a href="javascript:;" class="a1">iPhone XS</a>
-                    </div>
-                    <div>
-                      <a href="javascript:;" class="a1">iPhone XS</a>
-                    </div>
-                  </div>
-                </div>
+               
                 <div class="jiajian">
                   <div class="sl">
                     数量
@@ -271,7 +206,8 @@
             </dir>
 
             <div class="buot">
-              <a href="javascript:;">
+              <a href="javascript:;" @click="add({'id':data4.ppid,'name':data4.productName
+          ,'image':data4.imagePath,'price':data4.price,'number':num})">
                 加入购物车
               </a>
             </div>
@@ -321,6 +257,7 @@
         data:[],
         data2:[],
         data3:[],
+        data4:[],
         // data2:[],
         index: 0
 
@@ -337,6 +274,7 @@
       tanchu() {
         this.popupVisible = true
       },
+      
       goback() {
         this.$router.go(-1);
       },
@@ -350,7 +288,9 @@
       upNum() {
         this.num++;
       },
-
+      add(item){
+           this.$store.commit('add',item)
+         }
 
 
     },
@@ -358,7 +298,8 @@
       let xiangqing = this.$route.query.id;
       let xiangqing1 = '/dbapi/sc/products/getDetailStatic/v2?ppid='+xiangqing+'';
       let xiangqing2 = '/dbapi/cc/products/productCityDetail/v4?ppid='+xiangqing+'&from=';
-      let xiangqing3 = '/dbapi/sc/products/detailIntroduction/v2?ppid='+xiangqing+'&position='
+      let xiangqing3 = '/dbapi/sc/products/detailIntroduction/v2?ppid='+xiangqing+'&position=';
+      let xiangqing4 = '/dbapi/cc/products/changeSpec/v1?ppid='+xiangqing+'&diy=';
       //console.log(xiangqing);
        Axios.get(xiangqing1).then(res=>{
                      //console.log(res.data.data);
@@ -371,7 +312,11 @@
         Axios.get(xiangqing3).then(res=>{
                     //  console.log(res.data.data);
                     this.data3 = res.data.data;
-            }) 
+            });
+        Axios.get(xiangqing4).then(res=>{
+                     //console.log(res.data.data);
+                    this.data4 = res.data.data;
+            }); 
     },
     
     mounted(){
