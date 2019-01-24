@@ -118,10 +118,7 @@ export default {
                 //判断是否有搜索结果
                 // console.log(res);
                 if(res.data.data.product.totalCount!=0){
-                    var newres = res.data.data.product.list.map(function(item){
-                        //修改ppid属性作为跳转详情页属性
-                        item.ppid = 'https://m.9ji.com/product/'+item.ppid+'.html';
-                    })
+                    
                     // console.log(res.data.data.product.list);
                     this.result = res.data.data.product.list;
                 }else{

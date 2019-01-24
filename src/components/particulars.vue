@@ -296,6 +296,7 @@
     },
     created() {
       let xiangqing = this.$route.query.id;
+      console.log(xiangqing);
       let xiangqing1 = '/dbapi/sc/products/getDetailStatic/v2?ppid='+xiangqing+'';
       let xiangqing2 = '/dbapi/cc/products/productCityDetail/v4?ppid='+xiangqing+'&from=';
       let xiangqing3 = '/dbapi/sc/products/detailIntroduction/v2?ppid='+xiangqing+'&position=';
