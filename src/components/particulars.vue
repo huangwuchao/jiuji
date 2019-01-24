@@ -77,7 +77,7 @@
                 一手优品
               </span>
               <span class="er">
-                ￥ 3699
+                ￥{{data.price}}
               </span>
             </a>
           </div>
@@ -87,7 +87,7 @@
                 二手优品
               </span>
               <span class="er">
-                ￥ 2699
+                ￥ {{data.price-1060}}
               </span>
             </a>
           </div>
@@ -196,7 +196,7 @@
                   </div>
                   <div class="neiron">
                     <div>
-                      <a href="javascript:;" class="a1">白色</a>
+                      <a href="javascript:;" class="a1 xuanzhon">白色</a>
                     </div>
                     <div>
                       <a href="javascript:;" class="a1">黑色</a>
@@ -210,7 +210,7 @@
                   </div>
                   <div class="neiron">
                     <div>
-                      <a href="javascript:;" class="a1">64GB</a>
+                      <a href="javascript:;" class="a1 xuanzhon">64GB</a>
                     </div>
                     <div>
                       <a href="javascript:;" class="a1">245G</a>
@@ -223,8 +223,8 @@
                     <span>版本</span>
                   </div>
                   <div class="neiron2">
-                    <div>
-                      <a href="javascript:;" class="a1">iPhone XS</a>
+                    <div >
+                      <a href="javascript:;" class="a1 xuanzhon">iPhone XS</a>
                     </div>
                     <div>
                       <a href="javascript:;" class="a1">iPhone XS Max</a>
@@ -244,7 +244,7 @@
                   </div>
                   <div class="neiron2">
                     <div>
-                      <a href="javascript:;" class="a1">iPhone XS</a>
+                      <a href="javascript:;" class="a1 xuanzhon">iPhone XS</a>
                     </div>
                     <div>
                       <a href="javascript:;" class="a1">iPhone XS Max</a>
@@ -1044,6 +1044,9 @@
 
               .d1 {
                 margin-top: .266667rem;
+                 .xuanzhon{
+                        background-color: rgba(200, 15, 30, .1);
+                      } 
 
                 .biaoti {
                   color: #333;
@@ -1060,7 +1063,7 @@
                     height: .8rem;
                     margin-right: .266667rem;
                     margin-top: .266667rem;
-
+                     
                     // a{
                     //   margin-right: 0;
                     //   display: block;
@@ -1074,7 +1077,7 @@
                       display: inline-block;
                       color: #f21c1c;
                       border: .026667rem solid #f21c1c;
-                      background-color: rgba(200, 15, 30, .1);
+                      //background-color: rgba(200, 15, 30, .1);
                       min-width: 1.76rem;
                       vertical-align: top;
                       margin-top: 0;
@@ -1105,7 +1108,7 @@
                       display: inline-block;
                       color: #f21c1c;
                       border: 1px solid #f21c1c;
-                      background-color: rgba(200, 15, 30, .1);
+                      //background-color: rgba(200, 15, 30, .1);
                       min-width: 1.76rem;
                       vertical-align: top;
                       margin-top: 0;
